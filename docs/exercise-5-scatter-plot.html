@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-07" />
+<meta name="date" content="2024-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -302,8 +302,10 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="exercise-5-scatter-plot.html#cb126-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(rnaseq, gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;miRNA&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
-<span id="cb126-2"><a href="exercise-5-scatter-plot.html#cb126-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="exercise-5-scatter-plot.html#cb126-1" tabindex="-1"></a>rnaseq_linc_mirna_filter1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq, (gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;miRNA&quot;</span>))</span>
+<span id="cb126-2"><a href="exercise-5-scatter-plot.html#cb126-2" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="exercise-5-scatter-plot.html#cb126-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna_filter1, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
+<span id="cb126-4"><a href="exercise-5-scatter-plot.html#cb126-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-121-1.png" width="480" /></p>
 </details>
 <p><br>
@@ -312,9 +314,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="exercise-5-scatter-plot.html#cb127-1" tabindex="-1"></a>rnaseq_linc_mirna <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq, (gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;miRNA&quot;</span>) <span class="sc">&amp;</span> CTRL <span class="sc">&gt;</span> <span class="fl">1.5</span><span class="sc">*</span>EZH)</span>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="exercise-5-scatter-plot.html#cb127-1" tabindex="-1"></a>rnaseq_linc_mirna_filter2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq, (gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;miRNA&quot;</span>) <span class="sc">&amp;</span> CTRL <span class="sc">&gt;</span> <span class="fl">1.5</span><span class="sc">*</span>EZH)</span>
 <span id="cb127-2"><a href="exercise-5-scatter-plot.html#cb127-2" tabindex="-1"></a></span>
-<span id="cb127-3"><a href="exercise-5-scatter-plot.html#cb127-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
+<span id="cb127-3"><a href="exercise-5-scatter-plot.html#cb127-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna_filter2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
 <span id="cb127-4"><a href="exercise-5-scatter-plot.html#cb127-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-122-1.png" width="480" /></p>
 </details>
@@ -325,7 +327,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="exercise-5-scatter-plot.html#cb128-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="exercise-5-scatter-plot.html#cb128-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna_filter2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
 <span id="cb128-2"><a href="exercise-5-scatter-plot.html#cb128-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb128-3"><a href="exercise-5-scatter-plot.html#cb128-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;lincRNA and miRNA&quot;</span>) <span class="sc">+</span></span>
 <span id="cb128-4"><a href="exercise-5-scatter-plot.html#cb128-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
@@ -336,7 +338,7 @@ correction
 <p>First, filter the data frame:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="exercise-5-scatter-plot.html#cb129-1" tabindex="-1"></a>SNHG8 <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq, gene_name<span class="sc">==</span><span class="st">&quot;SNHG8&quot;</span>)</span></code></pre></div>
 <p>Then, add it to geom_text:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="exercise-5-scatter-plot.html#cb130-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="exercise-5-scatter-plot.html#cb130-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq_linc_mirna_filter2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>CTRL, <span class="at">y=</span>EZH, <span class="at">color=</span>gene_biotype)) <span class="sc">+</span></span>
 <span id="cb130-2"><a href="exercise-5-scatter-plot.html#cb130-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb130-3"><a href="exercise-5-scatter-plot.html#cb130-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;lincRNA and miRNA&quot;</span>) <span class="sc">+</span></span>
 <span id="cb130-4"><a href="exercise-5-scatter-plot.html#cb130-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="sc">+</span></span>

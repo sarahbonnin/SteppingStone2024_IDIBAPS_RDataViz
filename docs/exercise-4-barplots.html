@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-07" />
+<meta name="date" content="2024-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -300,14 +300,15 @@ correction
 </details>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Select only “Spain” in “Country”:</li>
+<li><strong>Filter</strong> the data to keep only “Spain” in “Country”:</li>
 </ol>
 <details>
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="exercise-4-barplots.html#cb116-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
-<span id="cb116-2"><a href="exercise-4-barplots.html#cb116-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="exercise-4-barplots.html#cb116-1" tabindex="-1"></a>pop_age_spain <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>)</span>
+<span id="cb116-2"><a href="exercise-4-barplots.html#cb116-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb116-3"><a href="exercise-4-barplots.html#cb116-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-111-1.png" width="480" /></p>
 </details>
 <p><br></p>
@@ -318,7 +319,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="exercise-4-barplots.html#cb117-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="exercise-4-barplots.html#cb117-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
 <span id="cb117-2"><a href="exercise-4-barplots.html#cb117-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-112-1.png" width="480" /></p>
 </details>
@@ -331,7 +332,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="exercise-4-barplots.html#cb118-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="exercise-4-barplots.html#cb118-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
 <span id="cb118-2"><a href="exercise-4-barplots.html#cb118-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb118-3"><a href="exercise-4-barplots.html#cb118-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Female=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">Male=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-113-1.png" width="480" /></p>
@@ -344,7 +345,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="exercise-4-barplots.html#cb119-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="exercise-4-barplots.html#cb119-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
 <span id="cb119-2"><a href="exercise-4-barplots.html#cb119-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb119-3"><a href="exercise-4-barplots.html#cb119-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
 <span id="cb119-4"><a href="exercise-4-barplots.html#cb119-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
@@ -357,7 +358,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="exercise-4-barplots.html#cb120-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="exercise-4-barplots.html#cb120-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
 <span id="cb120-2"><a href="exercise-4-barplots.html#cb120-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb120-3"><a href="exercise-4-barplots.html#cb120-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
 <span id="cb120-4"><a href="exercise-4-barplots.html#cb120-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
@@ -375,7 +376,7 @@ correction
 correction
 </summary>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="exercise-4-barplots.html#cb121-1" tabindex="-1"></a><span class="co"># first, save to an object</span></span>
-<span id="cb121-2"><a href="exercise-4-barplots.html#cb121-2" tabindex="-1"></a>plot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span><span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>), <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb121-2"><a href="exercise-4-barplots.html#cb121-2" tabindex="-1"></a>plot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
 <span id="cb121-3"><a href="exercise-4-barplots.html#cb121-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb121-4"><a href="exercise-4-barplots.html#cb121-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
 <span id="cb121-5"><a href="exercise-4-barplots.html#cb121-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
@@ -383,7 +384,7 @@ correction
 <span id="cb121-7"><a href="exercise-4-barplots.html#cb121-7" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span>
 <span id="cb121-8"><a href="exercise-4-barplots.html#cb121-8" tabindex="-1"></a></span>
 <span id="cb121-9"><a href="exercise-4-barplots.html#cb121-9" tabindex="-1"></a><span class="co"># save file</span></span>
-<span id="cb121-10"><a href="exercise-4-barplots.html#cb121-10" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;population_age_sex.pdf&quot;</span>, <span class="at">plot=</span>plot_age, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
+<span id="cb121-10"><a href="exercise-4-barplots.html#cb121-10" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;population_age_sex_Spain.pdf&quot;</span>, <span class="at">plot=</span>plot_age, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="10" style="list-style-type: decimal">
@@ -393,9 +394,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="exercise-4-barplots.html#cb122-1" tabindex="-1"></a><span class="co"># first, save to an object</span></span>
-<span id="cb122-2"><a href="exercise-4-barplots.html#cb122-2" tabindex="-1"></a>mysubset <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>)</span>
-<span id="cb122-3"><a href="exercise-4-barplots.html#cb122-3" tabindex="-1"></a><span class="fu">write_csv</span>(mysubset, <span class="st">&quot;subset_spain.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="exercise-4-barplots.html#cb122-1" tabindex="-1"></a><span class="fu">write_csv</span>(pop_age_spain, <span class="st">&quot;subset_spain.csv&quot;</span>)</span></code></pre></div>
 </details>
 </div>
             </section>

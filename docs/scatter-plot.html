@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-08" />
+<meta name="date" content="2024-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,14 +270,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We can start from the <strong>geneexp</strong> object, that holds the content of file <em>expression_20genes.csv</em>: we want to plot <strong>sample1</strong> on the x axis and <strong>sample2</strong> on the y axis.</p>
 <p>The base layer will be the following:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="scatter-plot.html#cb18-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-17-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-23-1.png" width="480" /></p>
 <p>Try to copy-paste it in the console, and hit Enter. As you can see, nothing is actually plotted yet, but the base is set.</p>
 <p>Adding to this the geometrics called <strong>geom_point()</strong>, we <strong>tell ggplot to produce a scatter/point plot</strong>:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="scatter-plot.html#cb19-1" tabindex="-1"></a><span class="co"># This line is a comment: a comment is not interpreted by R.</span></span>
 <span id="cb19-2"><a href="scatter-plot.html#cb19-2" tabindex="-1"></a><span class="co"># Example of a scatter plot: add the geom_point() layer</span></span>
 <span id="cb19-3"><a href="scatter-plot.html#cb19-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb19-4"><a href="scatter-plot.html#cb19-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-18-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-24-1.png" width="480" /></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="scatter-plot.html#cb20-1" tabindex="-1"></a><span class="co"># Note that the new line is not necessary after the &quot;+&quot;: it is done for readibility.</span></span></code></pre></div>
 <p>Please, copy the code above in your script!</p>
 <p>Your plot should appear in the “Plots” tab in the bottom-right panel.</p>
@@ -288,11 +288,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Color all points in red:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="scatter-plot.html#cb21-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb21-2"><a href="scatter-plot.html#cb21-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-19-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-25-1.png" width="480" /></p>
 <p>Make points larger (size default is 1.5):</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="scatter-plot.html#cb22-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb22-2"><a href="scatter-plot.html#cb22-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-20-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-26-1.png" width="480" /></p>
 <p>This is a good place to introduce the <strong>help pages</strong> of functions!</p>
 <p>Functions in <strong>ggplot2</strong> (and <strong>tidyverse</strong> in general) are richly documented.</p>
 <p>While documentation can be quite technical it is always good practice to take a look at it.</p>
@@ -303,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For example, triangles:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="scatter-plot.html#cb23-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb23-2"><a href="scatter-plot.html#cb23-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;triangle&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-21-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-27-1.png" width="480" /></p>
 <p>See more options in the following image:</p>
 <p><img src="images/ggplot2_shape.png" alt="import zip" width="700"/></p>
 <p><em>Image from ggplot2 documentation</em></p>
@@ -317,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="scatter-plot.html#cb24-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb24-2"><a href="scatter-plot.html#cb24-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
 <span id="cb24-3"><a href="scatter-plot.html#cb24-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-22-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-28-1.png" width="480" /></p>
 <p><strong>label</strong> is a parameter of <strong>ggtitle()</strong> function.</p>
 </div>
 <div id="background" class="section level4 hasAnchor" number="8.2.3.2">
@@ -329,17 +329,17 @@ This is the default “theme”, but there are <a href="https://ggplot2.tidyvers
 <span id="cb25-2"><a href="scatter-plot.html#cb25-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="scatter-plot.html#cb25-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
 <span id="cb25-4"><a href="scatter-plot.html#cb25-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-23-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-29-1.png" width="480" /></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="scatter-plot.html#cb26-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb26-2"><a href="scatter-plot.html#cb26-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
 <span id="cb26-3"><a href="scatter-plot.html#cb26-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
 <span id="cb26-4"><a href="scatter-plot.html#cb26-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-24-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-30-1.png" width="480" /></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="scatter-plot.html#cb27-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb27-2"><a href="scatter-plot.html#cb27-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
 <span id="cb27-3"><a href="scatter-plot.html#cb27-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
 <span id="cb27-4"><a href="scatter-plot.html#cb27-4" tabindex="-1"></a>  <span class="fu">theme_grey</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-25-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-31-1.png" width="480" /></p>
 <p>A good page to check the different backgrounds:
 <a href="https://ggplot2-book.org/themes#sec-theme" class="uri">https://ggplot2-book.org/themes#sec-theme</a></p>
 </div>
@@ -351,7 +351,20 @@ This is the default “theme”, but there are <a href="https://ggplot2.tidyvers
 <span id="cb28-3"><a href="scatter-plot.html#cb28-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
 <span id="cb28-4"><a href="scatter-plot.html#cb28-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
 <span id="cb28-5"><a href="scatter-plot.html#cb28-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-26-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-32-1.png" width="480" /></p>
+<details>
+<summary>
+<em>More advanced (as reference, or if someone asks): add correlation coefficient:</em>
+</summary>
+<p>You can add the correlation coefficient between the 2 variables, using another function from the {ggpubr} package:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="scatter-plot.html#cb29-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb29-2"><a href="scatter-plot.html#cb29-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="scatter-plot.html#cb29-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="scatter-plot.html#cb29-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href="scatter-plot.html#cb29-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb29-6"><a href="scatter-plot.html#cb29-6" tabindex="-1"></a>  ggpubr<span class="sc">::</span><span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-33-1.png" width="480" /></p>
+</details>
 </div>
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-08" />
+<meta name="date" content="2024-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,26 +269,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First we can install <strong>pheatmap</strong> (bottom-right panel -&gt; Packages -&gt; Install).</p>
 <p>And then we load the package: <strong>tick</strong> the package in the list, or load it from the console:</p>
 <p><br></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="heatmaps-with-pheatmap.html#cb154-1" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="heatmaps-with-pheatmap.html#cb157-1" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
 <p><strong>pheatmap</strong> is not from the tidyverse package, and does not follow the same structure. It does not work with layers, but with multiple parameters inside a same function.</p>
 <p>Let’s read the following data file, and convert it to matrix (that is the input format for pheatmap):</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="heatmaps-with-pheatmap.html#cb155-1" tabindex="-1"></a>expr_heatmap <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_for_heatmap.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb155-2"><a href="heatmaps-with-pheatmap.html#cb155-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;gene_name&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb155-3"><a href="heatmaps-with-pheatmap.html#cb155-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="heatmaps-with-pheatmap.html#cb158-1" tabindex="-1"></a>expr_heatmap <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_for_heatmap.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb158-2"><a href="heatmaps-with-pheatmap.html#cb158-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;gene_name&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb158-3"><a href="heatmaps-with-pheatmap.html#cb158-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>You can then simply plot the heatmap, giving the matrix as an input:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="heatmaps-with-pheatmap.html#cb156-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="576" /></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="heatmaps-with-pheatmap.html#cb159-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-157-1.png" width="576" /></p>
 <p>Control what is clusters: rows, columns, both, or none:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="heatmaps-with-pheatmap.html#cb157-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-149-1.png" width="576" /></p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="heatmaps-with-pheatmap.html#cb160-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-158-1.png" width="576" /></p>
 <p>Show or hide row names:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="heatmaps-with-pheatmap.html#cb158-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-150-1.png" width="576" /></p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="heatmaps-with-pheatmap.html#cb161-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-159-1.png" width="576" /></p>
 <p>Change the color scale (<strong>rainbow()</strong> and <strong>heat.colors()</strong> are available from the base packages):</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="heatmaps-with-pheatmap.html#cb159-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-151-1.png" width="576" /></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="heatmaps-with-pheatmap.html#cb160-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-151-2.png" width="576" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="heatmaps-with-pheatmap.html#cb162-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-160-1.png" width="576" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="heatmaps-with-pheatmap.html#cb163-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-160-2.png" width="576" /></p>
 
 </div>
             </section>

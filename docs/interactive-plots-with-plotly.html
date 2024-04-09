@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-08" />
+<meta name="date" content="2024-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -271,19 +271,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And then we load the package: <strong>tick</strong> the package in the list.</p>
 <p><br></p>
 <p>Let’s read again one of our first data file:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="interactive-plots-with-plotly.html#cb138-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="interactive-plots-with-plotly.html#cb141-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
 <p>We can first save the “ggplot” as an object <strong>myplot</strong>:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="interactive-plots-with-plotly.html#cb139-1" tabindex="-1"></a>myplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb139-2"><a href="interactive-plots-with-plotly.html#cb139-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="interactive-plots-with-plotly.html#cb142-1" tabindex="-1"></a>myplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb142-2"><a href="interactive-plots-with-plotly.html#cb142-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p>And then input that object into the <strong>ggplotly()</strong> function.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="interactive-plots-with-plotly.html#cb140-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>myplot)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="interactive-plots-with-plotly.html#cb143-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>myplot)</span></code></pre></div>
 <p>The interactive plot should appear in the <strong>Viewer</strong> tab (bottom-right panel). Not that you can zoom into the plot!</p>
 <p>Customize what appears in the tooltip box. For example, here, we only show the gene label information:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="interactive-plots-with-plotly.html#cb141-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>myplot, <span class="at">tooltip=</span><span class="st">&quot;label&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="interactive-plots-with-plotly.html#cb144-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>myplot, <span class="at">tooltip=</span><span class="st">&quot;label&quot;</span>)</span></code></pre></div>
 <p>It also works for different types of plots: for example, barplots.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="interactive-plots-with-plotly.html#cb142-1" tabindex="-1"></a>mybarplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb142-2"><a href="interactive-plots-with-plotly.html#cb142-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="interactive-plots-with-plotly.html#cb143-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>mybarplot)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="interactive-plots-with-plotly.html#cb145-1" tabindex="-1"></a>mybarplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb145-2"><a href="interactive-plots-with-plotly.html#cb145-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="interactive-plots-with-plotly.html#cb146-1" tabindex="-1"></a><span class="fu">ggplotly</span>(<span class="at">p=</span>mybarplot)</span></code></pre></div>
 
 </div>
             </section>

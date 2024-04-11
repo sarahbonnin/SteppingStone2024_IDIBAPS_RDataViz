@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,7 +276,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="exercise-1.html#cb33-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample2, <span class="at">y=</span>sample1)) <span class="sc">+</span> </span>
 <span id="cb33-2"><a href="exercise-1.html#cb33-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-37-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-31-1.png" width="480" /></p>
 </details>
 <p><br>
 2. Change the point color to blue, and the point size to 2.</p>
@@ -286,7 +286,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="exercise-1.html#cb34-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb34-2"><a href="exercise-1.html#cb34-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-38-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-32-1.png" width="480" /></p>
 </details>
 <p><br>
 3. Change the point shape to “square cross”</p>
@@ -296,7 +296,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="exercise-1.html#cb35-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb35-2"><a href="exercise-1.html#cb35-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">shape=</span><span class="st">&quot;square cross&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-39-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-33-1.png" width="480" /></p>
 </details>
 <p><br>
 4. Add the title of your choice.</p>
@@ -307,7 +307,7 @@ correction
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="exercise-1.html#cb36-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb36-2"><a href="exercise-1.html#cb36-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">shape=</span><span class="st">&quot;square cross&quot;</span>) <span class="sc">+</span></span>
 <span id="cb36-3"><a href="exercise-1.html#cb36-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my second ggplot&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-40-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-34-1.png" width="480" /></p>
 </details>
 <p><br>
 5. Add a subtitle (wait: that’s new! Google check <strong>ggtitle</strong> help page and/or “ggtitle subtitle” and see if you can find out!)</p>
@@ -318,7 +318,7 @@ correction
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="exercise-1.html#cb37-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb37-2"><a href="exercise-1.html#cb37-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">size=</span><span class="dv">2</span>, <span class="at">shape=</span><span class="st">&quot;square cross&quot;</span>) <span class="sc">+</span></span>
 <span id="cb37-3"><a href="exercise-1.html#cb37-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my second ggplot&quot;</span>, <span class="at">subtitle=</span><span class="st">&quot;nice blue squares&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-41-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-35-1.png" width="480" /></p>
 </details>
 <p><br>
 6. Save your plot as a JPEG file, in the course folder, with dimensions 600X600 pixels.</p>

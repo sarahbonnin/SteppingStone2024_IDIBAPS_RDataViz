@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -267,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.4</span> Exercise 3<a href="exercise-3.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will start from <strong>gtf</strong> object.</p>
 <p>Read it as follows, if it is not in your environment:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="exercise-3.html#cb99-1" tabindex="-1"></a>gtf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/gencode.v44.annotation.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="exercise-3.html#cb100-1" tabindex="-1"></a>gtf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/gencode.v44.annotation.csv&quot;</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Rename column <strong>chr</strong> to <strong>Chromosome</strong>. Assign to a new object.</li>
 </ol>
@@ -275,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="exercise-3.html#cb100-1" tabindex="-1"></a>gtf2 <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="exercise-3.html#cb101-1" tabindex="-1"></a>gtf2 <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr)</span></code></pre></div>
 </details>
 <p><br>
 2. Keep/filter rows matching <strong>“+”</strong> as strand, and <strong>“chr4”</strong> as chromosome <strong>chr4</strong>. Assign this filtered data to a new object.</p>
@@ -283,7 +283,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="exercise-3.html#cb101-1" tabindex="-1"></a>gtf3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(gtf2, strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="exercise-3.html#cb102-1" tabindex="-1"></a>gtf3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(gtf2, strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>)</span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -293,7 +293,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="exercise-3.html#cb102-1" tabindex="-1"></a>gtf4 <span class="ot">&lt;-</span> <span class="fu">select</span>(gtf3, gene_symbol, gene_type)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="exercise-3.html#cb103-1" tabindex="-1"></a>gtf4 <span class="ot">&lt;-</span> <span class="fu">select</span>(gtf3, gene_symbol, gene_type)</span></code></pre></div>
 </details>
 <p><br></p>
 

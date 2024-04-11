@@ -881,6 +881,13 @@ Available palettes are shown below:
 
 <img src="images/ggplot2_rcolorbrewer.png" alt="import zip" width="500"/>
 
+In the console, you can extract the **colorblind-friendly** palettes the following way:
+
+```{r}
+library(RColorBrewer)
+display.brewer.all(colorblindFriendly = TRUE)
+```
+
 We can easily take advantage of the RColorBrewer's palettes by using either **scale_color_brewer()** or **scale_fill_brewer()** layers (depending if **color** or **fill** was set in **aes()**, respectively):
 
 ```{r}

@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -289,7 +289,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exercise-2.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr)) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="exercise-2.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
 </details>
 <p><br>
 3. Keeping the chromosome on the x axis, split the barplot <strong>per gene type</strong>.</p>
@@ -300,7 +300,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="exercise-2.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">color=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb53-2"><a href="exercise-2.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-58-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
 </details>
 <p><br>
 4. Now try with <strong>fill</strong> instead of <strong>color</strong> in <strong>aes()</strong>:</p>
@@ -310,7 +310,7 @@ correction
 </summary>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="exercise-2.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb54-2"><a href="exercise-2.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-59-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
 </details>
 <p><br>
 5. Add a title to the graph:</p>
@@ -321,7 +321,7 @@ correction
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="exercise-2.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb55-2"><a href="exercise-2.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb55-3"><a href="exercise-2.html#cb55-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Number of genes per chromosome, split by gene type&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-60-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
 </details>
 <p><br>
 6. Change the default <a href="https://ggplot2-book.org/themes"><strong>theme</strong></a>:</p>
@@ -333,7 +333,7 @@ correction
 <span id="cb56-2"><a href="exercise-2.html#cb56-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb56-3"><a href="exercise-2.html#cb56-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Number of genes per chromosome, split by gene type&quot;</span>) <span class="sc">+</span></span>
 <span id="cb56-4"><a href="exercise-2.html#cb56-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-61-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
 </details>
 <p><br>
 7. Save the graph in PNG format in the course’s directory.</p>

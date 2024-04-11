@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-09" />
+<meta name="date" content="2024-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -273,15 +273,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In our first boxplot, one box corresponds to one sample:</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="boxplots.html#cb69-1" tabindex="-1"></a><span class="fu">ggplot</span>(geneexp2, <span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>expression)) <span class="sc">+</span> </span>
 <span id="cb69-2"><a href="boxplots.html#cb69-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-74-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-68-1.png" width="480" /></p>
 <p>The same way we did for barplots, we can split boxes by <strong>DE</strong>:</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="boxplots.html#cb70-1" tabindex="-1"></a><span class="fu">ggplot</span>(geneexp2, <span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>expression, <span class="at">fill=</span>DE)) <span class="sc">+</span> </span>
 <span id="cb70-2"><a href="boxplots.html#cb70-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-75-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-69-1.png" width="480" /></p>
 <p>If you prefer a violin plot, it is easy:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="boxplots.html#cb71-1" tabindex="-1"></a><span class="fu">ggplot</span>(geneexp2, <span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>expression, <span class="at">fill=</span>DE)) <span class="sc">+</span> </span>
 <span id="cb71-2"><a href="boxplots.html#cb71-2" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-76-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-70-1.png" width="480" /></p>
 <p>Violin plots also aim to visualize data distribution. While boxplots can only show summary statistics / quantiles, violin plots also show the density of each variable.</p>
 </div>
             </section>

@@ -5,11 +5,11 @@ knitr::opts_chunk$set(fig.width=5, fig.height=4,
                       echo=TRUE, warning=FALSE, message=FALSE)
 ```
 
-* Graphing package inspired by the **G**rammar of **G**raphics work of Leland Wilkinson.
+* Graphing package inspired by the **G**rammar of **G**raphics work of Leland Wilkinson:
+  
+* *The Grammar of Graphics is based on the idea that every graphic can be broken down into a series of components or layers. These components include the data, the aesthetic mapping, the geometric shapes, the statistical transformation, and the scales.* [source](https://medium.com/aiskunks/data-visualization-grammar-of-graphics-fccf78379b52)
 
-* Allows to compose graphs by combining independent **components / blocks / layers**.
-
-* Flexible, highly customizable.
+* Flexible, versatile, customizable.
 
 * Well documented.
 
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(fig.width=5, fig.height=4,
 A ggplot graph needs at least 3 components:
 
 * **Data**: that is the source data that we want to represent.
-* **Aesthetics** mappings: they describe what will be visualized from **data**.
+* **Aesthetics** mappings: they describe what will be visualized from **data**. What are you trying to show?
 * **Geometrics**: functions that represent what we see in the graph: lines, points, boxes etc. for example:
   * geom_point()
   * geom_lines()
@@ -38,7 +38,7 @@ The base structure is the following:
 **ggplot(\<DATA\>, \<AESTHETICS\>) + \<GEOMETRICS\>**
 
 
-For example if we want to represent **column1** (on the x axis) and **column2** (on the y axis) of **data** as **points**, we would use the following structure:
+For example if we want to represent **column1** (on the x axis) and **column2** (on the y axis) of **data** as **points**, we can use the following structure:
 
 ```{r, eval=F, echo=TRUE}
 ggplot(data=dataframe, mapping=aes(x=column1, y=column2)) + geom_point()
@@ -46,7 +46,7 @@ ggplot(data=dataframe, mapping=aes(x=column1, y=column2)) + geom_point()
 
 This will be our template as we explore different types of graphs.
 
-We can add **more layers** to this base structure to customize the plot further, as we will see in the next examples.
+We can add **more layers and components** to this base structure to customize the plot, as we will see in the next examples.
 
 ## Scatter plot
 
@@ -60,9 +60,11 @@ The base layer will be the following:
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2))
 ```
 
-Try to copy-paste it in the console, and hit Enter. As you can see, nothing is actually plotted yet, but the base is set.
+Copy-paste this in the console, and hit Enter. 
 
-Adding to this the geometrics called **geom_point()**, we **tell ggplot to produce a scatter/point plot**:
+As you can see, nothing is plotted yet: the base is set.
+
+Adding to the base layer the geometrics called **geom_point()**, we **tell ggplot to produce a scatter/point plot**:
 
 ```{r, eval=T}
 # This line is a comment: a comment is not interpreted by R.
@@ -70,16 +72,16 @@ Adding to this the geometrics called **geom_point()**, we **tell ggplot to produ
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
   geom_point()
 
-# Note that the new line is not necessary after the "+": it is done for readibility.
+# Note that the new line is NOT necessary after the "+": it is done for clarity / readability.
 ```
 
-Please, copy the code above in your script!
+Please, copy the code above in your script, and hit Enter!
 
 Your plot should appear in the "Plots" tab in the bottom-right panel.
 
 ### Customize the points
 
-**geom_point()** also takes some parameters, including the point color and size:
+**geom_point()** can take parameters, including the point color and size:
 
 Color all points in red:
 
@@ -88,14 +90,14 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   geom_point(color="red")
 ```
 
-Make points larger (size default is 1.5):
+Increase point size (default size is 1.5):
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
   geom_point(color="red", size=2.5)
 ```
 
-This is a good place to introduce the **help pages** of functions!
+This is a good place to introduce the **help pages** of functions.
 
 Functions in **ggplot2** (and **tidyverse** in general) are richly documented.
 
@@ -106,11 +108,11 @@ You can access the help page of a function in the **Help** tab in the bottom-rig
 <img src="images/ggplot_help.png" alt="rstudio help" width="500"/>
 
 
-Back to our customization: you can set different shapes for the points!
+Back to our customization: let's set different shapes for the points!
 
 This is done by setting the **shape** parameter in **geom_point()**.
 
-For example, triangles:
+Points can become, for example, triangles:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -122,6 +124,13 @@ See more options in the following image:
 <img src="images/ggplot2_shape.png" alt="import zip" width="700"/>
 
 *Image from ggplot2 documentation*
+
+Note that you can also replace the points by any character, the following way:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="$")
+```
 
 ### Add more layers
 

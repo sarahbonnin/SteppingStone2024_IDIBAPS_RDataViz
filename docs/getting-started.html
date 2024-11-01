@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A ggplot graph needs at least 3 components:</p>
 <ul>
 <li><strong>Data</strong>: that is the source data that we want to represent.</li>
-<li><strong>Aesthetics</strong> mappings: they describe what will be visualized from <strong>data</strong>.</li>
+<li><strong>Aesthetics</strong> mappings: they describe what will be visualized from <strong>data</strong>. What are you trying to show?</li>
 <li><strong>Geometrics</strong>: functions that represent what we see in the graph: lines, points, boxes etc. for example:
 <ul>
 <li>geom_point()</li>
@@ -282,10 +282,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The base structure is the following:</p>
 <p><strong>ggplot(&lt;DATA&gt;, &lt;AESTHETICS&gt;) + &lt;GEOMETRICS&gt;</strong></p>
-<p>For example if we want to represent <strong>column1</strong> (on the x axis) and <strong>column2</strong> (on the y axis) of <strong>data</strong> as <strong>points</strong>, we would use the following structure:</p>
+<p>For example if we want to represent <strong>column1</strong> (on the x axis) and <strong>column2</strong> (on the y axis) of <strong>data</strong> as <strong>points</strong>, we can use the following structure:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="getting-started.html#cb18-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dataframe, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>column1, <span class="at">y=</span>column2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p>This will be our template as we explore different types of graphs.</p>
-<p>We can add <strong>more layers</strong> to this base structure to customize the plot further, as we will see in the next examples.</p>
+<p>We can add <strong>more layers and components</strong> to this base structure to customize the plot, as we will see in the next examples.</p>
 </div>
             </section>
 

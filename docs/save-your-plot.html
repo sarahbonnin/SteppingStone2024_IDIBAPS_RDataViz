@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="save-your-plot.html"><a href="save-your-plot.html"><i class="fa fa-check"></i><b>8.3</b> Save your plot</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the interface</a></li>
+<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-rstudio-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the RStudio interface</a></li>
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statsidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stats=“identity” parameter</a></li>
+<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stat=“identity” parameter</a></li>
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8.9</b> Boxplots</a></li>
 <li class="chapter" data-level="8.10" data-path="fine-tuning-text.html"><a href="fine-tuning-text.html"><i class="fa fa-check"></i><b>8.10</b> Fine-tuning text</a></li>
@@ -265,9 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="save-your-plot" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Save your plot<a href="save-your-plot.html#save-your-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="from-the-interface" class="section level3 hasAnchor" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> From the interface<a href="save-your-plot.html#from-the-interface" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Before we dive into more graph types, we we learn how to easily save the current plot.</p>
+<div id="from-the-rstudio-interface" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> From the RStudio interface<a href="save-your-plot.html#from-the-rstudio-interface" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before we dive into more graph types, let’s pause and learn how to easily save the current plot.</p>
 <p>In the “Plots” tab, click on “Export” and “Save as image”:</p>
 <p><img src="images/ggplot_save_image.png" alt="import zip" width="700"/></p>
 <p>From that windows, you can:</p>
@@ -308,10 +308,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can also specify the <strong>dpi</strong>, i.e. dots per inches.</p>
 <p>If we take as an example the requirements of electronic image formats <a href="https://www.nature.com/nature/for-authors/final-submission">for Nature publishing group</a>:</p>
 <p>“Layered Photoshop (PSD) or TIFF format (high resolution, 300–600 dots per inch (dpi) )”</p>
-<p>We could save the plot the following way:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="save-your-plot.html#cb34-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.tiff&quot;</span>, <span class="at">plot=</span>myplot, </span>
-<span id="cb34-2"><a href="save-your-plot.html#cb34-2" tabindex="-1"></a>       <span class="at">device=</span><span class="st">&quot;tiff&quot;</span>, <span class="at">dpi=</span><span class="dv">300</span>, </span>
-<span id="cb34-3"><a href="save-your-plot.html#cb34-3" tabindex="-1"></a>       <span class="at">units=</span><span class="st">&quot;in&quot;</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code></pre></div>
+<p>We could save the plot as a file the following way:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="save-your-plot.html#cb34-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.tiff&quot;</span>, </span>
+<span id="cb34-2"><a href="save-your-plot.html#cb34-2" tabindex="-1"></a>       <span class="at">plot=</span>myplot, </span>
+<span id="cb34-3"><a href="save-your-plot.html#cb34-3" tabindex="-1"></a>       <span class="at">device=</span><span class="st">&quot;tiff&quot;</span>, </span>
+<span id="cb34-4"><a href="save-your-plot.html#cb34-4" tabindex="-1"></a>       <span class="at">dpi=</span><span class="dv">300</span>, </span>
+<span id="cb34-5"><a href="save-your-plot.html#cb34-5" tabindex="-1"></a>       <span class="at">units=</span><span class="st">&quot;in&quot;</span>, </span>
+<span id="cb34-6"><a href="save-your-plot.html#cb34-6" tabindex="-1"></a>       <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code></pre></div>
 </div>
 </div>
             </section>

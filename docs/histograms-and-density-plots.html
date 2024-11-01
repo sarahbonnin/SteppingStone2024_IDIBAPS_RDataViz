@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="save-your-plot.html"><a href="save-your-plot.html"><i class="fa fa-check"></i><b>8.3</b> Save your plot</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the interface</a></li>
+<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-rstudio-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the RStudio interface</a></li>
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statsidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stats=“identity” parameter</a></li>
+<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stat=“identity” parameter</a></li>
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8.9</b> Boxplots</a></li>
 <li class="chapter" data-level="8.10" data-path="fine-tuning-text.html"><a href="fine-tuning-text.html"><i class="fa fa-check"></i><b>8.10</b> Fine-tuning text</a></li>
@@ -271,24 +271,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="histograms-and-density-plots.html#cb106-1" tabindex="-1"></a>rnaseq2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_log2_long.csv&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="histograms-and-density-plots.html#cb107-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts)) <span class="sc">+</span> </span>
 <span id="cb107-2"><a href="histograms-and-density-plots.html#cb107-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-102-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-104-1.png" width="480" /></p>
 <p>We can split the histogram per sample:</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="histograms-and-density-plots.html#cb108-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">color=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb108-2"><a href="histograms-and-density-plots.html#cb108-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-103-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-105-1.png" width="480" /></p>
 <p>Set position to “identity”, so histograms will not be on top of each other:</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="histograms-and-density-plots.html#cb109-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">color=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb109-2"><a href="histograms-and-density-plots.html#cb109-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-104-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-106-1.png" width="480" /></p>
 <p>Set alpha (transparency to 0.2):</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="histograms-and-density-plots.html#cb110-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">color=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb110-2"><a href="histograms-and-density-plots.html#cb110-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position=</span><span class="st">&quot;identity&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-105-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-107-1.png" width="480" /></p>
 <p>Express as density instead of counts:</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="histograms-and-density-plots.html#cb111-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">color=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb111-2"><a href="histograms-and-density-plots.html#cb111-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">position=</span><span class="st">&quot;identity&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb111-3"><a href="histograms-and-density-plots.html#cb111-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-106-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-108-1.png" width="480" /></p>
 </div>
 <div id="density-plot" class="section level3 hasAnchor" number="10.1.2">
 <h3><span class="header-section-number">10.1.2</span> Density plot<a href="histograms-and-density-plots.html#density-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -296,12 +296,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="histograms-and-density-plots.html#cb112-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">color=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb112-2"><a href="histograms-and-density-plots.html#cb112-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb112-3"><a href="histograms-and-density-plots.html#cb112-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-107-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-109-1.png" width="480" /></p>
 <p>You can use fill instead:</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="histograms-and-density-plots.html#cb113-1" tabindex="-1"></a><span class="fu">ggplot</span>(rnaseq2, <span class="fu">aes</span>(<span class="at">x=</span>log2_counts, <span class="at">fill=</span>sample)) <span class="sc">+</span> </span>
 <span id="cb113-2"><a href="histograms-and-density-plots.html#cb113-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb113-3"><a href="histograms-and-density-plots.html#cb113-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-108-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-110-1.png" width="480" /></p>
 </div>
 <div id="histogram-density" class="section level3 hasAnchor" number="10.1.3">
 <h3><span class="header-section-number">10.1.3</span> Histogram + density<a href="histograms-and-density-plots.html#histogram-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -310,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb114-2"><a href="histograms-and-density-plots.html#cb114-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">position=</span><span class="st">&quot;identity&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb114-3"><a href="histograms-and-density-plots.html#cb114-3" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
 <span id="cb114-4"><a href="histograms-and-density-plots.html#cb114-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-109-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-111-1.png" width="480" /></p>
 </div>
 </div>
             </section>

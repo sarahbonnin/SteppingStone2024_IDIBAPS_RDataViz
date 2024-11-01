@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="save-your-plot.html"><a href="save-your-plot.html"><i class="fa fa-check"></i><b>8.3</b> Save your plot</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the interface</a></li>
+<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-rstudio-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the RStudio interface</a></li>
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statsidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stats=“identity” parameter</a></li>
+<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stat=“identity” parameter</a></li>
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8.9</b> Boxplots</a></li>
 <li class="chapter" data-level="8.10" data-path="fine-tuning-text.html"><a href="fine-tuning-text.html"><i class="fa fa-check"></i><b>8.10</b> Fine-tuning text</a></li>
@@ -266,19 +266,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exercise-2" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> Exercise 2<a href="exercise-2.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Import file <strong>DataViz_source_files-main/files/gencode.v44.annotation.csv</strong> in R, into an object called <strong>gtf</strong>.</li>
+<li>Import file <strong>DataViz_source_files-main/files/gencode.v44.annotation.csv</strong> in an object called <strong>gtf</strong>.</li>
 </ol>
 <details>
 <summary>
 correction
 </summary>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="exercise-2.html#cb53-1" tabindex="-1"></a>gtf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/gencode.v44.annotation.csv&quot;</span>)</span></code></pre></div>
-<p>This is a small subset of the gencode v44 human gene annotation:</p>
+<p>This is a small subset of the gencode v44 human gene annotation, created the following way:</p>
 <ul>
-<li>Only protein coding, long non-coding, miRNAs, snRNAs and snoRNAs</li>
-<li>Limited to chromosomes 1 to 10</li>
-<li>Random subset of 1000 genes</li>
-<li>Converted to a friendly csv format.</li>
+<li>Selection of protein coding genes, long non-coding genes, miRNAs, snRNAs and snoRNAs.</li>
+<li>Selection of chromosomes 1 to 10 only.</li>
+<li>Creation of a random subset of 1000 genes.</li>
+<li>Convertion to a friendly csv format.</li>
 </ul>
 </details>
 <p><br>
@@ -289,10 +289,10 @@ correction
 </summary>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="exercise-2.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr)) <span class="sc">+</span> </span>
 <span id="cb54-2"><a href="exercise-2.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
 </details>
 <p><br>
-3. Keeping the chromosome on the x axis, split the barplot <strong>per gene type</strong>.</p>
+3. Keep the chromosome represented on the x axis, and split the barplot <strong>per gene type</strong>.</p>
 <p>TIP: remember how we set <strong>color=</strong> in <strong>mapping=aes()</strong> function in the scatter plot section? Give it a try here!</p>
 <details>
 <summary>
@@ -300,17 +300,17 @@ correction
 </summary>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="exercise-2.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">color=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb55-2"><a href="exercise-2.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-56-1.png" width="480" /></p>
 </details>
 <p><br>
-4. Now try with <strong>fill</strong> instead of <strong>color</strong> in <strong>aes()</strong>:</p>
+4. Change <strong>color=</strong> with <strong>fill=</strong> in <strong>aes()</strong>. What changes?</p>
 <details>
 <summary>
 correction
 </summary>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="exercise-2.html#cb56-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb56-2"><a href="exercise-2.html#cb56-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
 </details>
 <p><br>
 5. Add a title to the graph:</p>
@@ -321,7 +321,7 @@ correction
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="exercise-2.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="exercise-2.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb57-3"><a href="exercise-2.html#cb57-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Number of genes per chromosome, split by gene type&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-56-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-58-1.png" width="480" /></p>
 </details>
 <p><br>
 6. Change the default <a href="https://ggplot2-book.org/themes"><strong>theme</strong></a>:</p>
@@ -333,10 +333,10 @@ correction
 <span id="cb58-2"><a href="exercise-2.html#cb58-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb58-3"><a href="exercise-2.html#cb58-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Number of genes per chromosome, split by gene type&quot;</span>) <span class="sc">+</span></span>
 <span id="cb58-4"><a href="exercise-2.html#cb58-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-59-1.png" width="480" /></p>
 </details>
 <p><br>
-7. Save the graph in PNG format in the course’s directory.</p>
+7. Save the graph in PNG format in the workshop’s directory.</p>
 <details>
 <summary>
 correction

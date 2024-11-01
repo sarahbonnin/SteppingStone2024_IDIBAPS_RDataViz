@@ -151,6 +151,8 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 #### Background
 
 Not a big fan of the grey background?
+
+
 This is the default "theme", but there are [more options](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 For example:
@@ -176,7 +178,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme_grey()
 ```
 
-A good page to check the different backgrounds:
+Here is a good page to check the different backgrounds:
 https://ggplot2-book.org/themes#sec-theme
 
 
@@ -212,9 +214,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 
 ## Save your plot
 
-### From the interface
+### From the RStudio interface
 
-Before we dive into more graph types, we we learn how to easily save the current plot.
+Before we dive into more graph types, let's pause and learn how to easily save the current plot.
 
 In the "Plots" tab, click on "Export" and "Save as image":
 
@@ -268,12 +270,15 @@ If we take as an example the requirements of electronic image formats [for Natur
 
 "Layered Photoshop (PSD) or TIFF format (high resolution, 300–600 dots per inch (dpi) )"
 
-We could save the plot the following way:
+We could save the plot as a file the following way:
 
 ```{r}
-ggsave(filename="myplot.tiff", plot=myplot, 
-       device="tiff", dpi=300, 
-       units="in", width=5, height=5)
+ggsave(filename="myplot.tiff", 
+       plot=myplot, 
+       device="tiff", 
+       dpi=300, 
+       units="in", 
+       width=5, height=5)
 ```
 
 
@@ -344,7 +349,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 </details>
 
 <br>
-5. Add a subtitle (wait: that's new! Google check **ggtitle** help page and/or "ggtitle subtitle" and see if you can find out!)
+5. Add a subtitle (wait: that's new! Check **ggtitle** help page and/or Google "ggtitle subtitle" and see if you can find!)
 
 <details>
 <summary>
@@ -360,7 +365,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 </details>
 
 <br>
-6. Save your plot as a JPEG file, in the course folder, with dimensions 600X600 pixels.
+6. Save your plot as a JPEG file, in the workshop folder, with dimensions 600X600 pixels.
 
 <details>
 <summary>
@@ -388,7 +393,7 @@ ggsave(filename="myblueplot.jpg", plot=mybluescatterplot,
 
 ## Scatter plots: more features
 
-Let's customize our scatter plot a bit more.
+We can customize our scatter plot a bit more.
 
 We may want to show the gene names that the points represent.
 
@@ -403,9 +408,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) +
   geom_text()
 ```
 
-Not bad, but let's adjust the location of the labels, so they do not overlap with the points.
-
-We can set the **nudge_x** parameter, to move the labels horizontally (on the **x** axis).
+We can adjust the position of the labels relative to the points, so they do not overlap: this is done with **nudge_x** (moves the labels horizontally / on the **x** axis).
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) + 
@@ -429,7 +432,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) +
   geom_text(nudge_x=1.5, size=3, color="black")
 ```
 
-Note that the automatic organization of labels, so that they do not overlap, can be done using the {ggrepel} package. You only need to load the package and change **geom_text()** to **geom_repel_text()**:
+Note that the automatic organization of labels, so that they do not overlap, can be done using the {ggrepel} package. 
+
+You only need to load the package and change **geom_text()** with **geom_repel_text()**:
 
 ```{r, eval=T, echo=F}
 library(ggrepel)
@@ -442,9 +447,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) +
 ```
 
 
-Last but not least: point color and shape can be **dependent on another column / variable of the data**. 
+Last but not least: point color and shape can be **dependent on another column / variable of the data**. This is called **mapping an aesthetic to a variable**
 
-Columns to **conditionally color or shape the points** should be specified inside the **aes()** function.
+Columns use to **conditionally color or shape the points** are set inside the **aes()** function.
 
 For **shape**:
 
@@ -496,11 +501,13 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) +
 
 </details>
 
+
 ## Barplots
 
 A barplot (or barchart) is a graph that represents categorical data with rectangular bars, which heights are proportional to the values they represent.
 
-The first layer of the **ggplot()** function will be similar. However, note that we start with only the **x=** parameter set in **aes()** function (this is the basic way to plot a barplot):
+The first layer of the **ggplot()** function is similar. 
+However, note that only **x=** is set in **aes()** function (the basic way to plot a barplot):
 
 ```{r, eval=F}
 ggplot(data=dataframe, mapping=aes(x=column1)) +
@@ -519,7 +526,7 @@ This produces a barplots containing 3 bars: **Down**, **No** and **Up**: their h
 
 ## Exercise 2
 
-1. Import file **DataViz_source_files-main/files/gencode.v44.annotation.csv** in R, into an object called **gtf**.
+1. Import file **DataViz_source_files-main/files/gencode.v44.annotation.csv** in an object called **gtf**.
 
 <details>
 <summary>
@@ -530,12 +537,12 @@ correction
 gtf <- read_csv("DataViz_source_files-main/files/gencode.v44.annotation.csv")
 ```
 
-This is a small subset of the gencode v44 human gene annotation:
+This is a small subset of the gencode v44 human gene annotation, created the following way:
 
-* Only protein coding, long non-coding, miRNAs, snRNAs and snoRNAs
-* Limited to chromosomes 1 to 10
-* Random subset of 1000 genes
-* Converted to a friendly csv format.
+* Selection of protein coding genes, long non-coding genes, miRNAs, snRNAs and snoRNAs.
+* Selection of chromosomes 1 to 10 only.
+* Creation of a random subset of 1000 genes.
+* Convertion to a friendly csv format.
 
 </details>
 
@@ -555,7 +562,7 @@ ggplot(data=gtf, mapping=aes(x=chr)) +
 </details>
 
 <br>
-3. Keeping the chromosome on the x axis, split the barplot **per gene type**.
+3. Keep the chromosome represented on the x axis, and split the barplot **per gene type**.
 
 TIP: remember how we set **color=** in **mapping=aes()** function in the scatter plot section? Give it a try here!
 
@@ -572,7 +579,7 @@ ggplot(data=gtf, mapping=aes(x=chr, color=gene_type)) +
 </details>
 
 <br>
-4. Now try with **fill** instead of **color** in **aes()**:
+4. Change **color=** with **fill=** in **aes()**. What changes?
 
 <details>
 <summary>
@@ -620,7 +627,7 @@ ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) +
 </details>
 
 <br>
-7. Save the graph in PNG format in the course's directory.
+7. Save the graph in PNG format in the workshop's directory.
 
 <details>
 <summary>
@@ -644,14 +651,14 @@ ggsave(filename="gtfbarplot.png", plot=gtfbars,
 
 We can also play with the **position** of the bars. By default, position is **stack**, i.e. categories are stacked on top of each other along the bar.
 
-Position **fill** will show the proportions, instead of the absolute values, of each category:
+Position **fill** scales data so the top is always 1, i.e. shows proportions, instead of the absolute values:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
   geom_bar(position="fill")
 ```
 
-Position **dodge** is representing each category (here, continents), next to each other:
+Position **dodge** represents each category (here, continents) side-by-side:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
@@ -663,7 +670,7 @@ ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) +
 *More advanced (as reference, or if someone asks): how to reorder x-axis labels:*
 </summary>
 
-Factors are a data type in R: they are used to represent categorical data. Using factors requires a bit more understanding of R works/thinks, but here is an application:
+Factors are a data type in R: they are used to represent categorical data. Using factors requires a bit more understanding of R works/thinks, but here is an application using **ordered factors/categories**:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=factor(chr, levels=c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10"), ordered=TRUE), fill=gene_type)) + 
@@ -673,17 +680,17 @@ ggplot(data=gtf, mapping=aes(x=factor(chr, levels=c("chr1", "chr2", "chr3", "chr
 
 </details>
 
-### stats="identity" parameter
+### stat="identity" parameter
 
-geom_bar() can work a bit differently, when facing numbers instead of categories.
+**stat** represents a statistical transformation of the data. It typically aims to summarize the data.
 
-geom_bar()'s default behavior is to **count the number of occurrences of each value found in x**: it does not expect a y-value. the default is stat="count".
+geom_bar()'s default **stat** is "count": it **counts the number of occurrences of each value / category in x**: it does not expect a y-value.
 
-If you set stat parameter to "identity", ggplot2 skips the aggregation and values used for the bars are provided by the user in **x**.
+If **stat** is set to "identity", ggplot2 uses the data **as is** (i.e. no transformation is applied) and skips the aggregation. Values used for the bars are provided by the user in **x**.
 
 
 Let's import data from file: **DataViz_source_files-main/files/stats_continents_barcelona_2013-2023_long.csv** 
-into an object called **statsbcn**.
+in an object called **statsbcn**.
 
 The data contains the number of foreign residents in Barcelona from 2013 to 2023.
 
@@ -695,7 +702,7 @@ How many rows and how many columns does the data contain?
 
 In the barplots we created so far, R takes categories in the columns specified in **x=** and counts the number of occurrences.
 
-The argument **stat="identity"** in geom_bar() is telling R to calculate the sum of the variable specified in **y=**, **grouped by the x variable**: bars of the barplot will display the sums.
+The argument **stat="identity"** in geom_bar() is telling R to use the sum of the variable specified in **y=**, **grouped by the x variable**: bars of the barplot will display these sums.
 
 In the following example, we are plotting the sum of foreign residents in Barcelona (Population provided in **y**) per year (Year provided in **x**):
 
@@ -745,6 +752,7 @@ ggplot(statsbcn, aes(x=Year, y=Population, fill=Continent)) +
 Convert "Year" column as character, instead of numbers:
 
 ```{r}
+# convert the x-axis from a continuous to a discrete variable (as.character)
 ggplot(statsbcn, aes(x=as.character(Year), y=Population, fill=Continent)) + 
   geom_bar(stat="identity", position="dodge")
 ```

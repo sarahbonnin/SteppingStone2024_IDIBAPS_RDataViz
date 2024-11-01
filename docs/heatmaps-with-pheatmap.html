@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="save-your-plot.html"><a href="save-your-plot.html"><i class="fa fa-check"></i><b>8.3</b> Save your plot</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the interface</a></li>
+<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-rstudio-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the RStudio interface</a></li>
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statsidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stats=“identity” parameter</a></li>
+<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stat=“identity” parameter</a></li>
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8.9</b> Boxplots</a></li>
 <li class="chapter" data-level="8.10" data-path="fine-tuning-text.html"><a href="fine-tuning-text.html"><i class="fa fa-check"></i><b>8.10</b> Fine-tuning text</a></li>
@@ -277,18 +277,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb161-3"><a href="heatmaps-with-pheatmap.html#cb161-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>You can then simply plot the heatmap, giving the matrix as an input:</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="heatmaps-with-pheatmap.html#cb162-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-154-1.png" width="576" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-156-1.png" width="576" /></p>
 <p>Control what is clusters: rows, columns, both, or none:</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="heatmaps-with-pheatmap.html#cb163-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-155-1.png" width="576" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-157-1.png" width="576" /></p>
 <p>Show or hide row names:</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="heatmaps-with-pheatmap.html#cb164-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-156-1.png" width="576" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-158-1.png" width="576" /></p>
 <p>Change the color scale (<strong>rainbow()</strong> and <strong>heat.colors()</strong> are available from the base packages):</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="heatmaps-with-pheatmap.html#cb165-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-157-1.png" width="576" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-159-1.png" width="576" /></p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="heatmaps-with-pheatmap.html#cb166-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-157-2.png" width="576" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-159-2.png" width="576" /></p>
 
 </div>
             </section>

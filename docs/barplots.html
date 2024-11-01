@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="save-your-plot.html"><a href="save-your-plot.html"><i class="fa fa-check"></i><b>8.3</b> Save your plot</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the interface</a></li>
+<li class="chapter" data-level="8.3.1" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-rstudio-interface"><i class="fa fa-check"></i><b>8.3.1</b> From the RStudio interface</a></li>
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
 <ul>
-<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statsidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stats=“identity” parameter</a></li>
+<li class="chapter" data-level="8.8.1" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html#statidentity-parameter"><i class="fa fa-check"></i><b>8.8.1</b> stat=“identity” parameter</a></li>
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="boxplots.html"><a href="boxplots.html"><i class="fa fa-check"></i><b>8.9</b> Boxplots</a></li>
 <li class="chapter" data-level="8.10" data-path="fine-tuning-text.html"><a href="fine-tuning-text.html"><i class="fa fa-check"></i><b>8.10</b> Fine-tuning text</a></li>
@@ -266,13 +266,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="barplots" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> Barplots<a href="barplots.html#barplots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A barplot (or barchart) is a graph that represents categorical data with rectangular bars, which heights are proportional to the values they represent.</p>
-<p>The first layer of the <strong>ggplot()</strong> function will be similar. However, note that we start with only the <strong>x=</strong> parameter set in <strong>aes()</strong> function (this is the basic way to plot a barplot):</p>
+<p>The first layer of the <strong>ggplot()</strong> function is similar.
+However, note that only <strong>x=</strong> is set in <strong>aes()</strong> function (the basic way to plot a barplot):</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="barplots.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dataframe, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>column1)) <span class="sc">+</span></span>
 <span id="cb51-2"><a href="barplots.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>Using our previous <strong>geneexp</strong> data, we can produce a bar plot out of the <strong>DE</strong> column, such as:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="barplots.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(geneexp, <span class="fu">aes</span>(<span class="at">x=</span>DE)) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="barplots.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-51-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-53-1.png" width="480" /></p>
 <p>This produces a barplots containing 3 bars: <strong>Down</strong>, <strong>No</strong> and <strong>Up</strong>: their height represents the number of genes found in each category.</p>
 </div>
             </section>

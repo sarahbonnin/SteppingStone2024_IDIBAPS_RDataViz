@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.1 filter() | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures</title>
   <meta name="description" content="9.1 filter() | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.1 filter() | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-11" />
+<meta name="date" content="2024-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -268,8 +268,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>filter()</strong> will filter <strong>rows</strong>.</p>
 <p>If we take the <strong>geneexp</strong> objet as an example, we can filter only down-regulated genes using the <strong>filter()</strong> function of <strong>{dplyr}</strong>.</p>
 <p>In case you need to import the data again:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="filter.html#cb89-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter.html#cb90-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="filter.html#cb90-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="filter.html#cb91-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>We can have several conditions.</p>
 <p>For example, we may want to extract only <strong>Up</strong> or <strong>Down</strong> rows from geneexp column <strong>DE</strong>:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="filter.html#cb92-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="filter.html#cb93-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8 MAPK2  Up     0.998     9.56</code></pre>
 <p>Here, we introduce another operator, <strong>|</strong>, which mean <strong>OR</strong>, so rows will be kept if there is either <strong>Down</strong> or <strong>Up</strong> in <strong>DE</strong> column.</p>
 <p>A good practice is to assign the filtered output to a new object, for example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="filter.html#cb94-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="filter.html#cb95-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 

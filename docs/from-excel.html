@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.3 from Excel | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures</title>
   <meta name="description" content="7.3 from Excel | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.3 from Excel | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-11" />
+<meta name="date" content="2024-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -268,8 +268,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>{tidyverse} provides the {readxl} package with functions to read in Excel files.</p>
 <p>Although working with text files (.txt, .csv, .tsv etc.) is a better practice, you can import Excel files using the <strong>read_excel()</strong> function.</p>
 <p>First, load the {readxl} package (bottom-right panel -&gt; Packages -&gt; search and tick readxl, or from the console, as shown below).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="from-excel.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb13-2"><a href="from-excel.html#cb13-2" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="from-excel.html#cb14-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb14-2"><a href="from-excel.html#cb14-2" tabindex="-1"></a><span class="co"># Relative path:</span></span>
+<span id="cb14-3"><a href="from-excel.html#cb14-3" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.xlsx&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 4
 ##    Gene   DE    sample1 sample2
 ##    &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -294,8 +295,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 19 DVL    No     4.33      6.84
 ## 20 MAPK2  Up     0.998     9.56</code></pre>
 <p>If the Excel file contains multiple sheets, you can specify the name of the sheet using the <strong>sheet=</strong> parameter:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="from-excel.html#cb15-1" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.xlsx&quot;</span>,</span>
-<span id="cb15-2"><a href="from-excel.html#cb15-2" tabindex="-1"></a>           <span class="at">sheet=</span><span class="st">&quot;tab1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="from-excel.html#cb16-1" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.xlsx&quot;</span>,</span>
+<span id="cb16-2"><a href="from-excel.html#cb16-2" tabindex="-1"></a>           <span class="at">sheet=</span><span class="st">&quot;tab1&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 4
 ##    Gene   DE    sample1 sample2
 ##    &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;

@@ -6,22 +6,22 @@ We will learn how to **import the content of a file** in R using the **{readr}**
 
 First, let's copy locally a few files that were prepared for this workshop.
 
-Go to:
-https://github.com/sarahbonnin/DataViz_source_files
+* Go to: https://github.com/sarahbonnin/DataViz_source_files
 
-
-And download the ZIP archive, as follows:
+* Download the ZIP archive, as follows:
 
 Click on <img src="images/import_github_code_button.png" alt="import zip" width="90"/> -> Download ZIP:
 
 
 <img src="images/import_github_zip.png" alt="import zip" width="600"/>
 
-Save the archive in the course folder previously created (**DataViz_R_2024**) and extract it (click right on the archive and you should see some extraction options).
+* Save the archive in the course folder (**DataViz_R_2024**)
+
+* Extract the archive (click right on the archive and you should see some extraction options).
 
 What is extracted from the archive is the **DataViz_source_files-main** folder, which in turns contains a **files** folder: this contains the files we need for the course.
 
-The **path** to fetch the files is the following (remember that the first piece is OS/user dependent):
+The **path** to fetch the files is the following (remember that the first piece is *OS/user* dependent):
 
 */your_home_directory/*DataViz_R_2024/**DataViz_source_files-main/files**
 
@@ -33,13 +33,25 @@ e.g.
 
 ### from CSV
 
-Let's now import the content of a first file in our environment:
+Let's now import the content of a first file in our environment.
+
+There are several ways we can specify the path / location of a file:
+
+* Using the "absolute path":
+
+```{r, echo=T, eval=F, message=F, warning=F}
+# absolute path
+geneexp <- read_csv("/users/sbonnin/DataViz_R_2024/DataViz_source_files-main/files/expression_20genes.csv")
+```
+
+* Using the "relative path" (i.e. relative to where the session is currently located), e.g.:
 
 ```{r, echo=T, eval=T, message=F, warning=F}
+# relative path (this assumes you are in the course folder)
 geneexp <- read_csv("DataViz_source_files-main/files/expression_20genes.csv")
 ```
 
-Because your **working directory** is */your_home_directory/*DataViz_R_2024/, R can find the **DataViz_source_files-main** without requiring the whole path: this is a **relative path** as opposed to an **absolute path** .
+Because your **working directory** is */your_home_directory/*DataViz_R_2024/, R can find the **DataViz_source_files-main** without requiring that you specify the whole path (**relative vs absolute path**).
 
 The content of file **expression_20genes.csv** is now stored in the object named **geneexp**.
 
@@ -54,9 +66,10 @@ Such as that:
   * 2 contain characters (<span style="color: red;">chr</span>): **Gene** and **DE**.
   * 2 contain numbers (<span style="color: green;">dbl</span> for "double"): **sample1** and **sample2**
 
-Remember that you can find the objects that you create in the **Environment** tab in the upper-right panel.
+Notes:
 
-Note that if you click on an object name in the **Environment** tab, it will open on the upper-left panel. Let's try with **geneexp**:
+* You can find the objects that you create in the **Environment** tab in the upper-right panel.
+* If you click on an object name in the **Environment** tab, it will open on the upper-left panel. Let's try with **geneexp**:
 
 <img src="images/import_click_env.png" alt="import env" width="800"/>
 
@@ -70,6 +83,7 @@ First, load the {readxl} package (bottom-right panel -> Packages -> search and t
 
 ```{r}
 library(readxl)
+# Relative path:
 read_excel("DataViz_source_files-main/files/expression_20genes.xlsx")
 ```
 
@@ -84,7 +98,7 @@ read_excel("DataViz_source_files-main/files/expression_20genes.xlsx",
 
 A **script** is a text file containing a set of **commands** and **comments**.
 
-It can be saved and re-used later or be shared.
+It can be saved, re-used later or be shared.
 
 It is good practice to create a script and save all commands: let's create a script for this course.
 
@@ -92,7 +106,7 @@ Go to File -> New File -> R script
 
 <img src="images/import_create_script.png" alt="import env" width="700"/>
 
-A new window will open in the upper-left panel. Now save the file in the course folder (you can name it workshop.R)
+A new window will open in the upper-left panel. Now save the file in the course folder (you can name it *workshop.R*)
 
 **Save all commands you will use during the course, and save changes regularly!**
 

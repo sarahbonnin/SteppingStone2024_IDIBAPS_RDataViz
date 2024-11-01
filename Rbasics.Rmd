@@ -105,9 +105,14 @@ What you CANNOT use:
 
 ## Data types
 
-There are several data types in R: numbers, characters, booleans, factors, etc.
+There are several data types in R: 
 
-For this introduction, we will mainly see and use numbers and characters.
+* numeric (numbers)
+* character (strings)
+* logical / boolean (TRUE / FALSE)
+* factor (categories)
+
+For this introduction, we will mainly see and use numeric (numbers) and character (strings) data types.
 
 A character or string of characters must be assigned with simple or double **quotes ("")**, for example:
 

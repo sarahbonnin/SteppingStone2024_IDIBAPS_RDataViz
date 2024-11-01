@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.3 Save your plot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures</title>
   <meta name="description" content="8.3 Save your plot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.3 Save your plot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-04-11" />
+<meta name="date" content="2024-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -287,9 +287,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.3.2</span> From the console<a href="save-your-plot.html#from-the-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The best way to save a plot to a few from the console, is using the ggsave function.</p>
 <p>First, you need to save the plot to an object (if you don’t, ggplot will create a file from the latest plot, which is fine too!).</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="save-your-plot.html#cb30-1" tabindex="-1"></a>myplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb30-2"><a href="save-your-plot.html#cb30-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="save-your-plot.html#cb30-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="save-your-plot.html#cb31-1" tabindex="-1"></a>myplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="save-your-plot.html#cb31-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="save-your-plot.html#cb31-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>)</span></code></pre></div>
 <p>Many different formats are available:</p>
 <ul>
 <li>eps</li>
@@ -303,15 +303,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>svg</li>
 <li>wmf</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="save-your-plot.html#cb31-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.png&quot;</span>, <span class="at">plot=</span>myplot, <span class="at">device=</span><span class="st">&quot;png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="save-your-plot.html#cb32-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.png&quot;</span>, <span class="at">plot=</span>myplot, <span class="at">device=</span><span class="st">&quot;png&quot;</span>)</span></code></pre></div>
 <p>You can specify the plot size units between inches “in”, centimeters “cm”, milimeters “mm” or pixels “px”.</p>
 <p>You can also specify the <strong>dpi</strong>, i.e. dots per inches.</p>
 <p>If we take as an example the requirements of electronic image formats <a href="https://www.nature.com/nature/for-authors/final-submission">for Nature publishing group</a>:</p>
 <p>“Layered Photoshop (PSD) or TIFF format (high resolution, 300–600 dots per inch (dpi) )”</p>
 <p>We could save the plot the following way:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="save-your-plot.html#cb32-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.tiff&quot;</span>, <span class="at">plot=</span>myplot, </span>
-<span id="cb32-2"><a href="save-your-plot.html#cb32-2" tabindex="-1"></a>       <span class="at">device=</span><span class="st">&quot;tiff&quot;</span>, <span class="at">dpi=</span><span class="dv">300</span>, </span>
-<span id="cb32-3"><a href="save-your-plot.html#cb32-3" tabindex="-1"></a>       <span class="at">units=</span><span class="st">&quot;in&quot;</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="save-your-plot.html#cb33-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;myplot.tiff&quot;</span>, <span class="at">plot=</span>myplot, </span>
+<span id="cb33-2"><a href="save-your-plot.html#cb33-2" tabindex="-1"></a>       <span class="at">device=</span><span class="st">&quot;tiff&quot;</span>, <span class="at">dpi=</span><span class="dv">300</span>, </span>
+<span id="cb33-3"><a href="save-your-plot.html#cb33-3" tabindex="-1"></a>       <span class="at">units=</span><span class="st">&quot;in&quot;</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code></pre></div>
 </div>
 </div>
             </section>

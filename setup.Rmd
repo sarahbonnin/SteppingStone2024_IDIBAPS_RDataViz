@@ -55,6 +55,7 @@ Repeat the process for the following packages:
 * pheatmap
 * plotly
 * openxlsx
+* VennDiagram
 
 Note: install packages one by one, as it eases debugging in case of installation failure.
 

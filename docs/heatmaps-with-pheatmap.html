@@ -276,22 +276,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First we can install <strong>pheatmap</strong> (bottom-right panel -&gt; Packages -&gt; Install).</p>
 <p>And then we load the package: <strong>tick</strong> the package in the list, or load it from the console:</p>
 <p><br></p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="heatmaps-with-pheatmap.html#cb174-1" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="heatmaps-with-pheatmap.html#cb176-1" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span></code></pre></div>
 <p><strong>pheatmap</strong> is not from the tidyverse package, and does not follow the same structure. It does not work with layers, but with multiple parameters inside a same function.</p>
 <p>Let’s read the following data file, and convert it to matrix (that is the input format for pheatmap):</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="heatmaps-with-pheatmap.html#cb175-1" tabindex="-1"></a>expr_heatmap <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_for_heatmap.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb175-2"><a href="heatmaps-with-pheatmap.html#cb175-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;gene_name&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb175-3"><a href="heatmaps-with-pheatmap.html#cb175-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="heatmaps-with-pheatmap.html#cb177-1" tabindex="-1"></a>expr_heatmap <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_for_heatmap.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb177-2"><a href="heatmaps-with-pheatmap.html#cb177-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;gene_name&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb177-3"><a href="heatmaps-with-pheatmap.html#cb177-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>You can then simply plot the heatmap, giving the matrix as an input:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="heatmaps-with-pheatmap.html#cb176-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="heatmaps-with-pheatmap.html#cb178-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
 <p>Control what is clusters: rows, columns, both, or none:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="heatmaps-with-pheatmap.html#cb177-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="heatmaps-with-pheatmap.html#cb179-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Show or hide row names:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="heatmaps-with-pheatmap.html#cb178-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="heatmaps-with-pheatmap.html#cb180-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
 <p>Change the color scale (<strong>rainbow()</strong> and <strong>heat.colors()</strong> are available from the base packages):</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="heatmaps-with-pheatmap.html#cb179-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span>
-<span id="cb179-2"><a href="heatmaps-with-pheatmap.html#cb179-2" tabindex="-1"></a></span>
-<span id="cb179-3"><a href="heatmaps-with-pheatmap.html#cb179-3" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="heatmaps-with-pheatmap.html#cb181-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span>
+<span id="cb181-2"><a href="heatmaps-with-pheatmap.html#cb181-2" tabindex="-1"></a></span>
+<span id="cb181-3"><a href="heatmaps-with-pheatmap.html#cb181-3" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>))</span></code></pre></div>
 
 </div>
             </section>

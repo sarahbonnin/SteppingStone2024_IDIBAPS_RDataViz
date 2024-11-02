@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="exercise-6-boxplot.html#cb149-1" tabindex="-1"></a>rnaseq2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_log2_long.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exercise-6-boxplot.html#cb151-1" tabindex="-1"></a>rnaseq2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/GSE150029_rnaseq_log2_long.csv&quot;</span>)</span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -289,9 +289,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exercise-6-boxplot.html#cb150-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts)) <span class="sc">+</span> </span>
-<span id="cb150-2"><a href="exercise-6-boxplot.html#cb150-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-145-1.png" width="480" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exercise-6-boxplot.html#cb152-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts)) <span class="sc">+</span> </span>
+<span id="cb152-2"><a href="exercise-6-boxplot.html#cb152-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-147-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -301,9 +301,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exercise-6-boxplot.html#cb151-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
-<span id="cb151-2"><a href="exercise-6-boxplot.html#cb151-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-146-1.png" width="1728" /></p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exercise-6-boxplot.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
+<span id="cb153-2"><a href="exercise-6-boxplot.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="1728" /></p>
 </details>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
@@ -313,11 +313,11 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exercise-6-boxplot.html#cb152-1" tabindex="-1"></a>rnaseq2_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq2, gene_biotype<span class="sc">==</span><span class="st">&quot;protein_coding&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span>)</span>
-<span id="cb152-2"><a href="exercise-6-boxplot.html#cb152-2" tabindex="-1"></a></span>
-<span id="cb152-3"><a href="exercise-6-boxplot.html#cb152-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
-<span id="cb152-4"><a href="exercise-6-boxplot.html#cb152-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-147-1.png" width="480" /></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exercise-6-boxplot.html#cb154-1" tabindex="-1"></a>rnaseq2_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(rnaseq2, gene_biotype<span class="sc">==</span><span class="st">&quot;protein_coding&quot;</span> <span class="sc">|</span> gene_biotype<span class="sc">==</span><span class="st">&quot;lincRNA&quot;</span>)</span>
+<span id="cb154-2"><a href="exercise-6-boxplot.html#cb154-2" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="exercise-6-boxplot.html#cb154-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
+<span id="cb154-4"><a href="exercise-6-boxplot.html#cb154-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-149-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="5" style="list-style-type: decimal">
@@ -327,12 +327,12 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exercise-6-boxplot.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
-<span id="cb153-2"><a href="exercise-6-boxplot.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb153-3"><a href="exercise-6-boxplot.html#cb153-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="480" /></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exercise-6-boxplot.html#cb154-1" tabindex="-1"></a><span class="co"># if boxplot and violin plots are misaligned, you can play with the position parameter in geom_violin, such as:</span></span>
-<span id="cb154-2"><a href="exercise-6-boxplot.html#cb154-2" tabindex="-1"></a><span class="co"># geom_violin(position=position_dodge(0.7))</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exercise-6-boxplot.html#cb155-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
+<span id="cb155-2"><a href="exercise-6-boxplot.html#cb155-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb155-3"><a href="exercise-6-boxplot.html#cb155-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-150-1.png" width="480" /></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exercise-6-boxplot.html#cb156-1" tabindex="-1"></a><span class="co"># if boxplot and violin plots are misaligned, you can play with the position parameter in geom_violin, such as:</span></span>
+<span id="cb156-2"><a href="exercise-6-boxplot.html#cb156-2" tabindex="-1"></a><span class="co"># geom_violin(position=position_dodge(0.7))</span></span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
@@ -346,9 +346,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exercise-6-boxplot.html#cb155-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
-<span id="cb155-2"><a href="exercise-6-boxplot.html#cb155-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="st">&quot;triangle&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-149-1.png" width="480" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="exercise-6-boxplot.html#cb157-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>rnaseq2_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample, <span class="at">y=</span>log2_counts, <span class="at">fill=</span>gene_biotype)) <span class="sc">+</span> </span>
+<span id="cb157-2"><a href="exercise-6-boxplot.html#cb157-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="st">&quot;triangle&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-151-1.png" width="480" /></p>
 </details>
 
 </div>

@@ -1,6 +1,6 @@
-# More exercises
+# Exercises to do at home
 
-The following sets of exercises aim to help you practice what was learned during this workshop.
+The following sets of exercises aim to help you practice what was learned so far during the workshop. You can practice at home.
 <br>
 
 Exercise 4: barplot

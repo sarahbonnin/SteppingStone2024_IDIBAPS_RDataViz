@@ -18,7 +18,7 @@ geneexp <- read_csv("DataViz_source_files-main/files/expression_20genes.csv")
 filter(geneexp, DE=="Down")
 ```
 
-**==** is a **logical operator** that represens equality. It means that filter will return **rows in geneexp that are exactly equal to "Down"**.
+**==** is a **logical operator** that represents equality. It means that filter will return **rows in geneexp that are exactly equal to "Down"**.
 
 Logical operators:
 
@@ -36,13 +36,13 @@ Logical operators:
 
 We can have several conditions.
 
-For example, we may want to extract only **Up** or **Down** rows from geneexp column **DE**:
+For example, we may want to extract only rows that have either **Up** OR **Down** in **DE**:
 
 ```{r}
 filter(geneexp, DE=="Down" | DE=="Up")
 ```
 
-Here, we introduce another operator, **|**, which mean **OR**, so rows will be kept if there is either **Down** or **Up** in **DE** column.
+Here, we introduce another operator, **|**, which mean **OR**, so rows will be kept if there is either **Down** OR **Up** in **DE** column.
 
 A good practice is to assign the filtered output to a new object, for example:
 
@@ -52,7 +52,7 @@ geneexp_filt <- filter(geneexp, DE=="Down" | DE=="Up")
 
 ## select()
 
-**select()** will select **columns**.
+**select()** will select **columns** from a data frame.
 
 Select only columns **Gene** and **DE** from **geneexp**:
 

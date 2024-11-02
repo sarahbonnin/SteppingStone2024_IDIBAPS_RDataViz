@@ -198,7 +198,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
-<li class="chapter" data-level="8.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html"><i class="fa fa-check"></i><b>8.5</b> Scatter plots: more features</a></li>
+<li class="chapter" data-level="8.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html"><i class="fa fa-check"></i><b>8.5</b> Scatter plots: more features</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#labels"><i class="fa fa-check"></i><b>8.5.1</b> Labels</a></li>
+<li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
+<li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
+</ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
@@ -410,48 +415,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-6"><a href="scatter-plot.html#cb35-6" tabindex="-1"></a>  ggpubr<span class="sc">::</span><span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-33-1.png" width="480" /></p>
 </details>
-</div>
-<div id="more-useful-layers" class="section level4 hasAnchor" number="8.2.3.4">
-<h4><span class="header-section-number">8.2.3.4</span> More useful layers<a href="scatter-plot.html#more-useful-layers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="geom_rug" class="section level5 hasAnchor" number="8.2.3.4.1">
-<h5><span class="header-section-number">8.2.3.4.1</span> geom_rug()<a href="scatter-plot.html#geom_rug" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p><strong>geom_rug</strong> creates a compact visualization along the axes to help read the information of individual cases.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="scatter-plot.html#cb36-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb36-2"><a href="scatter-plot.html#cb36-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
-<span id="cb36-3"><a href="scatter-plot.html#cb36-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb36-4"><a href="scatter-plot.html#cb36-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
-<span id="cb36-5"><a href="scatter-plot.html#cb36-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-34-1.png" width="480" /></p>
-<p>As usual, you can customize several parameters, such as:</p>
-<ul>
-<li><em>sides</em>: sides where to draw the lines (<strong>t</strong>op, <strong>bottom</strong>, <strong>right</strong>, <strong>left</strong>)</li>
-<li><em>alpha</em>: opacity Ranges from 0 (transparent) to 1 (opaque).</li>
-<li><em>linewidth</em>, <em>linetype</em></li>
-</ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="scatter-plot.html#cb37-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb37-2"><a href="scatter-plot.html#cb37-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
-<span id="cb37-3"><a href="scatter-plot.html#cb37-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb37-4"><a href="scatter-plot.html#cb37-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
-<span id="cb37-5"><a href="scatter-plot.html#cb37-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides=</span><span class="st">&quot;tr&quot;</span>, <span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">linewidth=</span><span class="dv">1</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-35-1.png" width="480" /></p>
-</div>
-<div id="geom_density_2d" class="section level5 hasAnchor" number="8.2.3.4.2">
-<h5><span class="header-section-number">8.2.3.4.2</span> geom_density_2d()<a href="scatter-plot.html#geom_density_2d" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p><strong>geom_density_2d</strong> performs a 2D kernel density estimation and displays the results with contours.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="scatter-plot.html#cb38-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb38-2"><a href="scatter-plot.html#cb38-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
-<span id="cb38-3"><a href="scatter-plot.html#cb38-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb38-4"><a href="scatter-plot.html#cb38-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
-<span id="cb38-5"><a href="scatter-plot.html#cb38-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-36-1.png" width="480" /></p>
-<p>Play with some of the parameters we already know:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="scatter-plot.html#cb39-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="scatter-plot.html#cb39-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-3"><a href="scatter-plot.html#cb39-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="scatter-plot.html#cb39-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
-<span id="cb39-5"><a href="scatter-plot.html#cb39-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">color=</span><span class="st">&quot;pink&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-37-1.png" width="480" /></p>
-</div>
 </div>
 </div>
 </div>

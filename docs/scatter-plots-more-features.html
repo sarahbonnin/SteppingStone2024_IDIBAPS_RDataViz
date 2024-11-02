@@ -198,7 +198,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.2" data-path="save-your-plot.html"><a href="save-your-plot.html#from-the-console"><i class="fa fa-check"></i><b>8.3.2</b> From the console</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="exercise-1.html"><a href="exercise-1.html"><i class="fa fa-check"></i><b>8.4</b> Exercise 1</a></li>
-<li class="chapter" data-level="8.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html"><i class="fa fa-check"></i><b>8.5</b> Scatter plots: more features</a></li>
+<li class="chapter" data-level="8.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html"><i class="fa fa-check"></i><b>8.5</b> Scatter plots: more features</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#labels"><i class="fa fa-check"></i><b>8.5.1</b> Labels</a></li>
+<li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
+<li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
+</ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
 <li class="chapter" data-level="8.8" data-path="barplots-bars-position.html"><a href="barplots-bars-position.html"><i class="fa fa-check"></i><b>8.8</b> Barplots: bars position</a>
@@ -266,71 +271,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="scatter-plots-more-features" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Scatter plots: more features<a href="scatter-plots-more-features.html#scatter-plots-more-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can customize our scatter plot a bit more.</p>
+<div id="labels" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Labels<a href="scatter-plots-more-features.html#labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We may want to show the gene names that the points represent.</p>
 <p>This is done by:</p>
 <ul>
 <li>setting the <strong>label</strong> parameter, in the ggplot <strong>aes()</strong> function</li>
 <li>adding the <strong>geom_text()</strong> layer</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="scatter-plots-more-features.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="scatter-plots-more-features.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb49-3"><a href="scatter-plots-more-features.html#cb49-3" tabindex="-1"></a>  <span class="fu">geom_text</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-47-1.png" width="480" /></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="scatter-plots-more-features.html#cb45-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
+<span id="cb45-2"><a href="scatter-plots-more-features.html#cb45-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-3"><a href="scatter-plots-more-features.html#cb45-3" tabindex="-1"></a>  <span class="fu">geom_text</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-43-1.png" width="480" /></p>
 <p>We can adjust the position of the labels relative to the points, so they do not overlap: this is done with <strong>nudge_x</strong> (moves the labels horizontally / on the <strong>x</strong> axis).</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="scatter-plots-more-features.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="scatter-plots-more-features.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb50-3"><a href="scatter-plots-more-features.html#cb50-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="scatter-plots-more-features.html#cb46-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="scatter-plots-more-features.html#cb46-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-3"><a href="scatter-plots-more-features.html#cb46-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-44-1.png" width="480" /></p>
 <p>We can also decrease or increase the label size:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="scatter-plots-more-features.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
-<span id="cb51-2"><a href="scatter-plots-more-features.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb51-3"><a href="scatter-plots-more-features.html#cb51-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-49-1.png" width="480" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="scatter-plots-more-features.html#cb47-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
+<span id="cb47-2"><a href="scatter-plots-more-features.html#cb47-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb47-3"><a href="scatter-plots-more-features.html#cb47-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-45-1.png" width="480" /></p>
 <p>You can also overrule the mapping of colors to labels and keep all labels black, for example:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="scatter-plots-more-features.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
-<span id="cb52-2"><a href="scatter-plots-more-features.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb52-3"><a href="scatter-plots-more-features.html#cb52-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-50-1.png" width="480" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="scatter-plots-more-features.html#cb48-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href="scatter-plots-more-features.html#cb48-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="scatter-plots-more-features.html#cb48-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-46-1.png" width="480" /></p>
 <p>Note that the automatic organization of labels, so that they do not overlap, can be done using the {ggrepel} package.</p>
 <p>You only need to load the package and change <strong>geom_text()</strong> with <strong>geom_repel_text()</strong>:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="scatter-plots-more-features.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href="scatter-plots-more-features.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb53-3"><a href="scatter-plots-more-features.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-52-1.png" width="480" /></p>
-<p>Last but not least: point color and shape can be <strong>dependent on another column / variable of the data</strong>. This is called <strong>mapping an aesthetic to a variable</strong></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="scatter-plots-more-features.html#cb49-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene)) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="scatter-plots-more-features.html#cb49-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb49-3"><a href="scatter-plots-more-features.html#cb49-3" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-48-1.png" width="480" /></p>
+</div>
+<div id="color-and-shape-mapping" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Color and shape mapping<a href="scatter-plots-more-features.html#color-and-shape-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Point color and shape can be <strong>dependent on another column / variable of the data</strong>. This is called <strong>mapping an aesthetic to a variable</strong></p>
 <p>Columns use to <strong>conditionally color or shape the points</strong> are set inside the <strong>aes()</strong> function.</p>
 <p>For <strong>shape</strong>:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="scatter-plots-more-features.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">shape=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb54-2"><a href="scatter-plots-more-features.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb54-3"><a href="scatter-plots-more-features.html#cb54-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="scatter-plots-more-features.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">shape=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="scatter-plots-more-features.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb50-3"><a href="scatter-plots-more-features.html#cb50-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>For <strong>color</strong>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="scatter-plots-more-features.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb55-2"><a href="scatter-plots-more-features.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb55-3"><a href="scatter-plots-more-features.html#cb55-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
-<p>TIP: remove the weird double labeling in the legend (a letter behind the point): set <strong>show.legend=FALSE</strong> in <strong>geom_text()</strong>:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="scatter-plots-more-features.html#cb56-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb56-2"><a href="scatter-plots-more-features.html#cb56-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb56-3"><a href="scatter-plots-more-features.html#cb56-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="scatter-plots-more-features.html#cb51-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="scatter-plots-more-features.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb51-3"><a href="scatter-plots-more-features.html#cb51-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are used): set <strong>show.legend=FALSE</strong> in <strong>geom_text()</strong>:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="scatter-plots-more-features.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href="scatter-plots-more-features.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb52-3"><a href="scatter-plots-more-features.html#cb52-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <p>You can change the legend title the following way:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="scatter-plots-more-features.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb57-2"><a href="scatter-plots-more-features.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb57-3"><a href="scatter-plots-more-features.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb57-4"><a href="scatter-plots-more-features.html#cb57-4" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="st">&quot;DiffExp&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="scatter-plots-more-features.html#cb53-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href="scatter-plots-more-features.html#cb53-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-3"><a href="scatter-plots-more-features.html#cb53-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="scatter-plots-more-features.html#cb53-4" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="st">&quot;DiffExp&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <details>
 <summary>
 <em>More advanced (as reference, or if someone asks): how to change default colors:</em>
 </summary>
 <p>Colors can be set manually using (yet another) layer: <strong>scale_color_manual()</strong>.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="scatter-plots-more-features.html#cb58-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb58-2"><a href="scatter-plots-more-features.html#cb58-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb58-3"><a href="scatter-plots-more-features.html#cb58-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb58-4"><a href="scatter-plots-more-features.html#cb58-4" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Down=</span><span class="st">&quot;blue&quot;</span>, <span class="at">No=</span><span class="st">&quot;black&quot;</span>, <span class="at">Up=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="scatter-plots-more-features.html#cb54-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
+<span id="cb54-2"><a href="scatter-plots-more-features.html#cb54-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb54-3"><a href="scatter-plots-more-features.html#cb54-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb54-4"><a href="scatter-plots-more-features.html#cb54-4" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Down=</span><span class="st">&quot;blue&quot;</span>, <span class="at">No=</span><span class="st">&quot;black&quot;</span>, <span class="at">Up=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 </details>
+</div>
+<div id="additional-ticks" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Additional ticks<a href="scatter-plots-more-features.html#additional-ticks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>geom_rug</strong> creates a compact visualization along the axes to help read the information of individual cases.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="scatter-plots-more-features.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="scatter-plots-more-features.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="scatter-plots-more-features.html#cb55-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="scatter-plots-more-features.html#cb55-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb55-5"><a href="scatter-plots-more-features.html#cb55-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-54-1.png" width="480" /></p>
+<p>As usual, you can customize several parameters, such as:</p>
+<ul>
+<li><em>sides</em>: sides where to draw the lines (<strong>t</strong>op, <strong>bottom</strong>, <strong>right</strong>, <strong>left</strong>)</li>
+<li><em>alpha</em>: opacity Ranges from 0 (transparent) to 1 (opaque).</li>
+<li><em>linewidth</em>, <em>linetype</em></li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="scatter-plots-more-features.html#cb56-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb56-2"><a href="scatter-plots-more-features.html#cb56-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb56-3"><a href="scatter-plots-more-features.html#cb56-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb56-4"><a href="scatter-plots-more-features.html#cb56-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb56-5"><a href="scatter-plots-more-features.html#cb56-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides=</span><span class="st">&quot;tr&quot;</span>, <span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">linewidth=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
+<div id="density-estimates" class="section level5 hasAnchor" number="8.5.3.0.1">
+<h5><span class="header-section-number">8.5.3.0.1</span> Density estimates<a href="scatter-plots-more-features.html#density-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>geom_density_2d</strong> performs a 2D kernel density estimation and displays the results with contours.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="scatter-plots-more-features.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb57-2"><a href="scatter-plots-more-features.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-3"><a href="scatter-plots-more-features.html#cb57-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="scatter-plots-more-features.html#cb57-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb57-5"><a href="scatter-plots-more-features.html#cb57-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-56-1.png" width="480" /></p>
+<p>Play with some of the parameters we already know:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="scatter-plots-more-features.html#cb58-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href="scatter-plots-more-features.html#cb58-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-3"><a href="scatter-plots-more-features.html#cb58-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-4"><a href="scatter-plots-more-features.html#cb58-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb58-5"><a href="scatter-plots-more-features.html#cb58-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">color=</span><span class="st">&quot;pink&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
+</div>
+</div>
 </div>
             </section>
 

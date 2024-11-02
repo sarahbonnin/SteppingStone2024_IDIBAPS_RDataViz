@@ -263,55 +263,6 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 
 </details>
 
-#### More useful layers
-
-##### geom_rug()
-
-**geom_rug** creates a compact visualization along the axes to help read the information of individual cases. 
-
-```{r}
-ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
-  geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
-  theme_linedraw() +
-  geom_rug()
-```
-
-As usual, you can customize several parameters, such as:
-
-* *sides*: sides where to draw the lines (**t**op, **bottom**, **right**, **left**)
-* *alpha*: opacity Ranges from 0 (transparent) to 1 (opaque).
-* *linewidth*, *linetype*
-
-```{r}
-ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
-  geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
-  theme_linedraw() +
-  geom_rug(sides="tr", alpha=0.3, linewidth=1)
-```
-
-##### geom_density_2d()
-
-**geom_density_2d** performs a 2D kernel density estimation and displays the results with contours.
-
-```{r}
-ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
-  geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
-  theme_linedraw() +
-  geom_density_2d()
-```
-
-Play with some of the parameters we already know:
-
-```{r}
-ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
-  geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
-  theme_linedraw() +
-  geom_density_2d(color="pink", alpha=0.5, linewidth = 2)
-```
 
 ## Save your plot
 
@@ -496,6 +447,8 @@ ggsave(filename="myblueplot.jpg", plot=mybluescatterplot,
 
 We can customize our scatter plot a bit more.
 
+### Labels
+
 We may want to show the gene names that the points represent.
 
 This is done by:
@@ -547,8 +500,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) +
   geom_text_repel()
 ```
 
+### Color and shape mapping
 
-Last but not least: point color and shape can be **dependent on another column / variable of the data**. This is called **mapping an aesthetic to a variable**
+Point color and shape can be **dependent on another column / variable of the data**. This is called **mapping an aesthetic to a variable**
 
 Columns use to **conditionally color or shape the points** are set inside the **aes()** function.
 
@@ -568,7 +522,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) +
   geom_text(nudge_x=1.2, size=3)
 ```
 
-TIP: remove the weird double labeling in the legend (a letter behind the point): set **show.legend=FALSE** in **geom_text()**:
+TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are used): set **show.legend=FALSE** in **geom_text()**:
 
 ```{r, fig.width=7}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) + 
@@ -601,6 +555,55 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) +
 ```
 
 </details>
+
+### Additional ticks
+
+**geom_rug** creates a compact visualization along the axes to help read the information of individual cases. 
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_rug()
+```
+
+As usual, you can customize several parameters, such as:
+
+* *sides*: sides where to draw the lines (**t**op, **bottom**, **right**, **left**)
+* *alpha*: opacity Ranges from 0 (transparent) to 1 (opaque).
+* *linewidth*, *linetype*
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_rug(sides="tr", alpha=0.3, linewidth=1)
+```
+
+##### Density estimates
+
+**geom_density_2d** performs a 2D kernel density estimation and displays the results with contours.
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_density_2d()
+```
+
+Play with some of the parameters we already know:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_density_2d(color="pink", alpha=0.5, linewidth = 2)
+```
+
 
 
 ## Barplots

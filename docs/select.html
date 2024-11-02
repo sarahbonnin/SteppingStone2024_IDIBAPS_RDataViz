@@ -204,7 +204,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
 <li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
 <li class="chapter" data-level="8.5.4" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#density-estimates"><i class="fa fa-check"></i><b>8.5.4</b> Density estimates</a></li>
-<li class="chapter" data-level="8.5.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#marginal-plots"><i class="fa fa-check"></i><b>8.5.5</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
@@ -233,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.3" data-path="histograms-and-density-plots.html"><a href="histograms-and-density-plots.html#histogram-density"><i class="fa fa-check"></i><b>10.1.3</b> Histogram + density</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="pie-chart.html"><a href="pie-chart.html"><i class="fa fa-check"></i><b>10.2</b> Pie chart</a></li>
+<li class="chapter" data-level="10.3" data-path="marginal-plots.html"><a href="marginal-plots.html"><i class="fa fa-check"></i><b>10.3</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="exercises-to-do-at-home.html"><a href="exercises-to-do-at-home.html"><i class="fa fa-check"></i><b>11</b> Exercises to do at home</a>
 <ul>
@@ -274,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> select()<a href="select.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>select()</strong> will select <strong>columns</strong> from a data frame.</p>
 <p>Select only columns <strong>Gene</strong> and <strong>DE</strong> from <strong>geneexp</strong>:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="select.html#cb109-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="select.html#cb105-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 2
 ##    Gene   DE   
 ##    &lt;chr&gt;  &lt;chr&gt;
@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 19 DVL    No   
 ## 20 MAPK2  Up</code></pre>
 <p>Again, a good practice is to save that subset into a new object:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="select.html#cb111-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="select.html#cb107-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 </div>
             </section>
 

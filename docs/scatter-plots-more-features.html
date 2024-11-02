@@ -204,7 +204,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
 <li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
 <li class="chapter" data-level="8.5.4" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#density-estimates"><i class="fa fa-check"></i><b>8.5.4</b> Density estimates</a></li>
-<li class="chapter" data-level="8.5.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#marginal-plots"><i class="fa fa-check"></i><b>8.5.5</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
@@ -233,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.3" data-path="histograms-and-density-plots.html"><a href="histograms-and-density-plots.html#histogram-density"><i class="fa fa-check"></i><b>10.1.3</b> Histogram + density</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="pie-chart.html"><a href="pie-chart.html"><i class="fa fa-check"></i><b>10.2</b> Pie chart</a></li>
+<li class="chapter" data-level="10.3" data-path="marginal-plots.html"><a href="marginal-plots.html"><i class="fa fa-check"></i><b>10.3</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="exercises-to-do-at-home.html"><a href="exercises-to-do-at-home.html"><i class="fa fa-check"></i><b>11</b> Exercises to do at home</a>
 <ul>
@@ -382,24 +382,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-4"><a href="scatter-plots-more-features.html#cb58-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
 <span id="cb58-5"><a href="scatter-plots-more-features.html#cb58-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">color=</span><span class="st">&quot;pink&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
-</div>
-<div id="marginal-plots" class="section level3 hasAnchor" number="8.5.5">
-<h3><span class="header-section-number">8.5.5</span> Marginal plots<a href="scatter-plots-more-features.html#marginal-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Function <strong>ggMarginal</strong> from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="scatter-plots-more-features.html#cb59-1" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
-<span id="cb59-2"><a href="scatter-plots-more-features.html#cb59-2" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="scatter-plots-more-features.html#cb59-3" tabindex="-1"></a><span class="co"># classic plot :</span></span>
-<span id="cb59-4"><a href="scatter-plots-more-features.html#cb59-4" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span></span>
-<span id="cb59-5"><a href="scatter-plots-more-features.html#cb59-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="scatter-plots-more-features.html#cb60-1" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
-<span id="cb60-2"><a href="scatter-plots-more-features.html#cb60-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-59-1.png" width="480" /></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="scatter-plots-more-features.html#cb61-1" tabindex="-1"></a><span class="co"># marginal density</span></span>
-<span id="cb61-2"><a href="scatter-plots-more-features.html#cb61-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-60-1.png" width="480" /></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="scatter-plots-more-features.html#cb62-1" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
-<span id="cb62-2"><a href="scatter-plots-more-features.html#cb62-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-61-1.png" width="480" /></p>
 </div>
 </div>
             </section>

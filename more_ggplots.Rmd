@@ -113,3 +113,31 @@ ggplot(data=gtf_count_chr, mapping=aes(x="", y=counts, fill=chr)) +
 ```
 
 Here is a [nice page](https://genchanghsu.github.io/ggGallery/posts/2021-06-18-post-3-pie-charts-with-ggplot/) about more pie plot customization.
+
+## Marginal plots
+
+Function [**ggMarginal**](https://www.rdocumentation.org/packages/ggExtra/versions/0.10.1/topics/ggMarginal) from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.
+
+```{r}
+library(ggExtra)
+
+# classic plot :
+p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
+      geom_point()
+```
+
+```{r}
+# with marginal histogram
+ggMarginal(p, type="histogram")
+```
+
+```{r}
+# marginal density
+ggMarginal(p, type="density")
+```
+
+```{r}
+# marginal boxplot
+ggMarginal(p, type="boxplot")
+```
+

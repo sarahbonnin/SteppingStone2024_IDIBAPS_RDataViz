@@ -45,7 +45,6 @@ labels
 color-and-shape-mapping
 additional-ticks
 density-estimates
-marginal-plots
 barplots
 exercise-2
 barplots-bars-position
@@ -65,6 +64,7 @@ histogram
 density-plot
 histogram-density
 pie-chart
+marginal-plots
 exercises-to-do-at-home
 exercise-4-barplots
 exercise-5-scatter-plot

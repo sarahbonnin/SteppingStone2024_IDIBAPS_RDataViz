@@ -604,34 +604,6 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   geom_density_2d(color="pink", alpha=0.5, linewidth = 2)
 ```
 
-
-### Marginal plots
-
-Function **ggMarginal** from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.
-
-```{r}
-library(ggExtra)
-
-# classic plot :
-p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
-      geom_point()
-```
-
-```{r}
-# with marginal histogram
-ggMarginal(p, type="histogram")
-```
-
-```{r}
-# marginal density
-ggMarginal(p, type="density")
-```
-
-```{r}
-# marginal boxplot
-ggMarginal(p, type="boxplot")
-```
-
 ## Barplots
 
 A barplot (or barchart) is a graph that represents categorical data with rectangular bars, which heights are proportional to the values they represent.

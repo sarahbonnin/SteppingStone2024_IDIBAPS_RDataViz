@@ -570,7 +570,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 
 As usual, you can customize several parameters, such as:
 
-* *sides*: sides where to draw the lines (**t**op, **bottom**, **right**, **left**)
+* *sides*: sides where to draw the lines (**t**op, **b**ottom, **r**ight, **l**eft)
 * *alpha*: opacity Ranges from 0 (transparent) to 1 (opaque).
 * *linewidth*, *linetype*
 

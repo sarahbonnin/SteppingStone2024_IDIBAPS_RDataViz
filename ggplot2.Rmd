@@ -615,18 +615,21 @@ library(ggExtra)
 # classic plot :
 p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
       geom_point()
+```
 
+```{r}
 # with marginal histogram
-p_marg_hist <- ggMarginal(p, type="histogram")
-p_marg_hist
+ggMarginal(p, type="histogram")
+```
 
+```{r}
 # marginal density
-p_marg_dens <- ggMarginal(p, type="density")
-p_marg_dens
+ggMarginal(p, type="density")
+```
 
+```{r}
 # marginal boxplot
-p_marg_box <- ggMarginal(p, type="boxplot")
-p_marg_box
+ggMarginal(p, type="boxplot")
 ```
 
 ## Barplots

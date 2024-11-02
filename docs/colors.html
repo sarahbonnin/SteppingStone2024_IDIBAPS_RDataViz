@@ -275,26 +275,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Colors can be set a different way in ggplot2, and in R in general.</p>
 <p>The easiest way is to fetch the colors <a href="https://r-graph-gallery.com/42-colors-names.html">by their names</a>.</p>
 <p>There are 657 color names available for you to pick! You can check them by pasting the following in the console:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="colors.html#cb91-1" tabindex="-1"></a><span class="fu">colors</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="colors.html#cb94-1" tabindex="-1"></a><span class="fu">colors</span>()</span></code></pre></div>
 <p>ggplot2 provides a color scale by default. Mainy different <strong>palettes</strong> are available to change the default scale.</p>
 <p>You can easily pick palettes from the <a href="https://r-graph-gallery.com/38-rcolorbrewers-palettes.html"><strong>RColorBrewer</strong> package</a>, that is included in ggplot2.</p>
 <p>Available palettes are shown below:</p>
 <p><img src="images/ggplot2_rcolorbrewer.png" alt="import zip" width="500"/></p>
 <p>In the console, you can extract the <strong>colorblind-friendly</strong> palettes the following way:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="colors.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb92-2"><a href="colors.html#cb92-2" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-91-1.png" width="480" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="colors.html#cb95-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb95-2"><a href="colors.html#cb95-2" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-94-1.png" width="480" /></p>
 <p>We can easily take advantage of the RColorBrewer’s palettes by using either <strong>scale_color_brewer()</strong> or <strong>scale_fill_brewer()</strong> layers (depending if <strong>color</strong> or <strong>fill</strong> was set in <strong>aes()</strong>, respectively):</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="colors.html#cb93-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb93-2"><a href="colors.html#cb93-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb93-3"><a href="colors.html#cb93-3" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-92-1.png" width="480" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="colors.html#cb96-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb96-2"><a href="colors.html#cb96-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb96-3"><a href="colors.html#cb96-3" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-95-1.png" width="480" /></p>
 <p>The default palette used is the “Blues” palette.</p>
 <p>How does that look using “Dark2” palette?</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="colors.html#cb94-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb94-2"><a href="colors.html#cb94-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb94-3"><a href="colors.html#cb94-3" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-93-1.png" width="480" /></p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="colors.html#cb97-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb97-2"><a href="colors.html#cb97-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-3"><a href="colors.html#cb97-3" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Dark2&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-96-1.png" width="480" /></p>
 </div>
             </section>
 

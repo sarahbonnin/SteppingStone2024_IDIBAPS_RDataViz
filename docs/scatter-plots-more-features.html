@@ -390,20 +390,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-2"><a href="scatter-plots-more-features.html#cb59-2" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="scatter-plots-more-features.html#cb59-3" tabindex="-1"></a><span class="co"># classic plot :</span></span>
 <span id="cb59-4"><a href="scatter-plots-more-features.html#cb59-4" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span></span>
-<span id="cb59-5"><a href="scatter-plots-more-features.html#cb59-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
-<span id="cb59-6"><a href="scatter-plots-more-features.html#cb59-6" tabindex="-1"></a></span>
-<span id="cb59-7"><a href="scatter-plots-more-features.html#cb59-7" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
-<span id="cb59-8"><a href="scatter-plots-more-features.html#cb59-8" tabindex="-1"></a>p_marg_hist <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span>
-<span id="cb59-9"><a href="scatter-plots-more-features.html#cb59-9" tabindex="-1"></a>p_marg_hist</span>
-<span id="cb59-10"><a href="scatter-plots-more-features.html#cb59-10" tabindex="-1"></a></span>
-<span id="cb59-11"><a href="scatter-plots-more-features.html#cb59-11" tabindex="-1"></a><span class="co"># marginal density</span></span>
-<span id="cb59-12"><a href="scatter-plots-more-features.html#cb59-12" tabindex="-1"></a>p_marg_dens <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span>
-<span id="cb59-13"><a href="scatter-plots-more-features.html#cb59-13" tabindex="-1"></a>p_marg_dens</span>
-<span id="cb59-14"><a href="scatter-plots-more-features.html#cb59-14" tabindex="-1"></a></span>
-<span id="cb59-15"><a href="scatter-plots-more-features.html#cb59-15" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
-<span id="cb59-16"><a href="scatter-plots-more-features.html#cb59-16" tabindex="-1"></a>p_marg_box <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span>
-<span id="cb59-17"><a href="scatter-plots-more-features.html#cb59-17" tabindex="-1"></a>p_marg_box</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-58-1.png" width="480" /></p>
+<span id="cb59-5"><a href="scatter-plots-more-features.html#cb59-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="scatter-plots-more-features.html#cb60-1" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
+<span id="cb60-2"><a href="scatter-plots-more-features.html#cb60-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-59-1.png" width="480" /></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="scatter-plots-more-features.html#cb61-1" tabindex="-1"></a><span class="co"># marginal density</span></span>
+<span id="cb61-2"><a href="scatter-plots-more-features.html#cb61-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-60-1.png" width="480" /></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="scatter-plots-more-features.html#cb62-1" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
+<span id="cb62-2"><a href="scatter-plots-more-features.html#cb62-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-61-1.png" width="480" /></p>
 </div>
 </div>
             </section>

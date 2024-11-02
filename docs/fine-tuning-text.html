@@ -276,53 +276,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Changing text size in ggplot2 graphs should be done using the <strong>theme()</strong> package, that unfortunately utilizes a difficult structure.</p>
 <p>We will illustrate some font size modifications on our very first scatter plot.</p>
 <p>Change <strong>overall</strong> font size:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="fine-tuning-text.html#cb83-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb83-2"><a href="fine-tuning-text.html#cb83-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb83-3"><a href="fine-tuning-text.html#cb83-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb83-4"><a href="fine-tuning-text.html#cb83-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-82-1.png" width="480" /></p>
-<p>Change font size of axis text:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="fine-tuning-text.html#cb84-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb84-2"><a href="fine-tuning-text.html#cb84-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb84-3"><a href="fine-tuning-text.html#cb84-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb84-4"><a href="fine-tuning-text.html#cb84-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-83-1.png" width="480" /></p>
-<p>Change font size of axis titles:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="fine-tuning-text.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb85-2"><a href="fine-tuning-text.html#cb85-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb85-3"><a href="fine-tuning-text.html#cb85-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb85-4"><a href="fine-tuning-text.html#cb85-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-84-1.png" width="480" /></p>
-<p>Remove axis titles (x-axis title given as an example):</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="fine-tuning-text.html#cb86-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb86-2"><a href="fine-tuning-text.html#cb86-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb86-3"><a href="fine-tuning-text.html#cb86-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb86-4"><a href="fine-tuning-text.html#cb86-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<span id="cb86-4"><a href="fine-tuning-text.html#cb86-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-85-1.png" width="480" /></p>
-<p>Shift a bit the main title (it is by default centered to the left):</p>
+<p>Change font size of axis text:</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="fine-tuning-text.html#cb87-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb87-2"><a href="fine-tuning-text.html#cb87-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb87-3"><a href="fine-tuning-text.html#cb87-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb87-4"><a href="fine-tuning-text.html#cb87-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<span id="cb87-4"><a href="fine-tuning-text.html#cb87-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-86-1.png" width="480" /></p>
-<p>Change font size of the main title:</p>
+<p>Change font size of axis titles:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="fine-tuning-text.html#cb88-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb88-2"><a href="fine-tuning-text.html#cb88-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb88-3"><a href="fine-tuning-text.html#cb88-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb88-4"><a href="fine-tuning-text.html#cb88-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<span id="cb88-4"><a href="fine-tuning-text.html#cb88-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-87-1.png" width="480" /></p>
-<p>Change the color of the title, and make it bold:</p>
+<p>Remove axis titles (x-axis title given as an example):</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="fine-tuning-text.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb89-2"><a href="fine-tuning-text.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb89-3"><a href="fine-tuning-text.html#cb89-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb89-4"><a href="fine-tuning-text.html#cb89-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<span id="cb89-4"><a href="fine-tuning-text.html#cb89-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-88-1.png" width="480" /></p>
-<p>You can also use theme() to rotate the x-axis label of plots, for example:</p>
+<p>Shift a bit the main title (it is by default centered to the left):</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="fine-tuning-text.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb90-2"><a href="fine-tuning-text.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb90-3"><a href="fine-tuning-text.html#cb90-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb90-4"><a href="fine-tuning-text.html#cb90-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code></pre></div>
+<span id="cb90-4"><a href="fine-tuning-text.html#cb90-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-89-1.png" width="480" /></p>
+<p>Change font size of the main title:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="fine-tuning-text.html#cb91-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb91-2"><a href="fine-tuning-text.html#cb91-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb91-3"><a href="fine-tuning-text.html#cb91-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-4"><a href="fine-tuning-text.html#cb91-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-90-1.png" width="480" /></p>
+<p>Change the color of the title, and make it bold:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="fine-tuning-text.html#cb92-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb92-2"><a href="fine-tuning-text.html#cb92-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb92-3"><a href="fine-tuning-text.html#cb92-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb92-4"><a href="fine-tuning-text.html#cb92-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-91-1.png" width="480" /></p>
+<p>You can also use theme() to rotate the x-axis label of plots, for example:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="fine-tuning-text.html#cb93-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
+<span id="cb93-2"><a href="fine-tuning-text.html#cb93-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb93-3"><a href="fine-tuning-text.html#cb93-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="fine-tuning-text.html#cb93-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-92-1.png" width="480" /></p>
 <p>If you want to learn more, you can check this <a href="https://ggplot2tor.com/theme/">complete guide on how to modify the ggplot2 theme</a>.</p>
 </div>
             </section>

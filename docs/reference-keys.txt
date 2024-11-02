@@ -36,6 +36,9 @@ add-more-layers
 ggtitle
 background
 regression-line
+more-useful-layers
+geom_rug
+geom_density_2d
 save-your-plot
 from-the-rstudio-interface
 from-the-console

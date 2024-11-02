@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-01" />
+<meta name="date" content="2024-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -267,22 +267,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.8</span> Barplots: bars position<a href="barplots-bars-position.html#barplots-bars-position" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can also play with the <strong>position</strong> of the bars. By default, position is <strong>stack</strong>, i.e. categories are stacked on top of each other along the bar.</p>
 <p>Position <strong>fill</strong> scales data so the top is always 1, i.e. shows proportions, instead of the absolute values:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="barplots-bars-position.html#cb60-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb60-2"><a href="barplots-bars-position.html#cb60-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-61-1.png" width="480" /></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="barplots-bars-position.html#cb68-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb68-2"><a href="barplots-bars-position.html#cb68-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-67-1.png" width="480" /></p>
 <p>Position <strong>dodge</strong> represents each category (here, continents) side-by-side:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="barplots-bars-position.html#cb61-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb61-2"><a href="barplots-bars-position.html#cb61-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-62-1.png" width="480" /></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="barplots-bars-position.html#cb69-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb69-2"><a href="barplots-bars-position.html#cb69-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-68-1.png" width="480" /></p>
 <details>
 <summary>
 <em>More advanced (as reference, or if someone asks): how to reorder x-axis labels:</em>
 </summary>
 <p>Factors are a data type in R: they are used to represent categorical data. Using factors requires a bit more understanding of R works/thinks, but here is an application using <strong>ordered factors/categories</strong>:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="barplots-bars-position.html#cb62-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(chr, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr2&quot;</span>, <span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr4&quot;</span>, <span class="st">&quot;chr5&quot;</span>, <span class="st">&quot;chr6&quot;</span>, <span class="st">&quot;chr7&quot;</span>, <span class="st">&quot;chr8&quot;</span>, <span class="st">&quot;chr9&quot;</span>, <span class="st">&quot;chr10&quot;</span>), <span class="at">ordered=</span><span class="cn">TRUE</span>), <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb62-2"><a href="barplots-bars-position.html#cb62-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb62-3"><a href="barplots-bars-position.html#cb62-3" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;chromosome&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-63-1.png" width="480" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="barplots-bars-position.html#cb70-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(chr, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;chr1&quot;</span>, <span class="st">&quot;chr2&quot;</span>, <span class="st">&quot;chr3&quot;</span>, <span class="st">&quot;chr4&quot;</span>, <span class="st">&quot;chr5&quot;</span>, <span class="st">&quot;chr6&quot;</span>, <span class="st">&quot;chr7&quot;</span>, <span class="st">&quot;chr8&quot;</span>, <span class="st">&quot;chr9&quot;</span>, <span class="st">&quot;chr10&quot;</span>), <span class="at">ordered=</span><span class="cn">TRUE</span>), <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb70-2"><a href="barplots-bars-position.html#cb70-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb70-3"><a href="barplots-bars-position.html#cb70-3" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;chromosome&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-69-1.png" width="480" /></p>
 </details>
 <div id="statidentity-parameter" class="section level3 hasAnchor" number="8.8.1">
 <h3><span class="header-section-number">8.8.1</span> stat=“identity” parameter<a href="barplots-bars-position.html#statidentity-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -292,40 +292,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s import data from file: <strong>DataViz_source_files-main/files/stats_continents_barcelona_2013-2023_long.csv</strong>
 in an object called <strong>statsbcn</strong>.</p>
 <p>The data contains the number of foreign residents in Barcelona from 2013 to 2023.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="barplots-bars-position.html#cb63-1" tabindex="-1"></a>statsbcn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/stats_continents_barcelona_2013-2023_long.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="barplots-bars-position.html#cb71-1" tabindex="-1"></a>statsbcn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/stats_continents_barcelona_2013-2023_long.csv&quot;</span>)</span></code></pre></div>
 <p>How many rows and how many columns does the data contain?</p>
 <p>In the barplots we created so far, R takes categories in the columns specified in <strong>x=</strong> and counts the number of occurrences.</p>
 <p>The argument <strong>stat=“identity”</strong> in geom_bar() is telling R to use the sum of the variable specified in <strong>y=</strong>, <strong>grouped by the x variable</strong>: bars of the barplot will display these sums.</p>
 <p>In the following example, we are plotting the sum of foreign residents in Barcelona (Population provided in <strong>y</strong>) per year (Year provided in <strong>x</strong>):</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="barplots-bars-position.html#cb64-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population)) <span class="sc">+</span> </span>
-<span id="cb64-2"><a href="barplots-bars-position.html#cb64-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-65-1.png" width="480" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="barplots-bars-position.html#cb72-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population)) <span class="sc">+</span> </span>
+<span id="cb72-2"><a href="barplots-bars-position.html#cb72-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-71-1.png" width="480" /></p>
 <p>Here, we can provide <strong>Continent</strong> to <strong>fill</strong>:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="barplots-bars-position.html#cb65-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
-<span id="cb65-2"><a href="barplots-bars-position.html#cb65-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-66-1.png" width="480" /></p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="barplots-bars-position.html#cb73-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
+<span id="cb73-2"><a href="barplots-bars-position.html#cb73-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-72-1.png" width="480" /></p>
 <p>We can here again play with the <strong>position</strong>.</p>
 <p>Position <strong>fill</strong> :</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="barplots-bars-position.html#cb66-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
-<span id="cb66-2"><a href="barplots-bars-position.html#cb66-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-67-1.png" width="480" /></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="barplots-bars-position.html#cb74-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
+<span id="cb74-2"><a href="barplots-bars-position.html#cb74-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-73-1.png" width="480" /></p>
 <p>Position <strong>dodge</strong> :</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="barplots-bars-position.html#cb67-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
-<span id="cb67-2"><a href="barplots-bars-position.html#cb67-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-68-1.png" width="480" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="barplots-bars-position.html#cb75-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
+<span id="cb75-2"><a href="barplots-bars-position.html#cb75-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-74-1.png" width="480" /></p>
 <p>You can control the width of bars (hence, the spacing between 2 bars) using the <strong>width</strong> parameter of geom_bar():</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="barplots-bars-position.html#cb68-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
-<span id="cb68-2"><a href="barplots-bars-position.html#cb68-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="at">width =</span> <span class="fl">0.8</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-69-1.png" width="480" /></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="barplots-bars-position.html#cb76-1" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
+<span id="cb76-2"><a href="barplots-bars-position.html#cb76-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="at">width =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-75-1.png" width="480" /></p>
 <details>
 <summary>
 <em>More advanced (as reference, or if someone asks): display all labels:</em>
 </summary>
 <p>Convert “Year” column as character, instead of numbers:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="barplots-bars-position.html#cb69-1" tabindex="-1"></a><span class="co"># convert the x-axis from a continuous to a discrete variable (as.character)</span></span>
-<span id="cb69-2"><a href="barplots-bars-position.html#cb69-2" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.character</span>(Year), <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
-<span id="cb69-3"><a href="barplots-bars-position.html#cb69-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-70-1.png" width="480" /></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="barplots-bars-position.html#cb77-1" tabindex="-1"></a><span class="co"># convert the x-axis from a continuous to a discrete variable (as.character)</span></span>
+<span id="cb77-2"><a href="barplots-bars-position.html#cb77-2" tabindex="-1"></a><span class="fu">ggplot</span>(statsbcn, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.character</span>(Year), <span class="at">y=</span>Population, <span class="at">fill=</span>Continent)) <span class="sc">+</span> </span>
+<span id="cb77-3"><a href="barplots-bars-position.html#cb77-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-76-1.png" width="480" /></p>
 </details>
 </div>
 </div>

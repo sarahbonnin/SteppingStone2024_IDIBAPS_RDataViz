@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-01" />
+<meta name="date" content="2024-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -267,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> select()<a href="select.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>select()</strong> will select <strong>columns</strong>.</p>
 <p>Select only columns <strong>Gene</strong> and <strong>DE</strong> from <strong>geneexp</strong>:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="select.html#cb97-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="select.html#cb105-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 2
 ##    Gene   DE   
 ##    &lt;chr&gt;  &lt;chr&gt;
@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 19 DVL    No   
 ## 20 MAPK2  Up</code></pre>
 <p>Again, a good practice is to save that subset into a new object:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="select.html#cb99-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="select.html#cb107-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 </div>
             </section>
 

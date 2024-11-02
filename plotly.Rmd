@@ -47,3 +47,16 @@ mybarplot <- ggplot(data=geneexp, mapping=aes(x=DE)) +
 ```{r, echo=T, eval=F}
 ggplotly(p=mybarplot)
 ```
+
+You can add ggplot2 layers / components:
+
+```{r}
+mybarplot <- ggplot(data=geneexp, mapping=aes(x=DE)) + 
+  geom_bar() +
+  ggtitle(label="barplot in ggplotly") +
+  theme_bw()
+```
+
+```{r, echo=T, eval=F}
+ggplotly(p=mybarplot)
+```

@@ -288,7 +288,9 @@ ggplot(data=rnaseq_linc_mirna_filter2, mapping=aes(x=CTRL, y=EZH, color=gene_bio
 </details>
 <br>
 
-NOTE: If you want to label only one (or few) point(s), you can do it the following way:
+<summary>
+NOTE: If you want to label only one (or few) point(s), click here.
+</summary>
 
 First, filter the data frame:
 ```{r}
@@ -305,6 +307,8 @@ ggplot(data=rnaseq_linc_mirna_filter2, mapping=aes(x=CTRL, y=EZH, color=gene_bio
   geom_text(data=SNHG8, label="SNHG8", show.legend = FALSE)
 ```
 
+</details>
+<br>
 
 
 ## Exercise 6: boxplot

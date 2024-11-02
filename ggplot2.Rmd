@@ -160,27 +160,50 @@ For example:
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
   geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
+  ggtitle(label="theme grey (the default theme)") +
+  theme_grey()
+```
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="theme linedraw") +
   theme_linedraw()
 ```
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
   geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
+  ggtitle(label="theme bw = black and white") +
   theme_bw()
 ```
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
   geom_point(color="red", size=2.5, shape="diamond") +
-  ggtitle(label="my first ggplot") +
-  theme_grey()
+  ggtitle(label="theme void") +
+  theme_void()
 ```
 
 Here is a good page to check the different backgrounds:
 https://ggplot2-book.org/themes#sec-theme
 
+Note that you can also change some settings globally as you use a new theme, e.g. 
+
+* *base_size*: by default, 11.
+* *base_family*: the font (uses by default arial or sans). To check the fonts that are available, type *systemfonts::system_fonts()$family*
+* *base_line_size*: by default, base_size/22.
+* *base_rect_size*: by default, base_size/22
+
+
+
+```{r}
+# get full list of available fonts in your system with: 
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_bw(base_size=18, base_family = "Laksaman", base_line_size = 2, base_rect_size = 4)
+```
 
 #### Regression line
 
@@ -192,6 +215,34 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   ggtitle(label="my first ggplot") +
   theme_linedraw() +
   geom_smooth()
+```
+
+Remove the confidence interval:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_smooth(se=FALSE)
+```
+
+Different methods can be used to fit the smoothing line:
+
+* "lm": linear model.
+* "glm": generalized linear model.
+* "gam": generalized additive model.
+* "loess": local polynomial regression.
+* A function (more advanced)
+
+By default, the smoothing method is picked based on the size of the largest group across all panels.
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_smooth(se=FALSE, method="lm")
 ```
 
 <details>
@@ -211,6 +262,56 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
 ```
 
 </details>
+
+#### More useful layers
+
+##### geom_rug()
+
+**geom_rug** creates a compact visualization along the axes to help read the information of individual cases. 
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_rug()
+```
+
+As usual, you can customize several parameters, such as:
+
+* *sides*: sides where to draw the lines (**t**op, **bottom**, **right**, **left**)
+* *alpha*: opacity Ranges from 0 (transparent) to 1 (opaque).
+* *linewidth*, *linetype*
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_rug(sides="tr", alpha=0.3, linewidth=1)
+```
+
+##### geom_density_2d()
+
+**geom_density_2d** performs a 2D kernel density estimation and displays the results with contours.
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_density_2d()
+```
+
+Play with some of the parameters we already know:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
+  geom_point(color="red", size=2.5, shape="diamond") +
+  ggtitle(label="my first ggplot") +
+  theme_linedraw() +
+  geom_density_2d(color="pink", alpha=0.5, linewidth = 2)
+```
 
 ## Save your plot
 

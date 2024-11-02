@@ -45,6 +45,7 @@ labels
 color-and-shape-mapping
 additional-ticks
 density-estimates
+marginal-plots
 barplots
 exercise-2
 barplots-bars-position

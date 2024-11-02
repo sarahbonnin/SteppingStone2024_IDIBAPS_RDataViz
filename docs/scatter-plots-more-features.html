@@ -203,6 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.1" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#labels"><i class="fa fa-check"></i><b>8.5.1</b> Labels</a></li>
 <li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
 <li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
+<li class="chapter" data-level="8.5.4" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#density-estimates"><i class="fa fa-check"></i><b>8.5.4</b> Density estimates</a></li>
+<li class="chapter" data-level="8.5.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#marginal-plots"><i class="fa fa-check"></i><b>8.5.5</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
@@ -363,8 +365,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb56-4"><a href="scatter-plots-more-features.html#cb56-4" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
 <span id="cb56-5"><a href="scatter-plots-more-features.html#cb56-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides=</span><span class="st">&quot;tr&quot;</span>, <span class="at">alpha=</span><span class="fl">0.3</span>, <span class="at">linewidth=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-55-1.png" width="480" /></p>
-<div id="density-estimates" class="section level5 hasAnchor" number="8.5.3.0.1">
-<h5><span class="header-section-number">8.5.3.0.1</span> Density estimates<a href="scatter-plots-more-features.html#density-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+</div>
+<div id="density-estimates" class="section level3 hasAnchor" number="8.5.4">
+<h3><span class="header-section-number">8.5.4</span> Density estimates<a href="scatter-plots-more-features.html#density-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>geom_density_2d</strong> performs a 2D kernel density estimation and displays the results with contours.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="scatter-plots-more-features.html#cb57-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="scatter-plots-more-features.html#cb57-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
@@ -380,6 +383,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-5"><a href="scatter-plots-more-features.html#cb58-5" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">color=</span><span class="st">&quot;pink&quot;</span>, <span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-57-1.png" width="480" /></p>
 </div>
+<div id="marginal-plots" class="section level3 hasAnchor" number="8.5.5">
+<h3><span class="header-section-number">8.5.5</span> Marginal plots<a href="scatter-plots-more-features.html#marginal-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Function <strong>ggMarginal</strong> from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="scatter-plots-more-features.html#cb59-1" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb59-2"><a href="scatter-plots-more-features.html#cb59-2" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="scatter-plots-more-features.html#cb59-3" tabindex="-1"></a><span class="co"># classic plot :</span></span>
+<span id="cb59-4"><a href="scatter-plots-more-features.html#cb59-4" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span></span>
+<span id="cb59-5"><a href="scatter-plots-more-features.html#cb59-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb59-6"><a href="scatter-plots-more-features.html#cb59-6" tabindex="-1"></a></span>
+<span id="cb59-7"><a href="scatter-plots-more-features.html#cb59-7" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
+<span id="cb59-8"><a href="scatter-plots-more-features.html#cb59-8" tabindex="-1"></a>p_marg_hist <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span>
+<span id="cb59-9"><a href="scatter-plots-more-features.html#cb59-9" tabindex="-1"></a>p_marg_hist</span>
+<span id="cb59-10"><a href="scatter-plots-more-features.html#cb59-10" tabindex="-1"></a></span>
+<span id="cb59-11"><a href="scatter-plots-more-features.html#cb59-11" tabindex="-1"></a><span class="co"># marginal density</span></span>
+<span id="cb59-12"><a href="scatter-plots-more-features.html#cb59-12" tabindex="-1"></a>p_marg_dens <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span>
+<span id="cb59-13"><a href="scatter-plots-more-features.html#cb59-13" tabindex="-1"></a>p_marg_dens</span>
+<span id="cb59-14"><a href="scatter-plots-more-features.html#cb59-14" tabindex="-1"></a></span>
+<span id="cb59-15"><a href="scatter-plots-more-features.html#cb59-15" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
+<span id="cb59-16"><a href="scatter-plots-more-features.html#cb59-16" tabindex="-1"></a>p_marg_box <span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span>
+<span id="cb59-17"><a href="scatter-plots-more-features.html#cb59-17" tabindex="-1"></a>p_marg_box</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-58-1.png" width="480" /></p>
 </div>
 </div>
             </section>

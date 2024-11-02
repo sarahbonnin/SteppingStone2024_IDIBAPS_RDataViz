@@ -203,6 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.1" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#labels"><i class="fa fa-check"></i><b>8.5.1</b> Labels</a></li>
 <li class="chapter" data-level="8.5.2" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#color-and-shape-mapping"><i class="fa fa-check"></i><b>8.5.2</b> Color and shape mapping</a></li>
 <li class="chapter" data-level="8.5.3" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#additional-ticks"><i class="fa fa-check"></i><b>8.5.3</b> Additional ticks</a></li>
+<li class="chapter" data-level="8.5.4" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#density-estimates"><i class="fa fa-check"></i><b>8.5.4</b> Density estimates</a></li>
+<li class="chapter" data-level="8.5.5" data-path="scatter-plots-more-features.html"><a href="scatter-plots-more-features.html#marginal-plots"><i class="fa fa-check"></i><b>8.5.5</b> Marginal plots</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="barplots.html"><a href="barplots.html"><i class="fa fa-check"></i><b>8.6</b> Barplots</a></li>
 <li class="chapter" data-level="8.7" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i><b>8.7</b> Exercise 2</a></li>
@@ -288,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>One column that contains the sample names</li>
 <li>One column that contains the expression values</li>
 </ul>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="from-wide-to-long-format.html#cb163-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(geneexp, <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;sample1&quot;</span>, <span class="st">&quot;sample2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="from-wide-to-long-format.html#cb164-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(geneexp, <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;sample1&quot;</span>, <span class="st">&quot;sample2&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 4
 ##    Gene  DE    name    value
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
@@ -304,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 CCND1 No    sample2 10.1 
 ## # ℹ 30 more rows</code></pre>
 <p>We can specify the names of the new columns as we create them:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="from-wide-to-long-format.html#cb165-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(geneexp, <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;sample1&quot;</span>, <span class="st">&quot;sample2&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;samples&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;expression&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="from-wide-to-long-format.html#cb166-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(geneexp, <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;sample1&quot;</span>, <span class="st">&quot;sample2&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;samples&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;expression&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 4
 ##    Gene  DE    samples expression
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;

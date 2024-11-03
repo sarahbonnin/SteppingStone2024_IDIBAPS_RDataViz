@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-02" />
+<meta name="date" content="2024-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -275,8 +275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>filter()</strong> will filter <strong>rows</strong>.</p>
 <p>If we take the <strong>geneexp</strong> objet as an example, we can filter only down-regulated genes using the <strong>filter()</strong> function of <strong>{dplyr}</strong>.</p>
 <p>In case you need to import the data again:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="filter.html#cb99-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="filter.html#cb100-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="filter.html#cb103-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter.html#cb104-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>We can have several conditions.</p>
 <p>For example, we may want to extract only rows that have either <strong>Up</strong> OR <strong>Down</strong> in <strong>DE</strong>:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="filter.html#cb102-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="filter.html#cb106-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -349,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8 MAPK2  Up     0.998     9.56</code></pre>
 <p>Here, we introduce another operator, <strong>|</strong>, which mean <strong>OR</strong>, so rows will be kept if there is either <strong>Down</strong> OR <strong>Up</strong> in <strong>DE</strong> column.</p>
 <p>A good practice is to assign the filtered output to a new object, for example:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="filter.html#cb104-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="filter.html#cb108-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 

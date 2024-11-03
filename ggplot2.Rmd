@@ -900,11 +900,11 @@ Violin plots also aim to visualize data distribution. While boxplots can only sh
 
 ## Fine-tuning text
 
-Being able to change font size (axis text, title, legend, etc.) in your graph can be very important for readability.
+Controlling the font size (axis text, title, legend, etc.) and style in your graph can be very important for the image readability.
 
-Changing text size in ggplot2 graphs should be done using the **theme()** package, that unfortunately utilizes a difficult structure.
+Text size and style of ggplot2 graphs can be changed using the **theme()** function. While very powerful, it unfortunately utilizes a difficult structure.
 
-We will illustrate some font size modifications on our very first scatter plot.
+We will illustrate how to make such changes on our first scatter plot.
 
 Change **overall** font size:
 
@@ -915,7 +915,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(text = element_text(size = 20))
 ```
 
-Change font size of axis text:
+Change font size of **axis text**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -924,7 +924,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.text = element_text(size = 20))
 ```
 
-Change font size of axis titles:
+Change font size of **axis titles**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -933,7 +933,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.title = element_text(size = 20))
 ```
 
-Remove axis titles (x-axis title given as an example):
+**Remove axis titles** (e.g. below: removing x-axis title):
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -942,7 +942,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.title.x = element_blank())
 ```
 
-Shift a bit the main title (it is by default centered to the left):
+**Shift** the graph title to the right (it is by default centered to the left):
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -951,7 +951,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-Change font size of the main title:
+Change font size of the **graph title**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -960,7 +960,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(size = 20, hjust = 0.5))
 ```
 
-Change the color of the title, and make it bold:
+Change the **color of the title**, and make it **bold**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -969,7 +969,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(size = 20, hjust = 0.5, face = "bold", colour = "blue"))
 ```
 
-You can also use theme() to rotate the x-axis label of plots, for example:
+You can also use theme() to **rotate the x-axis label** of plots, for example:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -978,7 +978,49 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.text.x = element_text(angle=90))
 ```
 
-If you want to learn more, you can check this [complete guide on how to modify the ggplot2 theme](https://ggplot2tor.com/theme/).
+As a last examples, let's see how we can control the **plot's legend**:
+
+* Colored background:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
+  geom_point() +
+  theme(legend.background = element_rect(fill="yellow"))
+```
+
+Decrease or increase the space between the legend box and the plot
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
+  geom_point() +
+  theme(legend.box.spacing = unit(0, "cm")) # default is 0.4cm
+```
+
+Remove the **key background**:
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
+  geom_point() +
+  theme(legend.key = element_blank())
+```
+
+```{r}
+ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
+  geom_point() +
+  theme(legend.box.spacing = unit(0, "cm")) # default is 0.4cm
+```
+
+Graphical summary of the different **theme elements**:
+
+<img src="images/theme_elements.png" alt="import zip" width="1000"/>
+
+[source](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
+To learn more, check:
+
+* [complete guide on how to modify the ggplot2 theme](https://ggplot2tor.com/theme/).
+* [ggplot2 theme elements demonstration (source of above image)](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
 
 ## Colors
 

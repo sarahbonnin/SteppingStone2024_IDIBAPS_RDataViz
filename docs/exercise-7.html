@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-02" />
+<meta name="date" content="2024-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -280,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="exercise-7.html#cb173-1" tabindex="-1"></a>stats_countries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/stats_countries_barcelona_2013-2023.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="exercise-7.html#cb177-1" tabindex="-1"></a>stats_countries <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/stats_countries_barcelona_2013-2023.csv&quot;</span>)</span></code></pre></div>
 </details>
 <p><br>
 2. Columns 2013 to 2022 contain <strong>observations</strong>. Convert this wide format into a long format. Save into a new object.</p>
@@ -288,23 +288,23 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="exercise-7.html#cb174-1" tabindex="-1"></a><span class="co"># Option 1: list all columns</span></span>
-<span id="cb174-2"><a href="exercise-7.html#cb174-2" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
-<span id="cb174-3"><a href="exercise-7.html#cb174-3" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;2013&quot;</span>, <span class="st">&quot;2014&quot;</span>, <span class="st">&quot;2015&quot;</span>, <span class="st">&quot;2016&quot;</span>, <span class="st">&quot;2017&quot;</span>, <span class="st">&quot;2018&quot;</span>, <span class="st">&quot;2019&quot;</span>, <span class="st">&quot;2020&quot;</span>, <span class="st">&quot;2021&quot;</span>, <span class="st">&quot;2022&quot;</span>, <span class="st">&quot;2023&quot;</span>),</span>
-<span id="cb174-4"><a href="exercise-7.html#cb174-4" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
-<span id="cb174-5"><a href="exercise-7.html#cb174-5" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span>
-<span id="cb174-6"><a href="exercise-7.html#cb174-6" tabindex="-1"></a></span>
-<span id="cb174-7"><a href="exercise-7.html#cb174-7" tabindex="-1"></a><span class="co"># Option 2: select columns that start with &quot;20&quot;</span></span>
-<span id="cb174-8"><a href="exercise-7.html#cb174-8" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
-<span id="cb174-9"><a href="exercise-7.html#cb174-9" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">&quot;20&quot;</span>),</span>
-<span id="cb174-10"><a href="exercise-7.html#cb174-10" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
-<span id="cb174-11"><a href="exercise-7.html#cb174-11" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span>
-<span id="cb174-12"><a href="exercise-7.html#cb174-12" tabindex="-1"></a></span>
-<span id="cb174-13"><a href="exercise-7.html#cb174-13" tabindex="-1"></a><span class="co"># Option 3: select all numeric columns</span></span>
-<span id="cb174-14"><a href="exercise-7.html#cb174-14" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
-<span id="cb174-15"><a href="exercise-7.html#cb174-15" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">where</span>(is.numeric),</span>
-<span id="cb174-16"><a href="exercise-7.html#cb174-16" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
-<span id="cb174-17"><a href="exercise-7.html#cb174-17" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="exercise-7.html#cb178-1" tabindex="-1"></a><span class="co"># Option 1: list all columns</span></span>
+<span id="cb178-2"><a href="exercise-7.html#cb178-2" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
+<span id="cb178-3"><a href="exercise-7.html#cb178-3" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">c</span>(<span class="st">&quot;2013&quot;</span>, <span class="st">&quot;2014&quot;</span>, <span class="st">&quot;2015&quot;</span>, <span class="st">&quot;2016&quot;</span>, <span class="st">&quot;2017&quot;</span>, <span class="st">&quot;2018&quot;</span>, <span class="st">&quot;2019&quot;</span>, <span class="st">&quot;2020&quot;</span>, <span class="st">&quot;2021&quot;</span>, <span class="st">&quot;2022&quot;</span>, <span class="st">&quot;2023&quot;</span>),</span>
+<span id="cb178-4"><a href="exercise-7.html#cb178-4" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
+<span id="cb178-5"><a href="exercise-7.html#cb178-5" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span>
+<span id="cb178-6"><a href="exercise-7.html#cb178-6" tabindex="-1"></a></span>
+<span id="cb178-7"><a href="exercise-7.html#cb178-7" tabindex="-1"></a><span class="co"># Option 2: select columns that start with &quot;20&quot;</span></span>
+<span id="cb178-8"><a href="exercise-7.html#cb178-8" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
+<span id="cb178-9"><a href="exercise-7.html#cb178-9" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">&quot;20&quot;</span>),</span>
+<span id="cb178-10"><a href="exercise-7.html#cb178-10" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
+<span id="cb178-11"><a href="exercise-7.html#cb178-11" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span>
+<span id="cb178-12"><a href="exercise-7.html#cb178-12" tabindex="-1"></a></span>
+<span id="cb178-13"><a href="exercise-7.html#cb178-13" tabindex="-1"></a><span class="co"># Option 3: select all numeric columns</span></span>
+<span id="cb178-14"><a href="exercise-7.html#cb178-14" tabindex="-1"></a>stats_countries_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(stats_countries, </span>
+<span id="cb178-15"><a href="exercise-7.html#cb178-15" tabindex="-1"></a>                                     <span class="at">cols=</span><span class="fu">where</span>(is.numeric),</span>
+<span id="cb178-16"><a href="exercise-7.html#cb178-16" tabindex="-1"></a>                                     <span class="at">values_to =</span> <span class="st">&quot;Population&quot;</span>,</span>
+<span id="cb178-17"><a href="exercise-7.html#cb178-17" tabindex="-1"></a>                                     <span class="at">names_to =</span> <span class="st">&quot;Years&quot;</span>)</span></code></pre></div>
 </details>
 <p><br>
 3. Do the 3 following tasks linked by a <strong>%&gt;%</strong> (pipe):</p>
@@ -321,10 +321,10 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="exercise-7.html#cb175-1" tabindex="-1"></a><span class="fu">filter</span>(stats_countries_long, Continent<span class="sc">==</span><span class="st">&quot;America&quot;</span> <span class="sc">&amp;</span> Population <span class="sc">&gt;=</span> <span class="dv">50</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb175-2"><a href="exercise-7.html#cb175-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Continent) <span class="sc">%&gt;%</span></span>
-<span id="cb175-3"><a href="exercise-7.html#cb175-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Years, <span class="at">y=</span>Population, <span class="at">fill=</span>Country)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-167-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="exercise-7.html#cb179-1" tabindex="-1"></a><span class="fu">filter</span>(stats_countries_long, Continent<span class="sc">==</span><span class="st">&quot;America&quot;</span> <span class="sc">&amp;</span> Population <span class="sc">&gt;=</span> <span class="dv">50</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb179-2"><a href="exercise-7.html#cb179-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Continent) <span class="sc">%&gt;%</span></span>
+<span id="cb179-3"><a href="exercise-7.html#cb179-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Years, <span class="at">y=</span>Population, <span class="at">fill=</span>Country)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-171-1.png" width="1440" /></p>
 </details>
 
 </div>

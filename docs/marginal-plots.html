@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-02" />
+<meta name="date" content="2024-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -273,41 +273,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="marginal-plots" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Marginal plots<a href="marginal-plots.html#marginal-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Function <a href="https://www.rdocumentation.org/packages/ggExtra/versions/0.10.1/topics/ggMarginal"><strong>ggMarginal</strong></a> from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="marginal-plots.html#cb127-1" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
-<span id="cb127-2"><a href="marginal-plots.html#cb127-2" tabindex="-1"></a></span>
-<span id="cb127-3"><a href="marginal-plots.html#cb127-3" tabindex="-1"></a><span class="co"># classic plot :</span></span>
-<span id="cb127-4"><a href="marginal-plots.html#cb127-4" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span></span>
-<span id="cb127-5"><a href="marginal-plots.html#cb127-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code></pre></div>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="marginal-plots.html#cb128-1" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
-<span id="cb128-2"><a href="marginal-plots.html#cb128-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-123-1.png" width="480" /></p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="marginal-plots.html#cb129-1" tabindex="-1"></a><span class="co"># marginal density</span></span>
-<span id="cb129-2"><a href="marginal-plots.html#cb129-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-124-1.png" width="480" /></p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="marginal-plots.html#cb130-1" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
-<span id="cb130-2"><a href="marginal-plots.html#cb130-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-125-1.png" width="480" /></p>
-<p>The <strong>mapping of variables</strong> (for example, using <strong>color</strong> or <strong>fill</strong>) can also be inherited to the marginal plots.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="marginal-plots.html#cb131-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
-<span id="cb131-2"><a href="marginal-plots.html#cb131-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
-<span id="cb131-3"><a href="marginal-plots.html#cb131-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb131-4"><a href="marginal-plots.html#cb131-4" tabindex="-1"></a></span>
-<span id="cb131-5"><a href="marginal-plots.html#cb131-5" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
-<span id="cb131-6"><a href="marginal-plots.html#cb131-6" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-126-1.png" width="480" /></p>
-<p>Adding more features that we have seen so far:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="marginal-plots.html#cb132-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
-<span id="cb132-2"><a href="marginal-plots.html#cb132-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
-<span id="cb132-3"><a href="marginal-plots.html#cb132-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb132-4"><a href="marginal-plots.html#cb132-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb132-5"><a href="marginal-plots.html#cb132-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="at">sides =</span> <span class="st">&quot;tr&quot;</span>) <span class="sc">+</span></span>
-<span id="cb132-6"><a href="marginal-plots.html#cb132-6" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">alpha=</span><span class="fl">0.2</span>, <span class="at">colour =</span> <span class="st">&quot;pink&quot;</span>) <span class="sc">+</span></span>
-<span id="cb132-7"><a href="marginal-plots.html#cb132-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Example of ggMarginal&quot;</span>) <span class="sc">+</span></span>
-<span id="cb132-8"><a href="marginal-plots.html#cb132-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;bottom&quot;</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
-<span id="cb132-9"><a href="marginal-plots.html#cb132-9" tabindex="-1"></a></span>
-<span id="cb132-10"><a href="marginal-plots.html#cb132-10" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
-<span id="cb132-11"><a href="marginal-plots.html#cb132-11" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="marginal-plots.html#cb131-1" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
+<span id="cb131-2"><a href="marginal-plots.html#cb131-2" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="marginal-plots.html#cb131-3" tabindex="-1"></a><span class="co"># classic plot :</span></span>
+<span id="cb131-4"><a href="marginal-plots.html#cb131-4" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span></span>
+<span id="cb131-5"><a href="marginal-plots.html#cb131-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="marginal-plots.html#cb132-1" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
+<span id="cb132-2"><a href="marginal-plots.html#cb132-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-127-1.png" width="480" /></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="marginal-plots.html#cb133-1" tabindex="-1"></a><span class="co"># marginal density</span></span>
+<span id="cb133-2"><a href="marginal-plots.html#cb133-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-128-1.png" width="480" /></p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="marginal-plots.html#cb134-1" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
+<span id="cb134-2"><a href="marginal-plots.html#cb134-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-129-1.png" width="480" /></p>
+<p>The <strong>mapping of variables</strong> (for example, using <strong>color</strong> or <strong>fill</strong>) can also be inherited to the marginal plots.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="marginal-plots.html#cb135-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
+<span id="cb135-2"><a href="marginal-plots.html#cb135-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
+<span id="cb135-3"><a href="marginal-plots.html#cb135-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb135-4"><a href="marginal-plots.html#cb135-4" tabindex="-1"></a></span>
+<span id="cb135-5"><a href="marginal-plots.html#cb135-5" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
+<span id="cb135-6"><a href="marginal-plots.html#cb135-6" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-130-1.png" width="480" /></p>
+<p>Adding more features that we have seen so far:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="marginal-plots.html#cb136-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
+<span id="cb136-2"><a href="marginal-plots.html#cb136-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
+<span id="cb136-3"><a href="marginal-plots.html#cb136-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb136-4"><a href="marginal-plots.html#cb136-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb136-5"><a href="marginal-plots.html#cb136-5" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="at">sides =</span> <span class="st">&quot;tr&quot;</span>) <span class="sc">+</span></span>
+<span id="cb136-6"><a href="marginal-plots.html#cb136-6" tabindex="-1"></a>  <span class="fu">geom_density_2d</span>(<span class="at">alpha=</span><span class="fl">0.2</span>, <span class="at">colour =</span> <span class="st">&quot;pink&quot;</span>) <span class="sc">+</span></span>
+<span id="cb136-7"><a href="marginal-plots.html#cb136-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Example of ggMarginal&quot;</span>) <span class="sc">+</span></span>
+<span id="cb136-8"><a href="marginal-plots.html#cb136-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;bottom&quot;</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb136-9"><a href="marginal-plots.html#cb136-9" tabindex="-1"></a></span>
+<span id="cb136-10"><a href="marginal-plots.html#cb136-10" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
+<span id="cb136-11"><a href="marginal-plots.html#cb136-11" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-131-1.png" width="480" /></p>
 
 </div>
 <!-- </div> -->

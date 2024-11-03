@@ -346,10 +346,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Note that some palettes are for continuous variables (e.g. gsea), and some for discrete variables (e.g. npg).</p>
 <p>Example of scales for discrete data:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="colors.html#cb99-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
-<span id="cb99-2"><a href="colors.html#cb99-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb99-3"><a href="colors.html#cb99-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scale_fill_ngp&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Nature Publishing Group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb99-4"><a href="colors.html#cb99-4" tabindex="-1"></a>  <span class="fu">scale_fill_npg</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="colors.html#cb99-1" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb99-2"><a href="colors.html#cb99-2" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="colors.html#cb99-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
+<span id="cb99-4"><a href="colors.html#cb99-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb99-5"><a href="colors.html#cb99-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scale_fill_ngp&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Nature Publishing Group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb99-6"><a href="colors.html#cb99-6" tabindex="-1"></a>  <span class="fu">scale_fill_npg</span>()</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-97-1.png" width="480" /></p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="colors.html#cb100-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>gtf, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>chr, <span class="at">fill=</span>gene_type)) <span class="sc">+</span> </span>
 <span id="cb100-2"><a href="colors.html#cb100-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>

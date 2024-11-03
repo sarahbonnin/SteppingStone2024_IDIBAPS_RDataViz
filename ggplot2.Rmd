@@ -1110,6 +1110,8 @@ Note that some palettes are for continuous variables (e.g. gsea), and some for d
 Example of scales for discrete data:
 
 ```{r}
+library(ggsci)
+
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
   geom_bar(position="dodge") +
   ggtitle("scale_fill_ngp", subtitle = "Nature Publishing Group") +

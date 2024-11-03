@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11" data-path="colors.html"><a href="colors.html"><i class="fa fa-check"></i><b>8.11</b> Colors</a>
 <ul>
 <li class="chapter" data-level="8.11.1" data-path="colors.html"><a href="colors.html#all-r-colors"><i class="fa fa-check"></i><b>8.11.1</b> All R colors</a></li>
-<li class="chapter" data-level="8.11.2" data-path="colors.html"><a href="colors.html#r-palettes"><i class="fa fa-check"></i><b>8.11.2</b> R palettes</a></li>
+<li class="chapter" data-level="8.11.2" data-path="colors.html"><a href="colors.html#base-r-palettes"><i class="fa fa-check"></i><b>8.11.2</b> Base R palettes</a></li>
 <li class="chapter" data-level="8.11.3" data-path="colors.html"><a href="colors.html#rcolorbrewer"><i class="fa fa-check"></i><b>8.11.3</b> RColorBrewer</a></li>
 <li class="chapter" data-level="8.11.4" data-path="colors.html"><a href="colors.html#ggsci"><i class="fa fa-check"></i><b>8.11.4</b> ggsci</a></li>
 </ul></li>
@@ -286,13 +286,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb135-5"><a href="marginal-plots.html#cb135-5" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span></code></pre></div>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="marginal-plots.html#cb136-1" tabindex="-1"></a><span class="co"># with marginal histogram</span></span>
 <span id="cb136-2"><a href="marginal-plots.html#cb136-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-133-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-130-1.png" width="480" /></p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="marginal-plots.html#cb137-1" tabindex="-1"></a><span class="co"># marginal density</span></span>
 <span id="cb137-2"><a href="marginal-plots.html#cb137-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;density&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-134-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-131-1.png" width="480" /></p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="marginal-plots.html#cb138-1" tabindex="-1"></a><span class="co"># marginal boxplot</span></span>
 <span id="cb138-2"><a href="marginal-plots.html#cb138-2" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-135-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-132-1.png" width="480" /></p>
 <p>The <strong>mapping of variables</strong> (for example, using <strong>color</strong> or <strong>fill</strong>) can also be inherited to the marginal plots.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="marginal-plots.html#cb139-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
 <span id="cb139-2"><a href="marginal-plots.html#cb139-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
@@ -300,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-4"><a href="marginal-plots.html#cb139-4" tabindex="-1"></a></span>
 <span id="cb139-5"><a href="marginal-plots.html#cb139-5" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
 <span id="cb139-6"><a href="marginal-plots.html#cb139-6" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-136-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-133-1.png" width="480" /></p>
 <p>Adding more features that we have seen so far:</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="marginal-plots.html#cb140-1" tabindex="-1"></a><span class="co"># add mapping of points to &quot;DE&quot; column :</span></span>
 <span id="cb140-2"><a href="marginal-plots.html#cb140-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span></span>
@@ -313,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb140-9"><a href="marginal-plots.html#cb140-9" tabindex="-1"></a></span>
 <span id="cb140-10"><a href="marginal-plots.html#cb140-10" tabindex="-1"></a><span class="co"># tell ggMarginal to color / split the boxplot according to variable mapped in color/colour</span></span>
 <span id="cb140-11"><a href="marginal-plots.html#cb140-11" tabindex="-1"></a><span class="fu">ggMarginal</span>(p, <span class="at">type=</span><span class="st">&quot;boxplot&quot;</span>, <span class="at">groupColour =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-137-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-134-1.png" width="480" /></p>
 
 </div>
 <!-- </div> -->

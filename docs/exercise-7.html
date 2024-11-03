@@ -216,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11" data-path="colors.html"><a href="colors.html"><i class="fa fa-check"></i><b>8.11</b> Colors</a>
 <ul>
 <li class="chapter" data-level="8.11.1" data-path="colors.html"><a href="colors.html#all-r-colors"><i class="fa fa-check"></i><b>8.11.1</b> All R colors</a></li>
-<li class="chapter" data-level="8.11.2" data-path="colors.html"><a href="colors.html#r-palettes"><i class="fa fa-check"></i><b>8.11.2</b> R palettes</a></li>
+<li class="chapter" data-level="8.11.2" data-path="colors.html"><a href="colors.html#base-r-palettes"><i class="fa fa-check"></i><b>8.11.2</b> Base R palettes</a></li>
 <li class="chapter" data-level="8.11.3" data-path="colors.html"><a href="colors.html#rcolorbrewer"><i class="fa fa-check"></i><b>8.11.3</b> RColorBrewer</a></li>
 <li class="chapter" data-level="8.11.4" data-path="colors.html"><a href="colors.html#ggsci"><i class="fa fa-check"></i><b>8.11.4</b> ggsci</a></li>
 </ul></li>
@@ -332,7 +332,7 @@ correction
 <span id="cb183-3"><a href="exercise-7.html#cb183-3" tabindex="-1"></a></span>
 <span id="cb183-4"><a href="exercise-7.html#cb183-4" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>stats_countries_long_filtered, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Years, <span class="at">y=</span>Population, <span class="at">fill=</span>Country)) <span class="sc">+</span></span>
 <span id="cb183-5"><a href="exercise-7.html#cb183-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-177-1.png" width="1440" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-174-1.png" width="1440" /></p>
 </details>
 <ol start="4" style="list-style-type: decimal">
 <li>Customize your plot! Remember what we have done so far… You can, for example:</li>
@@ -353,7 +353,7 @@ One way out of hundreds of ways to show your data!
 <span id="cb184-4"><a href="exercise-7.html#cb184-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;American population in Barcelona from 2013 to 2023&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb184-5"><a href="exercise-7.html#cb184-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>), <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb184-6"><a href="exercise-7.html#cb184-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Country)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-178-1.png" width="1440" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-175-1.png" width="1440" /></p>
 <p>If you have tried to change the color scale, you may have noticed that none are large enough for this data (we need 22 colors). One way to tackle this problem is to combine color palettes (e.g. from RColorBrewer) prior to plotting.</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="exercise-7.html#cb185-1" tabindex="-1"></a><span class="co"># create a vector of 22 colors from RColorBrewer</span></span>
 <span id="cb185-2"><a href="exercise-7.html#cb185-2" tabindex="-1"></a>my22colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">11</span>, <span class="at">name=</span><span class="st">&quot;Paired&quot;</span>), <span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">11</span>, <span class="at">name=</span><span class="st">&quot;Set3&quot;</span>))</span>
@@ -366,7 +366,7 @@ One way out of hundreds of ways to show your data!
 <span id="cb185-9"><a href="exercise-7.html#cb185-9" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;American population in Barcelona from 2013 to 2023&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb185-10"><a href="exercise-7.html#cb185-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>), <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb185-11"><a href="exercise-7.html#cb185-11" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Country)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-179-1.png" width="480" /></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-176-1.png" width="1440" /></p>
 </details>
 
 </div>

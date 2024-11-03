@@ -1032,7 +1032,7 @@ colors()
 
 ggplot2 provides a color scale by default. Many different **palettes** are available to change the default scale.
 
-### R palettes
+### Base R palettes
 
 Base R provides built-in palettes, that can be leveraged in ggplot. For example:
 
@@ -1065,7 +1065,7 @@ Available palettes are shown below:
 
 You can check which palettes are **colorblind-friendly** the following way:
 
-```{r, fig.height=12}
+```{r, fig.height=10}
 library(RColorBrewer)
 display.brewer.all(colorblindFriendly = TRUE)
 ```

@@ -53,7 +53,7 @@ boxplots
 fine-tuning-text
 colors
 all-r-colors
-r-palettes
+base-r-palettes
 rcolorbrewer
 ggsci
 faceting

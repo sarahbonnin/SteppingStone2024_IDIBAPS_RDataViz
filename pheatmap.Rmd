@@ -27,6 +27,10 @@ You can then simply plot the heatmap, giving the matrix as an input:
 pheatmap(expr_heatmap)
 ```
 
+```{r, eval=T, fig.height=7, fig.width=6}
+print(pheatmap(expr_heatmap))
+```
+
 Control what is clusters: rows, columns, both, or none:
 
 ```{r, eval=T, fig.height=7, fig.width=6}

@@ -143,7 +143,7 @@ ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fi
 One way out of hundreds of ways to show your data!
 </summary>
 
-```{r, fig.width=15}
+```{r, fig.width=15, fig.height=10}
 ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fill=Country)) +
   geom_bar(stat = "identity", position = "dodge") + 
   theme_minimal(base_size = 14) + 
@@ -154,7 +154,7 @@ ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fi
 
 If you have tried to change the color scale, you may have noticed that none are large enough for this data (we need 22 colors). One way to tackle this problem is to combine color palettes (e.g. from RColorBrewer) prior to plotting.
 
-```{r}
+```{r, fig.width=15, fig.height=10}
 # create a vector of 22 colors from RColorBrewer
 my22colors <- c(brewer.pal(n=11, name="Paired"), brewer.pal(n=11, name="Set3"))
 

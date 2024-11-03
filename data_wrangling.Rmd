@@ -79,11 +79,11 @@ rename(geneexp, Symbol=Gene)
 The first argument is the data, then comes the column(s) to rename in the format: *new_name=old_name*.
 
 
-## Exercise 3
+## Exercise 4
 
-We will start from **gtf** object.
+We will start from **gtf** object that we already used.
 
-Read it as follows, if it is not in your environment:
+Read it as follows, if it is no longer in your environment:
 
 ```{r, eval=F}
 gtf <- read_csv("DataViz_source_files-main/files/gencode.v44.annotation.csv")

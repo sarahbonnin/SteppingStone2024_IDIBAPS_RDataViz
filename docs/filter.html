@@ -221,13 +221,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.4" data-path="colors.html"><a href="colors.html#ggsci"><i class="fa fa-check"></i><b>8.11.4</b> ggsci</a></li>
 </ul></li>
 <li class="chapter" data-level="8.12" data-path="faceting.html"><a href="faceting.html"><i class="fa fa-check"></i><b>8.12</b> Faceting</a></li>
+<li class="chapter" data-level="8.13" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i><b>8.13</b> Exercise 3</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="data-filtering-and-wrangling.html"><a href="data-filtering-and-wrangling.html"><i class="fa fa-check"></i><b>9</b> Data filtering and wrangling</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="filter.html"><a href="filter.html"><i class="fa fa-check"></i><b>9.1</b> filter()</a></li>
 <li class="chapter" data-level="9.2" data-path="select.html"><a href="select.html"><i class="fa fa-check"></i><b>9.2</b> select()</a></li>
 <li class="chapter" data-level="9.3" data-path="rename.html"><a href="rename.html"><i class="fa fa-check"></i><b>9.3</b> rename()</a></li>
-<li class="chapter" data-level="9.4" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i><b>9.4</b> Exercise 3</a></li>
+<li class="chapter" data-level="9.4" data-path="exercise-4.html"><a href="exercise-4.html"><i class="fa fa-check"></i><b>9.4</b> Exercise 4</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="more-ggplots.html"><a href="more-ggplots.html"><i class="fa fa-check"></i><b>10</b> More ggplots</a>
 <ul>
@@ -242,16 +243,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11" data-path="exercises-to-do-at-home.html"><a href="exercises-to-do-at-home.html"><i class="fa fa-check"></i><b>11</b> Exercises to do at home</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="exercise-4-barplots.html"><a href="exercise-4-barplots.html"><i class="fa fa-check"></i><b>11.1</b> Exercise 4: barplots</a></li>
-<li class="chapter" data-level="11.2" data-path="exercise-5-scatter-plot.html"><a href="exercise-5-scatter-plot.html"><i class="fa fa-check"></i><b>11.2</b> Exercise 5: scatter plot</a></li>
-<li class="chapter" data-level="11.3" data-path="exercise-6-boxplot.html"><a href="exercise-6-boxplot.html"><i class="fa fa-check"></i><b>11.3</b> Exercise 6: boxplot</a></li>
+<li class="chapter" data-level="11.1" data-path="exercise-5-barplot.html"><a href="exercise-5-barplot.html"><i class="fa fa-check"></i><b>11.1</b> Exercise 5: barplot</a></li>
+<li class="chapter" data-level="11.2" data-path="exercise-6-scatter-plot.html"><a href="exercise-6-scatter-plot.html"><i class="fa fa-check"></i><b>11.2</b> Exercise 6: scatter plot</a></li>
+<li class="chapter" data-level="11.3" data-path="exercise-7-boxplot.html"><a href="exercise-7-boxplot.html"><i class="fa fa-check"></i><b>11.3</b> Exercise 7: boxplot</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="interactive-plots-with-plotly.html"><a href="interactive-plots-with-plotly.html"><i class="fa fa-check"></i><b>12</b> Interactive plots with {plotly}</a></li>
 <li class="chapter" data-level="13" data-path="more-advanced-data-manipulation.html"><a href="more-advanced-data-manipulation.html"><i class="fa fa-check"></i><b>13</b> More advanced data manipulation</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="the-pipe-operator.html"><a href="the-pipe-operator.html"><i class="fa fa-check"></i><b>13.1</b> The pipe operator</a></li>
 <li class="chapter" data-level="13.2" data-path="from-wide-to-long-format.html"><a href="from-wide-to-long-format.html"><i class="fa fa-check"></i><b>13.2</b> From wide to long format</a></li>
-<li class="chapter" data-level="13.3" data-path="exercise-7.html"><a href="exercise-7.html"><i class="fa fa-check"></i><b>13.3</b> Exercise 7</a></li>
+<li class="chapter" data-level="13.3" data-path="exercise-8.html"><a href="exercise-8.html"><i class="fa fa-check"></i><b>13.3</b> Exercise 8</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="heatmaps-with-pheatmap.html"><a href="heatmaps-with-pheatmap.html"><i class="fa fa-check"></i><b>14</b> Heatmaps with {pheatmap}</a></li>
 <li class="chapter" data-level="15" data-path="demo-volcano-plot.html"><a href="demo-volcano-plot.html"><i class="fa fa-check"></i><b>15</b> Demo volcano plot</a></li>
@@ -281,8 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>filter()</strong> will filter <strong>rows</strong>.</p>
 <p>If we take the <strong>geneexp</strong> objet as an example, we can filter only down-regulated genes using the <strong>filter()</strong> function of <strong>{dplyr}</strong>.</p>
 <p>In case you need to import the data again:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="filter.html#cb107-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="filter.html#cb108-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="filter.html#cb114-1" tabindex="-1"></a>geneexp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/expression_20genes.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="filter.html#cb115-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -341,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>We can have several conditions.</p>
 <p>For example, we may want to extract only rows that have either <strong>Up</strong> OR <strong>Down</strong> in <strong>DE</strong>:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="filter.html#cb110-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="filter.html#cb117-1" tabindex="-1"></a><span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 4
 ##   Gene   DE    sample1 sample2
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -355,7 +356,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8 MAPK2  Up     0.998     9.56</code></pre>
 <p>Here, we introduce another operator, <strong>|</strong>, which mean <strong>OR</strong>, so rows will be kept if there is either <strong>Down</strong> OR <strong>Up</strong> in <strong>DE</strong> column.</p>
 <p>A good practice is to assign the filtered output to a new object, for example:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="filter.html#cb112-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="filter.html#cb119-1" tabindex="-1"></a>geneexp_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(geneexp, DE<span class="sc">==</span><span class="st">&quot;Down&quot;</span> <span class="sc">|</span> DE<span class="sc">==</span><span class="st">&quot;Up&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 

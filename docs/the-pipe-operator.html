@@ -221,13 +221,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.4" data-path="colors.html"><a href="colors.html#ggsci"><i class="fa fa-check"></i><b>8.11.4</b> ggsci</a></li>
 </ul></li>
 <li class="chapter" data-level="8.12" data-path="faceting.html"><a href="faceting.html"><i class="fa fa-check"></i><b>8.12</b> Faceting</a></li>
+<li class="chapter" data-level="8.13" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i><b>8.13</b> Exercise 3</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="data-filtering-and-wrangling.html"><a href="data-filtering-and-wrangling.html"><i class="fa fa-check"></i><b>9</b> Data filtering and wrangling</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="filter.html"><a href="filter.html"><i class="fa fa-check"></i><b>9.1</b> filter()</a></li>
 <li class="chapter" data-level="9.2" data-path="select.html"><a href="select.html"><i class="fa fa-check"></i><b>9.2</b> select()</a></li>
 <li class="chapter" data-level="9.3" data-path="rename.html"><a href="rename.html"><i class="fa fa-check"></i><b>9.3</b> rename()</a></li>
-<li class="chapter" data-level="9.4" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i><b>9.4</b> Exercise 3</a></li>
+<li class="chapter" data-level="9.4" data-path="exercise-4.html"><a href="exercise-4.html"><i class="fa fa-check"></i><b>9.4</b> Exercise 4</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="more-ggplots.html"><a href="more-ggplots.html"><i class="fa fa-check"></i><b>10</b> More ggplots</a>
 <ul>
@@ -242,16 +243,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11" data-path="exercises-to-do-at-home.html"><a href="exercises-to-do-at-home.html"><i class="fa fa-check"></i><b>11</b> Exercises to do at home</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="exercise-4-barplots.html"><a href="exercise-4-barplots.html"><i class="fa fa-check"></i><b>11.1</b> Exercise 4: barplots</a></li>
-<li class="chapter" data-level="11.2" data-path="exercise-5-scatter-plot.html"><a href="exercise-5-scatter-plot.html"><i class="fa fa-check"></i><b>11.2</b> Exercise 5: scatter plot</a></li>
-<li class="chapter" data-level="11.3" data-path="exercise-6-boxplot.html"><a href="exercise-6-boxplot.html"><i class="fa fa-check"></i><b>11.3</b> Exercise 6: boxplot</a></li>
+<li class="chapter" data-level="11.1" data-path="exercise-5-barplot.html"><a href="exercise-5-barplot.html"><i class="fa fa-check"></i><b>11.1</b> Exercise 5: barplot</a></li>
+<li class="chapter" data-level="11.2" data-path="exercise-6-scatter-plot.html"><a href="exercise-6-scatter-plot.html"><i class="fa fa-check"></i><b>11.2</b> Exercise 6: scatter plot</a></li>
+<li class="chapter" data-level="11.3" data-path="exercise-7-boxplot.html"><a href="exercise-7-boxplot.html"><i class="fa fa-check"></i><b>11.3</b> Exercise 7: boxplot</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="interactive-plots-with-plotly.html"><a href="interactive-plots-with-plotly.html"><i class="fa fa-check"></i><b>12</b> Interactive plots with {plotly}</a></li>
 <li class="chapter" data-level="13" data-path="more-advanced-data-manipulation.html"><a href="more-advanced-data-manipulation.html"><i class="fa fa-check"></i><b>13</b> More advanced data manipulation</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="the-pipe-operator.html"><a href="the-pipe-operator.html"><i class="fa fa-check"></i><b>13.1</b> The pipe operator</a></li>
 <li class="chapter" data-level="13.2" data-path="from-wide-to-long-format.html"><a href="from-wide-to-long-format.html"><i class="fa fa-check"></i><b>13.2</b> From wide to long format</a></li>
-<li class="chapter" data-level="13.3" data-path="exercise-7.html"><a href="exercise-7.html"><i class="fa fa-check"></i><b>13.3</b> Exercise 7</a></li>
+<li class="chapter" data-level="13.3" data-path="exercise-8.html"><a href="exercise-8.html"><i class="fa fa-check"></i><b>13.3</b> Exercise 8</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="heatmaps-with-pheatmap.html"><a href="heatmaps-with-pheatmap.html"><i class="fa fa-check"></i><b>14</b> Heatmaps with {pheatmap}</a></li>
 <li class="chapter" data-level="15" data-path="demo-volcano-plot.html"><a href="demo-volcano-plot.html"><i class="fa fa-check"></i><b>15</b> Demo volcano plot</a></li>
@@ -281,17 +282,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <strong>tidyverse</strong> provides a function <strong>%&gt;%</strong> which <strong>pipes</strong> the output of one function as the input of the next function.</p>
 <p>This way, different functions from the tidyverse can be linked together into a clean piece of code.</p>
 <p>If we want to produce a one-liner out of the 3 lines of code of the previous exercise, we can do it the following way:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="the-pipe-operator.html#cb174-1" tabindex="-1"></a>gtf_final <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
-<span id="cb174-2"><a href="the-pipe-operator.html#cb174-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb174-3"><a href="the-pipe-operator.html#cb174-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-pipe-operator.html#cb181-1" tabindex="-1"></a>gtf_final <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
+<span id="cb181-2"><a href="the-pipe-operator.html#cb181-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb181-3"><a href="the-pipe-operator.html#cb181-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type)</span></code></pre></div>
 <p><em>Note that, in filter and select, you do not need to specify the first parameter (the data), as it is automatically looking for the output of the previous one!</em></p>
 <p>If you want to learn more about the <strong>pipe</strong>, you can for example refer to <a href="https://style.tidyverse.org/pipes.html">that page</a>.</p>
 <p>Note that we can also link the data manipulation output to ggplot: the <strong>output of the last command will then be used as an input to ggplot</strong>:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="the-pipe-operator.html#cb175-1" tabindex="-1"></a><span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
-<span id="cb175-2"><a href="the-pipe-operator.html#cb175-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb175-3"><a href="the-pipe-operator.html#cb175-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type) <span class="sc">%&gt;%</span> </span>
-<span id="cb175-4"><a href="the-pipe-operator.html#cb175-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gene_type)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-168-1.png" width="480" /></p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-pipe-operator.html#cb182-1" tabindex="-1"></a><span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
+<span id="cb182-2"><a href="the-pipe-operator.html#cb182-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb182-3"><a href="the-pipe-operator.html#cb182-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-4"><a href="the-pipe-operator.html#cb182-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gene_type)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-174-1.png" width="480" /></p>
 </div>
             </section>
 

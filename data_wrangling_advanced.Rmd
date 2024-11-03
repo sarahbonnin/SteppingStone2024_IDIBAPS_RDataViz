@@ -60,7 +60,7 @@ pivot_longer(geneexp, cols=c("sample1", "sample2"), names_to = "samples", values
 ```
 
 
-## Exercise 7
+## Exercise 8
 
 Let's do a small exercise to practice this conversion.
 

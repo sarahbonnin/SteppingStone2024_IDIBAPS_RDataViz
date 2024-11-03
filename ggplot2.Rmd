@@ -1181,8 +1181,111 @@ ggplot(data=gtf, mapping=aes(x=chr, color=chr)) +
   facet_wrap(gene_type~strand, scales = "free")
 ```
 
+## Exercise 3
 
+This exercise aims to get you some practice on some of the fine-tuning we have just used.
 
+For this exercise, we will use the [*diamonds* dataset](https://ggplot2.tidyverse.org/reference/diamonds.html) that is automatically loaded with ggplot2. 
 
+The dataset containing the prices and other attributes of almost 54,000 diamonds.
 
+You can readily use it in your current session:
 
+```{r}
+diamonds
+```
+
+1. Make a scatter plot of **carat** (x-axis) vs **price** (y-axis), with colors mapped to the **cut**.
+
+<details>
+<summary>
+correction
+</summary>
+
+```{r}
+ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
+  geom_point()
+```
+
+</details>
+
+<br>
+
+2. Facet the plot depending on the **color**.
+
+<details>
+<summary>
+correction
+</summary>
+
+```{r}
+ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
+  geom_point() +
+  facet_wrap(~color)
+```
+
+</details>
+
+<br>
+
+3. Change the defaut theme  (to theme_bw(), theme_minimal(), for example) and increase the base text size, and add a title to the overall plot.
+
+<details>
+<summary>
+correction
+</summary>
+
+```{r}
+ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
+  geom_point() +
+  facet_wrap(~color) +
+  theme_minimal(base_size = 15) +
+  ggtitle("Diamonds carat, price and cut")
+```
+
+</details>
+
+<br>
+
+4. Change the color palette to the one of your choice. You can pick one from RColorBrewer, for example.
+
+<details>
+<summary>
+correction
+</summary>
+
+```{r}
+ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
+  geom_point() +
+  facet_wrap(~color) +
+  theme_minimal(base_size = 15) +
+  ggtitle("Diamonds carat, price and cut") +
+  scale_color_brewer(palette="Dark2")
+```
+
+</details>
+
+<br>
+
+5. Play with the **theme()** function. For example:
+* Rotate the x-axis labels to 90 degrees. 
+* Make the individual titles larger bold (this is done with **strip.text** parameter).
+
+<details>
+<summary>
+correction
+</summary>
+
+```{r}
+ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
+  geom_point() +
+  facet_wrap(~color) +
+  theme_minimal(base_size = 15) +
+  ggtitle("Diamonds carat, price and cut") +
+  scale_color_brewer(palette="Dark2") +
+  theme(axis.text.x = element_text(angle=90), strip.text = element_text(size = 16, face = "bold"))
+```
+
+</details>
+
+<br>

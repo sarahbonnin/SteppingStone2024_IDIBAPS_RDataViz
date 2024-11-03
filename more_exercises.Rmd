@@ -3,14 +3,14 @@
 The following sets of exercises aim to help you practice what was learned so far during the workshop. You can practice at home.
 <br>
 
-Exercise 4: barplot
+Exercise 5: barplot
 <br>
-Exercise 5: scatter plot
+Exercise 6: scatter plot
 <br>
-Exercise 6: boxplot
+Exercise 7: boxplot
 <br>
 
-## Exercise 4: barplots
+## Exercise 5: barplot
 
 1. Import **DataViz_source_files-main/files/population_age_group_per_sex_long_format.csv** into an object called **pop_age**.
 
@@ -192,7 +192,7 @@ write_csv(pop_age_spain, "subset_spain.csv")
 
 </details>
 
-## Exercise 5: scatter plot
+## Exercise 6: scatter plot
 
 1. Import **DataViz_source_files-main/files/GSE150029_rnaseq_log2.csv** into an object called **rnaseq**.
 
@@ -312,7 +312,7 @@ ggplot(data=rnaseq_linc_mirna_filter2, mapping=aes(x=CTRL, y=EZH, color=gene_bio
 <br>
 
 
-## Exercise 6: boxplot
+## Exercise 7: boxplot
 
 1. Read in **DataViz_source_files-main/files/GSE150029_rnaseq_log2_long.csv** into a new object called **rnaseq2**.
 

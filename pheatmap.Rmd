@@ -23,7 +23,7 @@ expr_heatmap <- read_csv("DataViz_source_files-main/files/GSE150029_rnaseq_for_h
 
 You can then simply plot the heatmap, giving the matrix as an input:
 
-```{r, eval=T, fig.height=7, fig.width=6}
+```{r, eval=F, fig.height=7, fig.width=6}
 pheatmap(expr_heatmap)
 ```
 
@@ -62,7 +62,7 @@ pheatmap(expr_heatmap, show_rownames = F)
 dev.off()
 ```
 
-<img src="images/pheatmap2.png" alt="import zip" width="500"/>
+<img src="images/pheatmap2.png" width="500"/>
 
 
 Change the color scale (**rainbow()** and **heat.colors()** are available from the base packages):
@@ -77,10 +77,10 @@ pheatmap(expr_heatmap, color = rainbow(10), main = "Rainbow colors")
 dev.off()
 ```
 
-<img src="images/pheatmap3.png" alt="import zip" width="500"/>
+<img src="images/pheatmap3.png" width="500"/>
 
 ```{r, eval=T, fig.height=7, fig.width=6}
-pheatmap(expr_heatmap, color = heat.colors(10))
+pheatmap(expr_heatmap, color = heat.colors(10), main="Heat colors")
 ```
 
 ```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
@@ -89,5 +89,5 @@ pheatmap(expr_heatmap, color = heat.colors(10), main="Heat colors")
 dev.off()
 ```
 
-<img src="images/pheatmap4.png" alt="import zip" width="500"/>
+<img src="images/pheatmap4.png" width="500"/>
 

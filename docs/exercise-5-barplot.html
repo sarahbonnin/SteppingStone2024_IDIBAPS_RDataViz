@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.10 Fine-tuning text | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures</title>
-  <meta name="description" content="8.10 Fine-tuning text | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
+  <title>11.1 Exercise 5: barplot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures</title>
+  <meta name="description" content="11.1 Exercise 5: barplot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.10 Fine-tuning text | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
+  <meta property="og:title" content="11.1 Exercise 5: barplot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.10 Fine-tuning text | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
+  <meta name="twitter:title" content="11.1 Exercise 5: barplot | R for beginners: Introduction to data visualization with R and ggplot2: from data to publication-quality figures" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="boxplots.html"/>
-<link rel="next" href="colors.html"/>
+<link rel="prev" href="exercises-to-do-at-home.html"/>
+<link rel="next" href="exercise-6-scatter-plot.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -277,93 +277,147 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="fine-tuning-text" class="section level2 hasAnchor" number="8.10">
-<h2><span class="header-section-number">8.10</span> Fine-tuning text<a href="fine-tuning-text.html#fine-tuning-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Controlling the font size (axis text, title, legend, etc.) and style in your graph can be very important for the image readability.</p>
-<p>Text size and style of ggplot2 graphs can be changed using the <strong>theme()</strong> function. While very powerful, it unfortunately utilizes a difficult structure.</p>
-<p>We will illustrate how to make such changes on our first scatter plot.</p>
-<p>Change <strong>overall</strong> font size:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="fine-tuning-text.html#cb82-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb82-2"><a href="fine-tuning-text.html#cb82-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb82-3"><a href="fine-tuning-text.html#cb82-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb82-4"><a href="fine-tuning-text.html#cb82-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-81-1.png" width="480" /></p>
-<p>Change font size of <strong>axis text</strong>:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="fine-tuning-text.html#cb83-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb83-2"><a href="fine-tuning-text.html#cb83-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb83-3"><a href="fine-tuning-text.html#cb83-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb83-4"><a href="fine-tuning-text.html#cb83-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-82-1.png" width="480" /></p>
-<p>Change font size of <strong>axis titles</strong>:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="fine-tuning-text.html#cb84-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb84-2"><a href="fine-tuning-text.html#cb84-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb84-3"><a href="fine-tuning-text.html#cb84-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb84-4"><a href="fine-tuning-text.html#cb84-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-83-1.png" width="480" /></p>
-<p><strong>Remove axis titles</strong> (e.g. below: removing x-axis title):</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="fine-tuning-text.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb85-2"><a href="fine-tuning-text.html#cb85-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb85-3"><a href="fine-tuning-text.html#cb85-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb85-4"><a href="fine-tuning-text.html#cb85-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-84-1.png" width="480" /></p>
-<p><strong>Shift</strong> the graph title to the right (it is by default centered to the left):</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="fine-tuning-text.html#cb86-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb86-2"><a href="fine-tuning-text.html#cb86-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb86-3"><a href="fine-tuning-text.html#cb86-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb86-4"><a href="fine-tuning-text.html#cb86-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-85-1.png" width="480" /></p>
-<p>Change font size of the <strong>graph title</strong>:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="fine-tuning-text.html#cb87-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb87-2"><a href="fine-tuning-text.html#cb87-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb87-3"><a href="fine-tuning-text.html#cb87-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb87-4"><a href="fine-tuning-text.html#cb87-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-86-1.png" width="480" /></p>
-<p>Change the <strong>color of the title</strong>, and make it <strong>bold</strong>:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="fine-tuning-text.html#cb88-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb88-2"><a href="fine-tuning-text.html#cb88-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb88-3"><a href="fine-tuning-text.html#cb88-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb88-4"><a href="fine-tuning-text.html#cb88-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-87-1.png" width="480" /></p>
-<p>You can also use theme() to <strong>rotate the x-axis label</strong> of plots, for example:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="fine-tuning-text.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
-<span id="cb89-2"><a href="fine-tuning-text.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb89-3"><a href="fine-tuning-text.html#cb89-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;scatter plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb89-4"><a href="fine-tuning-text.html#cb89-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-88-1.png" width="480" /></p>
-<p>As a last examples, let’s see how we can control the <strong>plot’s legend</strong>:</p>
-<ul>
-<li>Colored background:</li>
-</ul>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="fine-tuning-text.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href="fine-tuning-text.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb90-3"><a href="fine-tuning-text.html#cb90-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;yellow&quot;</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-89-1.png" width="480" /></p>
-<p>Decrease or increase the space between the legend box and the plot</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="fine-tuning-text.html#cb91-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb91-2"><a href="fine-tuning-text.html#cb91-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb91-3"><a href="fine-tuning-text.html#cb91-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.box.spacing =</span> <span class="fu">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)) <span class="co"># default is 0.4cm</span></span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-90-1.png" width="480" /></p>
-<p>Remove the <strong>key background</strong>:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="fine-tuning-text.html#cb92-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
-<span id="cb92-2"><a href="fine-tuning-text.html#cb92-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb92-3"><a href="fine-tuning-text.html#cb92-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-91-1.png" width="480" /></p>
-<p>Graphical summary of the different <strong>theme elements</strong>:</p>
-<p><img src="images/theme_elements.png" alt="import zip" width="1000"/></p>
-<p><a href="https://henrywang.nl/ggplot2-theme-elements-demonstration/">source</a></p>
-<p>To learn more, check:</p>
-<ul>
-<li><a href="https://ggplot2tor.com/theme/">complete guide on how to modify the ggplot2 theme</a>.</li>
-<li><a href="https://henrywang.nl/ggplot2-theme-elements-demonstration/">ggplot2 theme elements demonstration (source of above image)</a></li>
-</ul>
+<div id="exercise-5-barplot" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Exercise 5: barplot<a href="exercise-5-barplot.html#exercise-5-barplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Import <strong>DataViz_source_files-main/files/population_age_group_per_sex_long_format.csv</strong> into an object called <strong>pop_age</strong>.</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="exercise-5-barplot.html#cb148-1" tabindex="-1"></a>pop_age <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/population_age_group_per_sex_long_format.csv&quot;</span>)</span></code></pre></div>
+</details>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a barplot that shows the number of people per <strong>Year</strong>:</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="exercise-5-barplot.html#cb149-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population)) <span class="sc">+</span> </span>
+<span id="cb149-2"><a href="exercise-5-barplot.html#cb149-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-142-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Split by Sex (<strong>in the same plot</strong>: do not split into different plots):</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exercise-5-barplot.html#cb150-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb150-2"><a href="exercise-5-barplot.html#cb150-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-143-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Filter</strong> the data to keep only “Spain” in “Country”:</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exercise-5-barplot.html#cb151-1" tabindex="-1"></a>pop_age_spain <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>)</span>
+<span id="cb151-2"><a href="exercise-5-barplot.html#cb151-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb151-3"><a href="exercise-5-barplot.html#cb151-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-144-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Show the bars next to each other.</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exercise-5-barplot.html#cb152-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb152-2"><a href="exercise-5-barplot.html#cb152-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-145-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Change default colors using <strong>scale_fill_manual()</strong> layer.</li>
+</ol>
+<p>The structure is not easy to remember: take a peek at the answer!</p>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exercise-5-barplot.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb153-2"><a href="exercise-5-barplot.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb153-3"><a href="exercise-5-barplot.html#cb153-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Female=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">Male=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-146-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Add a title, change the theme / background:</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exercise-5-barplot.html#cb154-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb154-2"><a href="exercise-5-barplot.html#cb154-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb154-3"><a href="exercise-5-barplot.html#cb154-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb154-4"><a href="exercise-5-barplot.html#cb154-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb154-5"><a href="exercise-5-barplot.html#cb154-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-147-1.png" width="480" /></p>
+</details>
+<p><br>
+8. Now split the plot by <strong>Age group</strong> using <strong>facet_wrap()</strong></p>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exercise-5-barplot.html#cb155-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb155-2"><a href="exercise-5-barplot.html#cb155-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb155-3"><a href="exercise-5-barplot.html#cb155-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb155-4"><a href="exercise-5-barplot.html#cb155-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb155-5"><a href="exercise-5-barplot.html#cb155-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb155-6"><a href="exercise-5-barplot.html#cb155-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="480" /></p>
+</details>
+<p><br></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Save to a PDF file: Export -&gt; Save as PDF. Note: when saving to PDF format, you cannot manualy drag the plot to get the size and proportion you want, but you can <strong>Preview</strong> before saving it.</li>
+</ol>
+<p>If you prefer, you can save the file using <strong>ggsave()</strong> (or you can do both!).</p>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exercise-5-barplot.html#cb156-1" tabindex="-1"></a><span class="co"># first, save to an object</span></span>
+<span id="cb156-2"><a href="exercise-5-barplot.html#cb156-2" tabindex="-1"></a>plot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb156-3"><a href="exercise-5-barplot.html#cb156-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb156-4"><a href="exercise-5-barplot.html#cb156-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb156-5"><a href="exercise-5-barplot.html#cb156-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb156-6"><a href="exercise-5-barplot.html#cb156-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb156-7"><a href="exercise-5-barplot.html#cb156-7" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span>
+<span id="cb156-8"><a href="exercise-5-barplot.html#cb156-8" tabindex="-1"></a></span>
+<span id="cb156-9"><a href="exercise-5-barplot.html#cb156-9" tabindex="-1"></a><span class="co"># save file</span></span>
+<span id="cb156-10"><a href="exercise-5-barplot.html#cb156-10" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;population_age_sex_Spain.pdf&quot;</span>, <span class="at">plot=</span>plot_age, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
+</details>
+<p><br></p>
+<ol start="10" style="list-style-type: decimal">
+<li>Save your filtered data as a <strong>.csv</strong> file: have a look at the <strong>write_csv()</strong> function from {readr}:</li>
+</ol>
+<details>
+<summary>
+correction
+</summary>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="exercise-5-barplot.html#cb157-1" tabindex="-1"></a><span class="fu">write_csv</span>(pop_age_spain, <span class="st">&quot;subset_spain.csv&quot;</span>)</span></code></pre></div>
+</details>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="boxplots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="colors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercises-to-do-at-home.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-6-scatter-plot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

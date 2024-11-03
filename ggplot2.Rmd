@@ -1276,7 +1276,7 @@ ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
 correction
 </summary>
 
-```{r}
+```{r, fig.height=12, fig.width=10}
 ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
   geom_point() +
   facet_wrap(~color) +

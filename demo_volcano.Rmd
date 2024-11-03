@@ -52,17 +52,20 @@ The significantly differentially expressed genes are the ones found in the upper
 
 We can add a column to the data frame to specify if they are UP- or DOWN- regulated (log2FoldChange respectively positive or negative).
 
+Let's create a new object with these new calculations. Note that we can use function **mutate()** from {dplyr} to **create or modify** columns
+
 ```{r}
-de <- de %>% mutate(diffexpressed=ifelse(log2FoldChange > 0.6 & pvalue < 0.05, "UP",
+de_fc <- de %>% mutate(log10pvalue=-log10(pvalue),
+                       diffexpressed=ifelse(log2FoldChange > 0.6 & pvalue < 0.05, "UP",
                                          ifelse(log2FoldChange < -0.6 & pvalue < 0.05, "DOWN", "NO")))
 
-head(de)
+head(de_fc)
 ```
 
 Re-plot but, this time, conditionally color the points using **diffexpressed** column:
 
 ```{r}
-p <- ggplot(data=de, aes(x=log2FoldChange, y=-log10(pvalue), col=diffexpressed)) +
+p <- ggplot(data=de_fc, aes(x=log2FoldChange, y=log10pvalue, col=diffexpressed)) +
   geom_point() + 
   theme_minimal()
 ```
@@ -85,13 +88,12 @@ Now we will write down the name of genes beside the points... but only selected 
 
 Create a new column "delabel" to de, that will contain the name of genes differentially expressed (NA will be set, in case they are **NO**).
 
-
 ```{r}
-de <- mutate(de, delabel=ifelse(diffexpressed=="NO", NA, gene_symbol))
+de_fc <- mutate(de_fc, delabel=ifelse(diffexpressed=="NO", NA, gene_symbol))
 ```
 
 ```{r}
-ggplot(data=de, aes(x=log2FoldChange, y=-log10(pvalue), col=diffexpressed, label=delabel)) + 
+ggplot(data=de_fc, aes(x=log2FoldChange, y=log10pvalue, col=diffexpressed, label=delabel)) + 
 	geom_point() + 
 	theme_minimal() +
 	geom_text()
@@ -103,7 +105,7 @@ Finally, we can organize the labels nicely using the "ggrepel" package and the g
 # load library: either "tick it" in the Packages tab, or use the following:
 library(ggrepel)
 # plot adding up all layers we have seen so far
-ggplot(data=de, aes(x=log2FoldChange, y=-log10(pvalue), col=diffexpressed, label=delabel)) +
+ggplot(data=de_fc, aes(x=log2FoldChange, y=log10pvalue, col=diffexpressed, label=delabel)) +
         geom_point() + 
         theme_minimal() +
         geom_text_repel() +

@@ -122,9 +122,50 @@ correction
 </summary>
 
 ```{r, fig.width=15}
-filter(stats_countries_long, Continent=="America" & Population >= 50) %>%
-  select(-Continent) %>%
-  ggplot(mapping=aes(x=Years, y=Population, fill=Country)) + geom_bar(stat = "identity", position = "dodge")
+stats_countries_long_filtered <- filter(stats_countries_long, Continent=="America" & Population >= 50) %>%
+  select(-Continent)
+
+ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fill=Country)) +
+  geom_bar(stat = "identity", position = "dodge")
+```
+
+</details>
+
+4. Customize your plot! Remember what we have done so far... You can, for example:
+
+* Add a title (**ggtitle()**)
+* Change the overall theme (e.g. **theme_bw()**, **theme_minimal()**) and / or play with graphical parameters (see section on **theme()** function)
+* Facet the graph (**facet_wrap()**)
+* ... what else?...
+
+<details>
+<summary>
+One way out of hundreds of ways to show your data!
+</summary>
+
+```{r, fig.width=15}
+ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fill=Country)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  theme_minimal(base_size = 14) + 
+  ggtitle("American population in Barcelona from 2013 to 2023") + 
+  theme(axis.text.x = element_text(angle=90), plot.title = element_text(size = 16, hjust = 0.5, face = "bold")) +
+  facet_wrap(~Country)
+```
+
+If you have tried to change the color scale, you may have noticed that none are large enough for this data (we need 22 colors). One way to tackle this problem is to combine color palettes (e.g. from RColorBrewer) prior to plotting.
+
+```{r}
+# create a vector of 22 colors from RColorBrewer
+my22colors <- c(brewer.pal(n=11, name="Paired"), brewer.pal(n=11, name="Set3"))
+
+# feed the colors to "scale_fill_manual"
+ggplot(data=stats_countries_long_filtered, mapping=aes(x=Years, y=Population, fill=Country)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  theme_minimal(base_size = 14) + 
+  scale_fill_manual(values=my22colors) +
+  ggtitle("American population in Barcelona from 2013 to 2023") + 
+  theme(axis.text.x = element_text(angle=90), plot.title = element_text(size = 16, hjust = 0.5, face = "bold")) +
+  facet_wrap(~Country)
 ```
 
 </details>

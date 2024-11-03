@@ -52,7 +52,6 @@ statidentity-parameter
 boxplots
 fine-tuning-text
 colors
-faceting
 data-filtering-and-wrangling
 filter
 select

@@ -288,6 +288,7 @@ ggplot(data=rnaseq_linc_mirna_filter2, mapping=aes(x=CTRL, y=EZH, color=gene_bio
 </details>
 <br>
 
+<details>
 <summary>
 NOTE: If you want to label only one (or few) point(s), click here.
 </summary>

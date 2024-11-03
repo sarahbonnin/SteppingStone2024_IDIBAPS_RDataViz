@@ -10,6 +10,7 @@
 * [R graph gallery](https://r-graph-gallery.com/)
 * [R graphics cookbook](http://www.cookbook-r.com/Graphs/)
 * [ggplot2 extensions](https://exts.ggplot2.tidyverse.org/gallery/)
+* [Curated list of awesome ggplot2 packages, tutorials, etc.](https://github.com/erikgahner/awesome-ggplot2)
 * [R programming Coursera course(Johns Hopkins University)](https://www.coursera.org/learn/r-programming)
 * [Official up-to-date introduction to R (from the R Core Team)](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 * [CRG Biocore intro course to the Tidyverse](https://biocorecrg.github.io/CRG_R_tidyverse_2021/)

@@ -993,7 +993,7 @@ Decrease or increase the space between the legend box and the plot
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
   geom_point() +
-  theme(legend.box.spacing = unit(0, "cm")) # default is 0.4cm
+  theme(legend.box.spacing = unit(3, "cm")) # default is 0.4cm
 ```
 
 Remove the **key background**:
@@ -1002,12 +1002,6 @@ Remove the **key background**:
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
   geom_point() +
   theme(legend.key = element_blank())
-```
-
-```{r}
-ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
-  geom_point() +
-  theme(legend.box.spacing = unit(0, "cm")) # default is 0.4cm
 ```
 
 Graphical summary of the different **theme elements**:
@@ -1028,13 +1022,13 @@ Colors can be set a different way in ggplot2, and in R in general.
 
 The easiest way is to fetch the colors [by their names](https://r-graph-gallery.com/42-colors-names.html).
 
-There are 657 color names available for you to pick! You can check them by pasting the following in the console:
+There are 657 color names available for you to pick! You can check them by querying the following in the console:
 
 ```{r, eval=F}
 colors()
 ```
 
-ggplot2 provides a color scale by default. Mainy different **palettes** are available to change the default scale.
+ggplot2 provides a color scale by default. Many different **palettes** are available to change the default scale.
 
 You can easily pick palettes from the [**RColorBrewer** package](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html), that is included in ggplot2.
 
@@ -1042,14 +1036,17 @@ Available palettes are shown below:
 
 <img src="images/ggplot2_rcolorbrewer.png" alt="import zip" width="500"/>
 
-In the console, you can extract the **colorblind-friendly** palettes the following way:
+You can check which palettes are **colorblind-friendly** the following way:
 
-```{r}
+```{r, fig.height=8}
 library(RColorBrewer)
 display.brewer.all(colorblindFriendly = TRUE)
 ```
 
-We can easily take advantage of the RColorBrewer's palettes by using either **scale_color_brewer()** or **scale_fill_brewer()** layers (depending if **color** or **fill** was set in **aes()**, respectively):
+We can easily take advantage of the RColorBrewer's palettes in ggplot2 with :
+
+* **scale_color_brewer()** layer (if you mapped variables with **color** in **aes()**)
+* **scale_fill_brewer()** layer (if you mapped variables with **fill** in **aes()**)
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
@@ -1057,7 +1054,7 @@ ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) +
   scale_fill_brewer()
 ```
 
-The default palette used is the "Blues" palette.
+By default, the palette used is "Blues".
 
 How does that look using "Dark2" palette?
 
@@ -1067,6 +1064,43 @@ ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) +
   scale_fill_brewer(palette="Dark2")
 ```
 
+**TIP**: package [**{ggsci}**](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) contains a collection of pre-made color palettes inspired by colors used in scientific journals (and also by Science Fiction movies and series!).
+
+Example of palettes from {ggsci}:
+
+* **scale_color_npg()** and **scale_fill_npg()** (*Nature Publishing Group*)
+* **scale_color_aaas()** and **scale_fill_aaas()**: (*American Association for the Advancement of Science*)
+* **scale_color_lancet()** and **scale_fill_lancet()** (*Lancet*)
+* **scale_color_igv()** and **scale_fill_igv()** (*Integrative Genome Viewer*)
+* **scale_color_gsea()** and **scale_fill_gsea()** (*Gene Set Enrichment Analysis*)
+* **scale_color_startrek()** and **scale_fill_startrek()**
+* **scale_color_simpsons()** and **scale_fill_simpsons()**
+
+Note that some palettes are for continuous variables (e.g. gsea), and some for discrete variables (e.g. npg).
+
+Example of scales for discrete data:
+
+```{r}
+ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
+  geom_bar(position="dodge") +
+  ggtitle("scale_fill_ngp", subtitle = "Nature Publishing Group") +
+  scale_fill_npg()
+```
+
+```{r}
+ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
+  geom_bar(position="dodge") +
+  ggtitle("scale_fill_aaas", subtitle = "American Association for the Advancement of Science") +
+  scale_fill_aaas()
+```
+
+Example of a scale for continuous data:
+
+```{r}
+ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=sample1)) + 
+  geom_point() + scale_color_gsea()
+
+```
 ## Faceting
 
 ggplot2 provides **facet** functions in R, that allow to easily **split the plot**, according to a given variable.

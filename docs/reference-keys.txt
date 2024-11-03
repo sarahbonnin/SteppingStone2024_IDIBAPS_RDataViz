@@ -52,6 +52,11 @@ statidentity-parameter
 boxplots
 fine-tuning-text
 colors
+all-r-colors
+r-palettes
+rcolorbrewer
+ggsci
+faceting
 data-filtering-and-wrangling
 filter
 select

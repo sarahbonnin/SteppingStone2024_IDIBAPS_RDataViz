@@ -1020,6 +1020,8 @@ To learn more, check:
 
 Colors can be set a different way in ggplot2, and in R in general.
 
+### All R colors
+
 The easiest way is to fetch the colors [by their names](https://r-graph-gallery.com/42-colors-names.html).
 
 There are 657 color names available for you to pick! You can check them by querying the following in the console:
@@ -1030,6 +1032,31 @@ colors()
 
 ggplot2 provides a color scale by default. Many different **palettes** are available to change the default scale.
 
+### R palettes
+
+Base R provides built-in palettes, that can be leveraged in ggplot. For example:
+
+* **rainbow()**
+* **heat.colors()**
+* **terrain.colors()**
+* **topo.colors()**
+* **cm.colors()**
+
+All are functions that take one parameter **n** i.e. the number of colors needed.
+
+```{r}
+ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
+  geom_bar(position="dodge") +
+  scale_fill_manual(values=rainbow(5))
+
+ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
+  geom_bar(position="dodge") +
+  scale_fill_manual(values=terrain.colors(5))
+```
+
+
+### RColorBrewer
+
 You can easily pick palettes from the [**RColorBrewer** package](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html), that is included in ggplot2.
 
 Available palettes are shown below:
@@ -1038,7 +1065,7 @@ Available palettes are shown below:
 
 You can check which palettes are **colorblind-friendly** the following way:
 
-```{r, fig.height=8}
+```{r, fig.height=12}
 library(RColorBrewer)
 display.brewer.all(colorblindFriendly = TRUE)
 ```
@@ -1064,7 +1091,9 @@ ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) +
   scale_fill_brewer(palette="Dark2")
 ```
 
-**TIP**: package [**{ggsci}**](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) contains a collection of pre-made color palettes inspired by colors used in scientific journals (and also by Science Fiction movies and series!).
+### ggsci
+
+Package [**{ggsci}**](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) contains a collection of pre-made color palettes inspired by colors used in scientific journals (and also by Science Fiction movies and series!).
 
 Example of palettes from {ggsci}:
 
@@ -1101,6 +1130,7 @@ Example of a scale for continuous data:
   geom_point() + scale_color_gsea()
 
 ```
+
 ## Faceting
 
 ggplot2 provides **facet** functions in R, that allow to easily **split the plot**, according to a given variable.

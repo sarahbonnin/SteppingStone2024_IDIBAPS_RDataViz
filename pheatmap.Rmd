@@ -27,9 +27,14 @@ You can then simply plot the heatmap, giving the matrix as an input:
 pheatmap(expr_heatmap)
 ```
 
-```{r, eval=T, fig.height=7, fig.width=6}
-print(pheatmap(expr_heatmap))
+```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
+png("images/pheatmap0.png", width = 400, height = 600)
+pheatmap(expr_heatmap)
+dev.off()
 ```
+
+<img src="images/pheatmap0.png" alt="import zip" width="500"/>
+
 
 Control what is clusters: rows, columns, both, or none:
 
@@ -37,16 +42,52 @@ Control what is clusters: rows, columns, both, or none:
 pheatmap(expr_heatmap, cluster_cols=FALSE, cluster_rows=TRUE)
 ```
 
+```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
+png("images/pheatmap1.png", width = 400, height = 600)
+pheatmap(expr_heatmap, cluster_cols=FALSE, cluster_rows=TRUE)
+dev.off()
+```
+
+<img src="images/pheatmap1.png" alt="import zip" width="500"/>
+
 Show or hide row names:
 
 ```{r, eval=T, fig.height=7, fig.width=6}
 pheatmap(expr_heatmap, show_rownames = F)
 ```
 
+```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
+png("images/pheatmap2.png", width = 400, height = 600)
+pheatmap(expr_heatmap, show_rownames = F)
+dev.off()
+```
+
+<img src="images/pheatmap2.png" alt="import zip" width="500"/>
+
+
 Change the color scale (**rainbow()** and **heat.colors()** are available from the base packages):
 
 ```{r, eval=T, fig.height=7, fig.width=6}
-pheatmap(expr_heatmap, color = rainbow(10))
+pheatmap(expr_heatmap, color = rainbow(10), main = "Rainbow colors")
+```
 
+```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
+png("images/pheatmap3.png", width = 400, height = 600)
+pheatmap(expr_heatmap, color = rainbow(10), main = "Rainbow colors")
+dev.off()
+```
+
+<img src="images/pheatmap3.png" alt="import zip" width="500"/>
+
+```{r, eval=T, fig.height=7, fig.width=6}
 pheatmap(expr_heatmap, color = heat.colors(10))
 ```
+
+```{r, eval=T, echo=F, include=FALSE, fig.height=7, fig.width=6}
+png("images/pheatmap4.png", width = 400, height = 600)
+pheatmap(expr_heatmap, color = heat.colors(10), main="Heat colors")
+dev.off()
+```
+
+<img src="images/pheatmap4.png" alt="import zip" width="500"/>
+

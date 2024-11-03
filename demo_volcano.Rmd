@@ -70,23 +70,24 @@ p <- ggplot(data=de_fc, aes(x=log2FoldChange, y=log10pvalue, col=diffexpressed))
   theme_minimal()
 ```
 
-Add lines as before...
+Add vertical and horizontal lines, as we did before.
 
 ```{r}
 p2 <- p + geom_vline(xintercept=c(-0.6, 0.6), col="red") +
         geom_hline(yintercept=-log10(0.05), col="red")
 ```
 
+Change point colors:
+
 ```{r}
-## Change point color 
-p3 <- p2 + scale_color_manual(values=c(DOWN="blue", NO="black", UP="red"))
+p3 <- p2 + scale_color_manual(values=c(DOWN="blue", NO="grey50", UP="red"))
 
 p3
 ```
 
-Now we will write down the name of genes beside the points... but only selected genes.
+Now we will write down the name of genes beside the points... but **only selected genes**.
 
-Create a new column "delabel" to de, that will contain the name of genes differentially expressed (NA will be set, in case they are **NO**).
+Add to **de_fc** the new column "delabel", that will contain the name of genes differentially expressed (NA will be set, in case they are **NO**).
 
 ```{r}
 de_fc <- mutate(de_fc, delabel=ifelse(diffexpressed=="NO", NA, gene_symbol))
@@ -107,9 +108,9 @@ library(ggrepel)
 # plot adding up all layers we have seen so far
 ggplot(data=de_fc, aes(x=log2FoldChange, y=log10pvalue, col=diffexpressed, label=delabel)) +
         geom_point() + 
-        theme_minimal() +
-        geom_text_repel() +
-        scale_color_manual(values=c(DOWN="blue", NO="black", UP="red")) +
+        theme_minimal(base_size = 16) +
+        geom_text_repel(show.legend = FALSE) +
+        scale_color_manual(values=c(DOWN="blue", NO="grey50", UP="red")) +
         geom_vline(xintercept=c(-0.6, 0.6), col="red") +
         geom_hline(yintercept=-log10(0.05), col="red") +
         ggtitle(label="Volcano plot") +

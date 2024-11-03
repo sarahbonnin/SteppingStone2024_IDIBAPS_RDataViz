@@ -291,22 +291,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb194-3"><a href="heatmaps-with-pheatmap.html#cb194-3" tabindex="-1"></a>  <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>You can then simply plot the heatmap, giving the matrix as an input:</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="heatmaps-with-pheatmap.html#cb195-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap)</span></code></pre></div>
-<p><img src="images/pheatmap0.png" alt="import zip" width="500"/></p>
 <p>Control what is clusters: rows, columns, both, or none:</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="heatmaps-with-pheatmap.html#cb196-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">cluster_cols=</span><span class="cn">FALSE</span>, <span class="at">cluster_rows=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-187-1.png" width="576" /></p>
-<p><img src="images/pheatmap1.png" alt="import zip" width="500"/></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-186-1.png" width="576" /></p>
 <p>Show or hide row names:</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="heatmaps-with-pheatmap.html#cb197-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">show_rownames =</span> F)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-189-1.png" width="576" /></p>
-<p><img src="images/pheatmap2.png" width="500"/></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-187-1.png" width="576" /></p>
 <p>Change the color scale (<strong>rainbow()</strong> and <strong>heat.colors()</strong> are available from the base packages):</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="heatmaps-with-pheatmap.html#cb198-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>), <span class="at">main =</span> <span class="st">&quot;Rainbow colors&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-191-1.png" width="576" /></p>
-<p><img src="images/pheatmap3.png" width="500"/></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-188-1.png" width="576" /></p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="heatmaps-with-pheatmap.html#cb199-1" tabindex="-1"></a><span class="fu">pheatmap</span>(expr_heatmap, <span class="at">color =</span> <span class="fu">heat.colors</span>(<span class="dv">10</span>), <span class="at">main=</span><span class="st">&quot;Heat colors&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-193-1.png" width="576" /></p>
-<p><img src="images/pheatmap4.png" width="500"/></p>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-189-1.png" width="576" /></p>
 
 </div>
             </section>

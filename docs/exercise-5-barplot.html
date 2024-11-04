@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -286,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="exercise-5-barplot.html#cb148-1" tabindex="-1"></a>pop_age <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/population_age_group_per_sex_long_format.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exercise-5-barplot.html#cb152-1" tabindex="-1"></a>pop_age <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;DataViz_source_files-main/files/population_age_group_per_sex_long_format.csv&quot;</span>)</span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -296,9 +296,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="exercise-5-barplot.html#cb149-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population)) <span class="sc">+</span> </span>
-<span id="cb149-2"><a href="exercise-5-barplot.html#cb149-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-142-1.png" width="480" /></p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exercise-5-barplot.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population)) <span class="sc">+</span> </span>
+<span id="cb153-2"><a href="exercise-5-barplot.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-143-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
@@ -308,9 +308,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="exercise-5-barplot.html#cb150-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
-<span id="cb150-2"><a href="exercise-5-barplot.html#cb150-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-143-1.png" width="480" /></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exercise-5-barplot.html#cb154-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb154-2"><a href="exercise-5-barplot.html#cb154-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-144-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
@@ -320,10 +320,10 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="exercise-5-barplot.html#cb151-1" tabindex="-1"></a>pop_age_spain <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>)</span>
-<span id="cb151-2"><a href="exercise-5-barplot.html#cb151-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
-<span id="cb151-3"><a href="exercise-5-barplot.html#cb151-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-144-1.png" width="480" /></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exercise-5-barplot.html#cb155-1" tabindex="-1"></a>pop_age_spain <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop_age, Country<span class="sc">==</span><span class="st">&quot;Spain&quot;</span>)</span>
+<span id="cb155-2"><a href="exercise-5-barplot.html#cb155-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb155-3"><a href="exercise-5-barplot.html#cb155-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-145-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="5" style="list-style-type: decimal">
@@ -333,9 +333,9 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="exercise-5-barplot.html#cb152-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
-<span id="cb152-2"><a href="exercise-5-barplot.html#cb152-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-145-1.png" width="480" /></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exercise-5-barplot.html#cb156-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb156-2"><a href="exercise-5-barplot.html#cb156-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-146-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="6" style="list-style-type: decimal">
@@ -346,10 +346,10 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="exercise-5-barplot.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
-<span id="cb153-2"><a href="exercise-5-barplot.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb153-3"><a href="exercise-5-barplot.html#cb153-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Female=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">Male=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-146-1.png" width="480" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="exercise-5-barplot.html#cb157-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span> </span>
+<span id="cb157-2"><a href="exercise-5-barplot.html#cb157-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb157-3"><a href="exercise-5-barplot.html#cb157-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="at">Female=</span><span class="st">&quot;darkgreen&quot;</span>, <span class="at">Male=</span><span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-147-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="7" style="list-style-type: decimal">
@@ -359,12 +359,12 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="exercise-5-barplot.html#cb154-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
-<span id="cb154-2"><a href="exercise-5-barplot.html#cb154-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb154-3"><a href="exercise-5-barplot.html#cb154-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb154-4"><a href="exercise-5-barplot.html#cb154-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb154-5"><a href="exercise-5-barplot.html#cb154-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-147-1.png" width="480" /></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="exercise-5-barplot.html#cb158-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb158-2"><a href="exercise-5-barplot.html#cb158-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb158-3"><a href="exercise-5-barplot.html#cb158-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb158-4"><a href="exercise-5-barplot.html#cb158-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb158-5"><a href="exercise-5-barplot.html#cb158-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="480" /></p>
 </details>
 <p><br>
 8. Now split the plot by <strong>Age group</strong> using <strong>facet_wrap()</strong></p>
@@ -372,13 +372,13 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="exercise-5-barplot.html#cb155-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
-<span id="cb155-2"><a href="exercise-5-barplot.html#cb155-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb155-3"><a href="exercise-5-barplot.html#cb155-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb155-4"><a href="exercise-5-barplot.html#cb155-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb155-5"><a href="exercise-5-barplot.html#cb155-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb155-6"><a href="exercise-5-barplot.html#cb155-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-148-1.png" width="480" /></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="exercise-5-barplot.html#cb159-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb159-2"><a href="exercise-5-barplot.html#cb159-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb159-3"><a href="exercise-5-barplot.html#cb159-3" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb159-4"><a href="exercise-5-barplot.html#cb159-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb159-5"><a href="exercise-5-barplot.html#cb159-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb159-6"><a href="exercise-5-barplot.html#cb159-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-149-1.png" width="480" /></p>
 </details>
 <p><br></p>
 <ol start="9" style="list-style-type: decimal">
@@ -389,16 +389,16 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="exercise-5-barplot.html#cb156-1" tabindex="-1"></a><span class="co"># first, save to an object</span></span>
-<span id="cb156-2"><a href="exercise-5-barplot.html#cb156-2" tabindex="-1"></a>plot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
-<span id="cb156-3"><a href="exercise-5-barplot.html#cb156-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb156-4"><a href="exercise-5-barplot.html#cb156-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb156-5"><a href="exercise-5-barplot.html#cb156-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb156-6"><a href="exercise-5-barplot.html#cb156-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb156-7"><a href="exercise-5-barplot.html#cb156-7" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span>
-<span id="cb156-8"><a href="exercise-5-barplot.html#cb156-8" tabindex="-1"></a></span>
-<span id="cb156-9"><a href="exercise-5-barplot.html#cb156-9" tabindex="-1"></a><span class="co"># save file</span></span>
-<span id="cb156-10"><a href="exercise-5-barplot.html#cb156-10" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;population_age_sex_Spain.pdf&quot;</span>, <span class="at">plot=</span>plot_age, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="exercise-5-barplot.html#cb160-1" tabindex="-1"></a><span class="co"># first, save to an object</span></span>
+<span id="cb160-2"><a href="exercise-5-barplot.html#cb160-2" tabindex="-1"></a>plot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>pop_age_spain, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Population, <span class="at">fill=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb160-3"><a href="exercise-5-barplot.html#cb160-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb160-4"><a href="exercise-5-barplot.html#cb160-4" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb160-5"><a href="exercise-5-barplot.html#cb160-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Spanish population from 1950 to 2021 per sex&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb160-6"><a href="exercise-5-barplot.html#cb160-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb160-7"><a href="exercise-5-barplot.html#cb160-7" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Age_group)</span>
+<span id="cb160-8"><a href="exercise-5-barplot.html#cb160-8" tabindex="-1"></a></span>
+<span id="cb160-9"><a href="exercise-5-barplot.html#cb160-9" tabindex="-1"></a><span class="co"># save file</span></span>
+<span id="cb160-10"><a href="exercise-5-barplot.html#cb160-10" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename=</span><span class="st">&quot;population_age_sex_Spain.pdf&quot;</span>, <span class="at">plot=</span>plot_age, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div>
 </details>
 <p><br></p>
 <ol start="10" style="list-style-type: decimal">
@@ -408,7 +408,7 @@ correction
 <summary>
 correction
 </summary>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="exercise-5-barplot.html#cb157-1" tabindex="-1"></a><span class="fu">write_csv</span>(pop_age_spain, <span class="st">&quot;subset_spain.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="exercise-5-barplot.html#cb161-1" tabindex="-1"></a><span class="fu">write_csv</span>(pop_age_spain, <span class="st">&quot;subset_spain.csv&quot;</span>)</span></code></pre></div>
 </details>
 </div>
             </section>

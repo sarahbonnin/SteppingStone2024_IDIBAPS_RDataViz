@@ -502,9 +502,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene)) +
 
 ### Color and shape mapping
 
-Point color and shape can be **dependent on another column / variable of the data**. This is called **mapping an aesthetic to a variable**
+Point color and shape can be **dependent on another column / variable of the data**. This is called **mapping an aesthetic to a variable**.
 
-Columns use to **conditionally color or shape the points** are set inside the **aes()** function.
+Columns used to **conditionally color or shape the points** are set inside the **aes()** function.
 
 For **shape**:
 
@@ -522,7 +522,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) +
   geom_text(nudge_x=1.2, size=3)
 ```
 
-TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are used): set **show.legend=FALSE** in **geom_text()**:
+TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are mapped to the same variable): set **show.legend=FALSE** in **geom_text()**:
 
 ```{r, fig.width=7}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) + 
@@ -558,7 +558,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, label=Gene, color=DE)) +
 
 ### Additional ticks
 
-**geom_rug** creates a compact visualization along the axes to help read the information of individual cases. 
+**geom_rug** creates a compact visualization along the axes to help read the information of individual cases. You can simply add it as an additional layer.
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -753,14 +753,14 @@ ggsave(filename="gtfbarplot.png", plot=gtfbars,
 
 We can also play with the **position** of the bars. By default, position is **stack**, i.e. categories are stacked on top of each other along the bar.
 
-Position **fill** scales data so the top is always 1, i.e. shows proportions, instead of the absolute values:
+Position **fill** scales data so the top is always 1, i.e. it shows **proportions**, instead of the absolute values:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
   geom_bar(position="fill")
 ```
 
-Position **dodge** represents each category (here, continents) side-by-side:
+Position **dodge** represents each category (here, gene types) side-by-side:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
@@ -786,10 +786,10 @@ ggplot(data=gtf, mapping=aes(x=factor(chr, levels=c("chr1", "chr2", "chr3", "chr
 
 **stat** represents a statistical transformation of the data. It typically aims to summarize the data.
 
-geom_bar()'s default **stat** is "count": it **counts the number of occurrences of each value / category in x**: it does not expect a y-value.
+geom_bar() provides different options for **stat**:
 
-If **stat** is set to "identity", ggplot2 uses the data **as is** (i.e. no transformation is applied) and skips the aggregation. Values used for the bars are provided by the user in **x**.
-
+* **count** (default): **counts the number of occurrences of each value / category in x**. It does not expect an input in **y**.
+* **identity**: uses the data **as is** (i.e. no transformation is applied) and skips the aggregation. Values used for the bars (categories) are provided by the user in **x**. Height of the bars are provided in **y**.
 
 Let's import data from file: **DataViz_source_files-main/files/stats_continents_barcelona_2013-2023_long.csv** 
 in an object called **statsbcn**.
@@ -804,7 +804,7 @@ How many rows and how many columns does the data contain?
 
 In the barplots we created so far, R takes categories in the columns specified in **x=** and counts the number of occurrences.
 
-The argument **stat="identity"** in geom_bar() is telling R to use the sum of the variable specified in **y=**, **grouped by the x variable**: bars of the barplot will display these sums.
+If we now set **stat="identity"** in geom_bar(), R uses the sum of the variable specified in **y=**, **grouped by the x variable**.
 
 In the following example, we are plotting the sum of foreign residents in Barcelona (Population provided in **y**) per year (Year provided in **x**):
 
@@ -814,30 +814,30 @@ ggplot(statsbcn, aes(x=Year, y=Population)) +
 ```
 
 
-Here, we can provide **Continent** to **fill**:
+We can map, for example, **fill** to **Continent**:
 
 ```{r}
 ggplot(statsbcn, aes(x=Year, y=Population, fill=Continent)) + 
   geom_bar(stat="identity")
 ```
 
-We can here again play with the **position**. 
+We can further play with the **position**, as previously done. 
 
-Position **fill** :
+* Position **fill** :
 
 ```{r}
 ggplot(statsbcn, aes(x=Year, y=Population, fill=Continent)) + 
   geom_bar(stat="identity", position="fill")
 ```
 
-Position **dodge** :
+* Position **dodge** :
 
 ```{r}
 ggplot(statsbcn, aes(x=Year, y=Population, fill=Continent)) + 
   geom_bar(stat="identity", position="dodge")
 ```
 
-You can control the width of bars (hence, the spacing between 2 bars) using the **width** parameter of geom_bar():
+We can control the width of bars (hence, the spacing between 2 bars) using the **width** parameter of geom_bar():
 
 ```{r}
 ggplot(statsbcn, aes(x=Year, y=Population, fill=Continent)) + 
@@ -869,7 +869,7 @@ A boxplot is used to visualize the distribution of data.
 
 *[Source](https://i.ytimg.com/vi/BE8CVGJuftI/maxresdefault.jpg)*
 
-We can import data from a file that contains the same information as **geneexp** but in a slightly different format:
+We will import data from a file that contains the same information as **geneexp** but in a slightly different format:
 
 ```{r, echo=T, eval=T, message=F, warning=F}
 geneexp2 <- read_csv("DataViz_source_files-main/files/expression_20genes_long.csv")
@@ -882,7 +882,7 @@ ggplot(geneexp2, aes(x=sample, y=expression)) +
   geom_boxplot()
 ```
 
-The same way we did for barplots, we can split boxes by **DE**:
+We can split boxes by **DE**, the same way we did for barplots, by mapping **fill** or **color** to the variable:
 
 ```{r}
 ggplot(geneexp2, aes(x=sample, y=expression, fill=DE)) + 
@@ -900,13 +900,13 @@ Violin plots also aim to visualize data distribution. While boxplots can only sh
 
 ## Fine-tuning text
 
-Controlling the font size (axis text, title, legend, etc.) and style in your graph can be very important for the image readability.
+Controlling the **font size and style** of the different components of the graph (axis text, title, legend, etc.) is important for the image readability and impact.
 
-Text size and style of ggplot2 graphs can be changed using the **theme()** function. While very powerful, it unfortunately utilizes a difficult structure.
+Text size and style of ggplot2 graphs can be changed using the **theme()** function. While very powerful, it can take a bit of time to get used to the structure.
 
-We will illustrate how to make such changes on our first scatter plot.
+We will illustrate how to make some changes using **theme()** layer on our first scatter plot.
 
-Change **overall** font size:
+* Change **overall** font size:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -915,7 +915,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(text = element_text(size = 20))
 ```
 
-Change font size of **axis text**:
+* Change font size of **axis text**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -924,7 +924,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.text = element_text(size = 20))
 ```
 
-Change font size of **axis titles**:
+* Change font size of **axis titles**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -933,7 +933,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.title = element_text(size = 20))
 ```
 
-**Remove axis titles** (e.g. below: removing x-axis title):
+* **Remove axis titles** (e.g. below: removing x-axis title):
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -942,7 +942,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.title.x = element_blank())
 ```
 
-**Shift** the graph title to the right (it is by default centered to the left):
+* **Shift** the graph title to the right (it is by default centered to the left):
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -951,7 +951,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-Change font size of the **graph title**:
+* Change font size of the **graph title**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -960,7 +960,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(size = 20, hjust = 0.5))
 ```
 
-Change the **color of the title**, and make it **bold**:
+* Change the **color of the title**, and make it **bold**:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -969,7 +969,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(plot.title = element_text(size = 20, hjust = 0.5, face = "bold", colour = "blue"))
 ```
 
-You can also use theme() to **rotate the x-axis label** of plots, for example:
+* You can also use theme() to **rotate the x-axis label** of plots, for example:
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) + 
@@ -978,9 +978,9 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
   theme(axis.text.x = element_text(angle=90))
 ```
 
-As a last examples, let's see how we can control the **plot's legend**:
+* As a last examples, let's see how we can control the **plot's legend**:
 
-* Colored background:
+**Colored background:**
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
@@ -988,7 +988,7 @@ ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) +
   theme(legend.background = element_rect(fill="yellow"))
 ```
 
-Decrease or increase the space between the legend box and the plot
+**Decrease or increase the space between the legend box and the plot:**
 
 ```{r}
 ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) + 
@@ -1022,7 +1022,7 @@ Colors can be set a different way in ggplot2, and in R in general.
 
 ### All R colors
 
-The easiest way is to fetch the colors [by their names](https://r-graph-gallery.com/42-colors-names.html).
+The easiest way is to fetch colors [by their names](https://r-graph-gallery.com/42-colors-names.html).
 
 There are 657 color names available for you to pick! You can check them by querying the following in the console:
 
@@ -1042,7 +1042,14 @@ Base R provides built-in palettes, that can be leveraged in ggplot. For example:
 * **topo.colors()**
 * **cm.colors()**
 
-All are functions that take one parameter **n** i.e. the number of colors needed.
+All of the above are functions that take one parameter **n** i.e. the number of colors needed. The output is a vector of **hex color codes**, for example:
+
+```{r}
+rainbow(5)
+rainbow(10)
+```
+
+We can set them as **values** parameter in the **scale_fill_manual()** or **scale_color_manual()** layers:
 
 ```{r}
 ggplot(data=gtf, mapping=aes(x=chr, fill=gene_type)) + 
@@ -1183,7 +1190,7 @@ ggplot(data=gtf, mapping=aes(x=chr, color=chr)) +
 
 ## Exercise 3
 
-This exercise aims to get you some practice on some of the fine-tuning we have just used.
+This exercise aims to give you the opportunity to practice some of the fine-tuning we have just learned.
 
 For this exercise, we will use the [*diamonds* dataset](https://ggplot2.tidyverse.org/reference/diamonds.html) that is automatically loaded with ggplot2. 
 
@@ -1211,7 +1218,7 @@ ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
 
 <br>
 
-2. Facet the plot depending on the **color**.
+2. Facet / split the plot per **color** (that is a column in **diamonds**).
 
 <details>
 <summary>
@@ -1280,7 +1287,7 @@ correction
 ggplot(data=diamonds, mapping=aes(x=carat, y=price, color=cut)) +
   geom_point() +
   facet_wrap(~color) +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 15, base_family = "Padauk") +
   ggtitle("Diamonds carat, price and cut") +
   scale_color_brewer(palette="Dark2") +
   theme(axis.text.x = element_text(angle=90), strip.text = element_text(size = 16, face = "bold"))

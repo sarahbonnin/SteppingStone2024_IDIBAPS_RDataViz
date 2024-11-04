@@ -89,14 +89,10 @@ Day 1 & 2: 9:30-13:00.
   * filter
   * rename
 * More ggplots
-* Exercises
-
-If time allows, we may see some of the following, according to the interest of the group:
-
+* Interactive plots with {plotly}
 * More advanced data manipulation:
   * the pipe operator
   * from wide to long format
-* Interactive plots with {plotly}
 * Heatmaps with {pheatmap}
 * Demo volcano plots
 

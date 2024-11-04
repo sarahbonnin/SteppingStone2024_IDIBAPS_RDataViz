@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -316,8 +316,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="color-and-shape-mapping" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Color and shape mapping<a href="scatter-plots-more-features.html#color-and-shape-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Point color and shape can be <strong>dependent on another column / variable of the data</strong>. This is called <strong>mapping an aesthetic to a variable</strong></p>
-<p>Columns use to <strong>conditionally color or shape the points</strong> are set inside the <strong>aes()</strong> function.</p>
+<p>Point color and shape can be <strong>dependent on another column / variable of the data</strong>. This is called <strong>mapping an aesthetic to a variable</strong>.</p>
+<p>Columns used to <strong>conditionally color or shape the points</strong> are set inside the <strong>aes()</strong> function.</p>
 <p>For <strong>shape</strong>:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="scatter-plots-more-features.html#cb50-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">shape=</span>DE)) <span class="sc">+</span> </span>
 <span id="cb50-2"><a href="scatter-plots-more-features.html#cb50-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-2"><a href="scatter-plots-more-features.html#cb51-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb51-3"><a href="scatter-plots-more-features.html#cb51-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
-<p>TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are used): set <strong>show.legend=FALSE</strong> in <strong>geom_text()</strong>:</p>
+<p>TIP: remove the double labeling in the legend (a letter behind the point because both labels and colors are mapped to the same variable): set <strong>show.legend=FALSE</strong> in <strong>geom_text()</strong>:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="scatter-plots-more-features.html#cb52-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2, <span class="at">label=</span>Gene, <span class="at">color=</span>DE)) <span class="sc">+</span> </span>
 <span id="cb52-2"><a href="scatter-plots-more-features.html#cb52-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb52-3"><a href="scatter-plots-more-features.html#cb52-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x=</span><span class="fl">1.2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend=</span><span class="cn">FALSE</span>)</span></code></pre></div>
@@ -353,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="additional-ticks" class="section level3 hasAnchor" number="8.5.3">
 <h3><span class="header-section-number">8.5.3</span> Additional ticks<a href="scatter-plots-more-features.html#additional-ticks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>geom_rug</strong> creates a compact visualization along the axes to help read the information of individual cases.</p>
+<p><strong>geom_rug</strong> creates a compact visualization along the axes to help read the information of individual cases. You can simply add it as an additional layer.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="scatter-plots-more-features.html#cb55-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>geneexp, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>sample1, <span class="at">y=</span>sample2)) <span class="sc">+</span> </span>
 <span id="cb55-2"><a href="scatter-plots-more-features.html#cb55-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">shape=</span><span class="st">&quot;diamond&quot;</span>) <span class="sc">+</span></span>
 <span id="cb55-3"><a href="scatter-plots-more-features.html#cb55-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label=</span><span class="st">&quot;my first ggplot&quot;</span>) <span class="sc">+</span></span>

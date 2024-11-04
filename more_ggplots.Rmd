@@ -116,32 +116,32 @@ Here is a [nice page](https://genchanghsu.github.io/ggGallery/posts/2021-06-18-p
 
 ## Marginal plots
 
-Function [**ggMarginal**](https://www.rdocumentation.org/packages/ggExtra/versions/0.10.1/topics/ggMarginal) from package {ggExtra} allows to easily add histograms, boxplots or density plots to a scatter plot.
+Function [**ggMarginal**](https://www.rdocumentation.org/packages/ggExtra/versions/0.10.1/topics/ggMarginal) from package {ggExtra} allows to easily add histograms, boxplots or density plots to the margins of a scatter plot.
 
 ```{r}
 library(ggExtra)
 
-# classic plot :
+# Save the classic plot to an object.
 p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2)) +
       geom_point()
 ```
 
 ```{r}
-# with marginal histogram
+# add marginal histogram
 ggMarginal(p, type="histogram")
 ```
 
 ```{r}
-# marginal density
+# add marginal density
 ggMarginal(p, type="density")
 ```
 
 ```{r}
-# marginal boxplot
+# add marginal boxplot
 ggMarginal(p, type="boxplot")
 ```
 
-The **mapping of variables** (for example, using **color** or **fill**) can also be inherited to the marginal plots.
+The **mapping of variables** (for example, using **color** or **fill**) can also be **inherited** by the marginal plots.
 
 ```{r}
 # add mapping of points to "DE" column :
@@ -152,9 +152,9 @@ p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) +
 ggMarginal(p, type="boxplot", groupColour = TRUE)
 ```
 
-Adding more features that we have seen so far:
+Let's add more features that we have learned in this workshop:
 
-```{r}
+```{r, fig.height=12, fig.width=10}
 # add mapping of points to "DE" column :
 p <- ggplot(data=geneexp, mapping=aes(x=sample1, y=sample2, color=DE)) +
   geom_point() +

@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -282,17 +282,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <strong>tidyverse</strong> provides a function <strong>%&gt;%</strong> which <strong>pipes</strong> the output of one function as the input of the next function.</p>
 <p>This way, different functions from the tidyverse can be linked together into a clean piece of code.</p>
 <p>If we want to produce a one-liner out of the 3 lines of code of the previous exercise, we can do it the following way:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-pipe-operator.html#cb181-1" tabindex="-1"></a>gtf_final <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
-<span id="cb181-2"><a href="the-pipe-operator.html#cb181-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb181-3"><a href="the-pipe-operator.html#cb181-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="the-pipe-operator.html#cb185-1" tabindex="-1"></a>gtf_final <span class="ot">&lt;-</span> <span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
+<span id="cb185-2"><a href="the-pipe-operator.html#cb185-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb185-3"><a href="the-pipe-operator.html#cb185-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type)</span></code></pre></div>
 <p><em>Note that, in filter and select, you do not need to specify the first parameter (the data), as it is automatically looking for the output of the previous one!</em></p>
 <p>If you want to learn more about the <strong>pipe</strong>, you can for example refer to <a href="https://style.tidyverse.org/pipes.html">that page</a>.</p>
 <p>Note that we can also link the data manipulation output to ggplot: the <strong>output of the last command will then be used as an input to ggplot</strong>:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-pipe-operator.html#cb182-1" tabindex="-1"></a><span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
-<span id="cb182-2"><a href="the-pipe-operator.html#cb182-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb182-3"><a href="the-pipe-operator.html#cb182-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type) <span class="sc">%&gt;%</span> </span>
-<span id="cb182-4"><a href="the-pipe-operator.html#cb182-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gene_type)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-174-1.png" width="480" /></p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-pipe-operator.html#cb186-1" tabindex="-1"></a><span class="fu">rename</span>(gtf, <span class="at">chromosome=</span>chr) <span class="sc">%&gt;%</span></span>
+<span id="cb186-2"><a href="the-pipe-operator.html#cb186-2" tabindex="-1"></a>  <span class="fu">filter</span>(strand<span class="sc">==</span><span class="st">&quot;+&quot;</span> <span class="sc">&amp;</span> chromosome<span class="sc">==</span><span class="st">&quot;chr4&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb186-3"><a href="the-pipe-operator.html#cb186-3" tabindex="-1"></a>  <span class="fu">select</span>(gene_symbol, gene_type) <span class="sc">%&gt;%</span> </span>
+<span id="cb186-4"><a href="the-pipe-operator.html#cb186-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gene_type)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="stepping-stone-idibaps-dataviz-2024_files/figure-html/unnamed-chunk-175-1.png" width="480" /></p>
 </div>
             </section>
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Sarah Bonnin" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> select()<a href="select.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>select()</strong> will select <strong>columns</strong> from a data frame.</p>
 <p>Select only columns <strong>Gene</strong> and <strong>DE</strong> from <strong>geneexp</strong>:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="select.html#cb120-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="select.html#cb124-1" tabindex="-1"></a><span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 2
 ##    Gene   DE   
 ##    &lt;chr&gt;  &lt;chr&gt;
@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 19 DVL    No   
 ## 20 MAPK2  Up</code></pre>
 <p>Again, a good practice is to save that subset into a new object:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="select.html#cb122-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="select.html#cb126-1" tabindex="-1"></a>geneexp_selected <span class="ot">&lt;-</span> <span class="fu">select</span>(geneexp, Gene, DE)</span></code></pre></div>
 </div>
             </section>
 
